@@ -2,11 +2,11 @@
 
 #### _**Brief description **_, Date
 
-#### _**By Tyler Stephenson**_
+#### _**By Tyler Stephenson**_ _**Dominic Brown**_ 
 
 ## Description
 
-_ _
+A Role Playing Game.
 
 ## Setup/Installation Requirements
 
