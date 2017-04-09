@@ -2,21 +2,65 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <script src="js/jquery-3.2.0.js" charset="utf-8"></script>
-      <script src="js/scripts.js" charset="utf-8"></script>
-      <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-      <link rel="stylesheet" href="css/styles.css"  type="text/css">
-    <title></title>
-    </head>
+    <script src="js/jquery-3.2.0.js" charset="utf-8"></script>
+    <script src="js/scripts.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css"  type="text/css">
 
-    
-
-
-
-    <button>  </button>
-
-
+    <title>RPG</title>
+  </head>
   <body>
 
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Iron Born</h1>
+        </div>
+      </div>
+
+    <div class="container">
+      <div class="row char">
+        <h2>Create your character!</h2>
+        <div class="col-sm-6">
+          <div class="row char-creation">
+            <label for="name">Name:</label>
+            <input type="text" name="name" value=""><br>
+            <label for="class">Class:</label>
+            <select class="char-class" name="class">
+              <option value="Warrior">Warrior</option>
+              <option value="Ranger">Ranger</option>
+              <option value="Mage">Mage</option>
+            </select><br>
+            <label for="gener">Gender:</label>
+            <select class="char-gender" name="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select><br>
+            <label for="strength">Strength:</label>
+            <input type="number" name="strength" value="0"><br>
+            <label for="dexterity">Dexterity:</label>
+            <input type="number" name="dexterity" value="0"><br>
+            <label for="intelligence">Intelligence:</label>
+            <input type="number" name="intelligence" value="0"><br>
+            <label for="constitution">Constitution:</label>
+            <input type="number" name="constitution" value="0">
+          </div>
+        </div>
+        <div class="col-sm-6">
+            <img id="char-class" src="http://orig07.deviantart.net/53e1/f/2012/243/7/0/lion_warrior_by_artofty-d5d1bv6.jpg" alt="class">
+        </div>
+      </div> <!-- END char row -->
+
+      <div class="row combat">
+        <div class="col-sm-6 character">
+        </div>
+        <div class="col-sm-6 enemy">
+        </div>
+      </div>
+
+      <div class="row winner">
+      </div>
+
+    </div>  <!-- END container -->
   </body>
 </html>

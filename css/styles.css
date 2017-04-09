@@ -1,3 +1,15 @@
-/** {
-  border: 1px solid black;
-}*/
+.jumbotron {
+  text-align: center;
+  font-size: 60px;
+  color: white;
+  background-image: url("../img/back1.jpg");
+  background-size: cover;
+}
+
+body {
+  background-color: #E3DA7D;
+}
+
+#char-class {
+  height: 400px;
+}
