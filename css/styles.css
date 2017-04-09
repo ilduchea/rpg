@@ -1,32 +1,49 @@
-.jumbotron {
+h1 {
   text-align: center;
-  font-size: 60px;
-  color: white;
-  background-image: url("../img/back1.jpg");
-  background-size: cover;
+  font-size: 90px;
+  color: black;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+#bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.75;
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
 }
 
 body {
-  background-color: #E3DA7D;
+  font-family: 'Poiret One', cursive;
+  font-size: 16px;
+  font-style: bold;
 }
 
+.well {
+  background-color: rgba(169, 179, 185, 0.7);
+  border-color: rgba(169, 179, 185, 0.7);
+}
 .col-sm-6 {
-  height: 500px
+  height: 500px;
+}
+
+#char-card {
+  background-image: url("../img/card1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #char-class {
-  background-image: url("../img/warrior1.jpg");
+  background-image: url("../img/warrior1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
-#char-card {
-  background-image: url("../img/card1_v2.png");
-  background-repeat: no-repeat;
-  height: 500px;
-
-}
 
 #all-inputs {
   margin-left: 25px;

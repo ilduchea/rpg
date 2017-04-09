@@ -5,7 +5,7 @@
 
 
 
-});
+
 
 
 // FRONT END
@@ -19,5 +19,5 @@ $(document).ready(function() {
   $("#btnReset").click(function() {
     location.reload();
   });
-  
+
 });
