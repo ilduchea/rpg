@@ -43,7 +43,24 @@ body {
   background-position: center;
   background-size: contain;
 }
-
+.warrior-male {
+  background-image: url("../img/");
+}
+.warrior-female {
+  background-image: url("../img/");
+}
+.mage-male {
+  background-image: url("../img/");
+}
+.mage-female {
+  background-image: url("../img/");
+}
+.ranger-male {
+  background-image: url("../img/");
+}
+.ranger-female {
+  background-image: url("../img/");
+}
 
 #all-inputs {
   margin-left: 25px;
