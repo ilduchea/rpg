@@ -6,11 +6,9 @@
     <script src="js/scripts.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css"  type="text/css">
-
     <title>RPG</title>
   </head>
   <body>
-
 
       <div class="jumbotron">
         <div class="container">
@@ -19,10 +17,12 @@
       </div>
 
     <div class="container">
-      <div class="row char">
+      <div class="row char-creation">
         <h2>Create your character!</h2>
-        <div class="col-sm-6">
-          <div class="row char-creation">
+
+        <div id="char-card" class="col-sm-6">
+          <br><br>
+          <div id="all-inputs">
             <label for="name">Name:</label>
             <input type="text" name="name" value=""><br>
             <label for="class">Class:</label>
@@ -31,7 +31,7 @@
               <option value="Ranger">Ranger</option>
               <option value="Mage">Mage</option>
             </select><br>
-            <label for="gener">Gender:</label>
+            <label for="gender">Gender:</label>
             <select class="char-gender" name="gender">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -46,8 +46,9 @@
             <input type="number" name="constitution" value="0">
           </div>
         </div>
-        <div class="col-sm-6">
-            <img id="char-class" src="http://orig07.deviantart.net/53e1/f/2012/243/7/0/lion_warrior_by_artofty-d5d1bv6.jpg" alt="class">
+
+        <div id="char-class" class="col-sm-6">
+
         </div>
       </div> <!-- END char row -->
 
