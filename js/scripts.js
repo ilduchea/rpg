@@ -11,14 +11,16 @@ function Character(name, charClass, gender, str, dex, int, con) {
   this.str = str;
   this.dex = dex;
   this.int = int;
-  this.con = con;  
+  this.con = con;
 }
 
+Character.prototype.addEnemy = function () {
+  newGame.enemies.push(this);
+};
 
 
 
 
-});
 
 
 // FRONT END
