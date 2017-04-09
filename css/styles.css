@@ -1,3 +1,33 @@
-/** {
-  border: 1px solid black;
-}*/
+.jumbotron {
+  text-align: center;
+  font-size: 60px;
+  color: white;
+  background-image: url("../img/back1.jpg");
+  background-size: cover;
+}
+
+body {
+  background-color: #E3DA7D;
+}
+
+.col-sm-6 {
+  height: 500px
+}
+
+#char-class {
+  background-image: url("../img/warrior1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#char-card {
+  background-image: url("../img/card1.jpg");
+  background-repeat: no-repeat;
+  height: 500px;
+
+}
+
+#all-inputs {
+  margin-left: 25px;
+}
