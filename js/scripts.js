@@ -181,16 +181,23 @@ $(document).ready(function() {
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
     // add 1 to roll count
-    myGame.dieAddNewRoll();
+    newGame.dieAddNewRoll();
     $("#input-str").val(dieRoll2to8());
     $("#input-dex").val(dieRoll2to8());
     $("#input-int").val(dieRoll2to8());
     $("#input-con").val(dieRoll2to8());
   });
 
-  $(".enemy button").click(function(){
+  $("#revealText").click(function(){
     newEnemy.createEnemy();
     enemyImageCardChange();
+    $("#revealText").hide();
+    $("#enemy div").removeClass("hide");
+    $("#enemyNameInput").text(newEnemy.enemyClass);
+    $("#enemyStrInput").text(newEnemy.str);
+    $("#enemyDexInput").text(newEnemy.dex);
+    $("#enemyIntInput").text(newEnemy.int);
+    $("#enemyConInput").text(newEnemy.con);
   });
 
   $("#lets-play").click(function() {
@@ -199,7 +206,7 @@ $(document).ready(function() {
       $("#no-name").text("NAME?");
     }
     // add a new roll to game
-    if (myGame.rollCount === 0) {
+    if (newGame.rollCount === 0) {
       $("#no-roll").text("ROLL?");
     }
 

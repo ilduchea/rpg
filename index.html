@@ -127,7 +127,7 @@
         <div class="col-sm-6">
           <!-- <img class="char-img" src="img/arms1.png" alt="charcter image" id="char-attack"> -->
           <div id="character">
-            <p><span id="charNameInput">Name</span></p>
+            <p class="margin"><span id="charNameInput">Name</span></p>
             <p>Str:<span id="strInput"></span></p>
             <p>Dex:<span id="dexInput"></span></p>
             <p>Int:<span id="intInput"></span></p>
@@ -135,13 +135,15 @@
           </div>
         </div>
         <div class="col-sm-6 enemy">
-          <button class="btn" type="button">Test</button>
-          <div id="enemy">
-            <p><span id="enemyNameInput">Name</span></p>
-            <p>Str:<span id="enemyStrInput"></span></p>
-            <p>Dex:<span id="enemyDexInput"></span></p>
-            <p>Int:<span id="enemyIntInput"></span></p>
-            <p>Con:<span id="enemyConInput"></span></p>
+          <div id="enemy" class="enemy_card">
+            <p id="revealText">Click to reveal your enemy...</p>
+            <div class="hide margin">
+              <p><span id="enemyNameInput"></span></p>
+              <p>Str: <span id="enemyStrInput"></span></p>
+              <p>Dex: <span id="enemyDexInput"></span></p>
+              <p>Int: <span id="enemyIntInput"></span></p>
+              <p>Con: <span id="enemyConInput"></span></p>
+            </div>
           </div>
         </div>
       </div>
