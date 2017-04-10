@@ -25,7 +25,7 @@
         </ul>
       </div>
       <div class="row char-creation">
-        <h2>Create your character!</h2>
+        <h2><b>Create your character!<b></h2>
         <div id="char-card" class="col-sm-6">
           <div id="all-inputs">
             <div class="form-group">
@@ -35,6 +35,7 @@
             <div class="form-group">
               <label for="class" class="control-label">Class:</label>
               <select class="char-class form-control" name="class">
+                <option value="none">select</option>
                 <option value="Warrior">Warrior</option>
                 <option value="Ranger">Ranger</option>
                 <option value="Mage">Mage</option>
@@ -43,6 +44,7 @@
             <div class="form-group">
               <label for="gender" class="control-label">Gender:</label>
               <select class="char-gender form-control" name="gender">
+                <option value="none">select</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
@@ -66,8 +68,10 @@
           </div>
         </div> <!--close char. card row div -->
 
-        <div id="char-class" class="col-sm-6">
-
+        <div class="col-sm-6">
+          <div  class="warrior-male">
+              <img id="char-img" src="img/arms1.png" alt="charcter image">
+          </div>
         </div>
       </div> <!-- END char row -->
 

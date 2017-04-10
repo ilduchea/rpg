@@ -25,9 +25,19 @@ body {
 .well {
   background-color: rgba(169, 179, 185, 0.7);
   border-color: rgba(169, 179, 185, 0.7);
+  font-weight: bold;
 }
+
 .col-sm-6 {
-  height: 500px;
+  height: 600px;
+}
+
+.char-creation {
+  font-weight: bold;
+}
+
+#all-inputs {
+  margin-left: 25px;
 }
 
 #char-card {
@@ -35,33 +45,19 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  border-radius: 30px;
+  border-style: none;
+  border-width: 1px;
 }
 
-#char-class {
-  background-image: url("../img/warrior1.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-.warrior-male {
-  background-image: url("../img/");
-}
-.warrior-female {
-  background-image: url("../img/");
-}
-.mage-male {
-  background-image: url("../img/");
-}
-.mage-female {
-  background-image: url("../img/");
-}
-.ranger-male {
-  background-image: url("../img/");
-}
-.ranger-female {
-  background-image: url("../img/");
+#char-img {
+  float: right;
+  width: 420px;
+  border-radius: 30px;
+  border-style: none;
+  border-width: 1px;
 }
 
-#all-inputs {
-  margin-left: 25px;
+.greenback {
+  background-color: green;
 }
