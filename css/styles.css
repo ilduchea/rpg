@@ -86,7 +86,15 @@ body {
 }
 
 /*adds spacing between the input fields*/
-#char-card select,
-#char-card input {
+#char-card select, #char-card input {
   margin-bottom: 10px;
+}
+
+.char-8die {
+  margin-left:40px;
+}
+
+#die8 {
+  cursor: pointer;
+  /*cursor: hand;*/
 }
