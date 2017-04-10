@@ -19,7 +19,7 @@ h1 {
 body {
   font-family: 'Poiret One', cursive;
   font-size: 20px;
-  font-style: bold;
+  font-style: bolder;
 }
 
 .well {
@@ -142,5 +142,34 @@ body {
 
 .ranger_fem1{
   background: url("../img/ranger_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.dark_warrior_male1{
+  background: url("../img/enemy/dark_warrior_male1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_wizard_male1{
+  background: url("../img/enemy/dark_wizard_male1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_ranger_male1{
+  background: url("../img/enemy/dark_ranger_male1.jpg") no-repeat center;
+  background-size: contain;
+}
+.dark_warrior_fem1{
+  background: url("../img/enemy/dark_warrior_fem1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_wizard_fem1{
+  background: url("../img/enemy/dark_wizard_fem1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_ranger_fem1{
+  background: url("../img/enemy/dark_ranger_fem1.jpg") no-repeat center;
   background-size: contain;
 }

@@ -72,6 +72,50 @@ $(document).ready(function() {
 
   var newGame = new Game();
   var newEnemy = new Enemy();
+
+  var enemyImageCardChange = function(){
+    let enemyClass = newEnemy.enemyClass;
+    let enemyGender = newEnemy.gender;
+    if (enemyGender === "Male"){
+      switch (true){
+        case (enemyClass === "Warrior"):
+          $("#enemy").removeClass();
+          $("#enemy").addClass("dark_warrior_male1");
+          break;
+        case (enemyClass === "Mage"):
+          $("#enemy").removeClass();
+          $("#enemy").addClass("dark_wizard_male1");
+          break;
+        case (enemyClass === "Ranger"):
+          $("#enemy").removeClass();
+          $("#enemy").addClass("dark_ranger_male1");
+          break;
+        default:
+          console.log("switch default!");
+      }  // end switch
+    } else if (enemyGender === "Female") {
+        switch (true){
+          case (enemyClass === "Warrior"):
+            $("#enemy").removeClass();
+            $("#enemy").addClass("dark_warrior_fem1");
+            break;
+          case (enemyClass === "Mage"):
+            $("#enemy").removeClass();
+            $("#enemy").addClass("dark_wizard_fem1");
+            break;
+          case (enemyClass === "Ranger"):
+            $("#enemy").removeClass();
+            $("#enemy").addClass("dark_ranger_fem1");
+            break;
+          default:
+            console.log("switch default!");
+        }
+    } else {
+        console.log("gender neutral")
+    } // END IF statement
+  };
+
+
   // function to handle ALL char image changes
   var charImageCardChange = function() {
     let userClass = $(".char-class option:selected").val();
@@ -136,7 +180,10 @@ $(document).ready(function() {
     $("#input-int").val(dieRoll2to8());
     $("#input-con").val(dieRoll2to8());
   });
-
+  $(".enemy button").click(function(){
+    newEnemy.createEnemy();
+    enemyImageCardChange();
+  })
   // simple page reload button function
   $("#btnReset").click(function() {
     location.reload();
