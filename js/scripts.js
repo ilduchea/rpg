@@ -81,7 +81,7 @@ $(document).ready(function() {
   var newGame = new Game();
   var newEnemy = new Enemy();
   var newChar = new Character();
-  
+
   var enemyImageCardChange = function(){
     let enemyClass = newEnemy.enemyClass;
     let enemyGender = newEnemy.gender;
@@ -132,18 +132,18 @@ $(document).ready(function() {
       switch (true) {
         case (userClass === "Warrior"):
           $(".char-img").attr('src', 'img/warrior_male1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("warrior_male1");
+          $("#character").removeClass();
+          $("#character").addClass("warrior_male1");
           break;
         case (userClass === "Mage"):
           $(".char-img").attr('src', 'img/mage_male1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("mage_male1");
+          $("#character").removeClass();
+          $("#character").addClass("mage_male1");
           break;
         case (userClass === "Ranger"):
           $(".char-img").attr('src', 'img/ranger_male1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("ranger_male1");
+          $("#character").removeClass();
+          $("#character").addClass("ranger_male1");
           break;
         default:
           console.log("switch default!");
@@ -152,18 +152,18 @@ $(document).ready(function() {
       switch (true) {
         case (userClass === "Warrior"):
           $(".char-img").attr('src', 'img/warrior_fem1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("warrior_fem1");
+          $("#character").removeClass();
+          $("#character").addClass("warrior_fem1");
           break;
         case (userClass === "Mage"):
           $(".char-img").attr('src', 'img/mage_fem1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("mage_fem1");
+          $("#character").removeClass();
+          $("#character").addClass("mage_fem1");
           break;
         case (userClass === "Ranger"):
           $(".char-img").attr('src', 'img/ranger_fem1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("ranger_fem1");
+          $("#character").removeClass();
+          $("#character").addClass("ranger_fem1");
           break;
         default:
           console.log("switch default!");
