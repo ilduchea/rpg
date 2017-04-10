@@ -25,7 +25,7 @@
         </ul>
       </div>
       <div class="row char-creation">
-        <h2><b>Create your character!<b></h2>
+        <h2>Create your character!</h2>
         <div id="char-card" class="col-sm-6">
           <!-- placed everything into a table to keep things lined up nicely -->
           <table id="all-inputs">
@@ -34,7 +34,10 @@
                 <label for="name" class="control-label">Name:</label>
               </td>
               <td>
-                <input type="text" name="name" value="" class="form-control">
+                <input id="input-name" type="text" name="name" value="" class="form-control">
+              </td>
+              <td id="no-name-td">
+                <p><span id="no-name"></span></p>
               </td>
             </tr>
             <tr class="form-group">
@@ -97,8 +100,19 @@
             </div>
           </table>
           <div class="char-8die">
-            <h2>Roll your stats: <img id="die8" src="img/8sidedie.png" alt="8-sided die" /></h2>
+          <table>
+              <tr>
+                <td>
+                  <h2>Roll your stats: <img id="die8" src="img/8sidedie.png" alt="8-sided die"></h2>
+                </td>
+                <td>
+                  <p id="no-roll"><span></span></p>
+                </td>
+              </tr>
+            </table>
+            <button id="lets-play" class="btn" type="button" name="button">Let's Play!</button>
           </div>
+
 
         </div> <!--close char. card row div -->
 

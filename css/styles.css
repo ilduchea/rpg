@@ -40,6 +40,29 @@ body {
   margin-left: 25px;
 }
 
+#no-name {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: red;
+}
+
+#no-name-td {
+  width: 50px;
+  /*text-align: right;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: red;*/
+}
+
+#no-roll {
+  text-align: right;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: red;
+}
+
 #char-card {
   background-image: url("../img/card1.png");
   background-repeat: no-repeat;
@@ -80,7 +103,7 @@ body {
 }
 
 #all-inputs {
-  width: 60%;
+  width: 70%;
   margin: 25px 15px;
 }
 
@@ -96,7 +119,15 @@ body {
 
 #die8 {
   cursor: pointer;
-  /*cursor: hand;*/
+}
+
+#lets-play {
+  float: right;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #63420f;
+  background-color: white;
 }
 
 /*character attack section*/
