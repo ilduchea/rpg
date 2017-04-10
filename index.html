@@ -27,45 +27,75 @@
       <div class="row char-creation">
         <h2><b>Create your character!<b></h2>
         <div id="char-card" class="col-sm-6">
-          <div id="all-inputs">
-            <div class="form-group">
-              <label for="name" class="control-label">Name:</label>
-              <input type="text" name="name" value="" class="form-control">
+          <!-- placed everything into a table to keep things lined up nicely -->
+          <table id="all-inputs">
+            <tr class="form-group">
+              <td>
+                <label for="name" class="control-label">Name:</label>
+              </td>
+              <td>
+                <input type="text" name="name" value="" class="form-control">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label for="class" class="control-label">Class:</label>
+              </td>
+              <td>
+                <select class="char-class form-control" name="class">
+                  <option value="Warrior">Warrior</option>
+                  <option value="Ranger">Ranger</option>
+                  <option value="Mage">Mage</option>
+                </select>
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label for="gender" class="control-label">Gender:</label>
+              </td>
+              <td>
+                <select class="char-gender form-control" name="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </td>
+            </tr>
+            <div class="stats">
+              <tr class="stats">
+                <td>
+                  <label for="strength" class="control-label">Strength:</label>
+                </td>
+                <td>
+                  <input type="number" name="strength" value="0" class="form-control">
+                </td>
+              </tr>
+              <tr class="stats">
+                <td>
+                  <label for="dexterity" class="control-label">Dexterity:</label>
+                </td>
+                <td>
+                  <input type="number" name="dexterity" value="0" class="form-control">
+                </td>
+              </tr>
+              <tr class="stats">
+                <td>
+                  <label for="intelligence" class="control-label">Intelligence:</label>
+                </td>
+                <td>
+                  <input type="number" name="intelligence" value="0" class="form-control">
+                </td>
+              </tr>
+              <tr class="stats">
+                <td>
+                  <label for="constitution" class="control-label">Constitution:</label>
+                </td>
+                <td>
+                  <input type="number" name="constitution" value="0" class="form-control">
+                </td>
+              </tr>
             </div>
-            <div class="form-group">
-              <label for="class" class="control-label">Class:</label>
-              <select class="char-class form-control" name="class">
-                <option value="none">select</option>
-                <option value="Warrior">Warrior</option>
-                <option value="Ranger">Ranger</option>
-                <option value="Mage">Mage</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="gender" class="control-label">Gender:</label>
-              <select class="char-gender form-control" name="gender">
-                <option value="none">select</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="strength" class="control-label">Strength:</label>
-              <input type="number" name="strength" value="0" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="dexterity" class="control-label">Dexterity:</label>
-              <input type="number" name="dexterity" value="0" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="intelligence" class="control-label">Intelligence:</label>
-              <input type="number" name="intelligence" value="0" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="constitution" class="control-label">Constitution:</label>
-              <input type="number" name="constitution" value="0" class="form-control">
-            </div>
-          </div>
+          </table>
         </div> <!--close char. card row div -->
 
         <div class="col-sm-6">

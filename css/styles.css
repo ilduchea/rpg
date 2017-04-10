@@ -29,6 +29,7 @@ body {
 }
 
 .col-sm-6 {
+
   height: 600px;
 }
 
@@ -43,8 +44,6 @@ body {
 #char-card {
   background-image: url("../img/card1.png");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   border-radius: 30px;
   border-style: none;
   border-width: 1px;
@@ -60,4 +59,34 @@ body {
 
 .greenback {
   background-color: green;
+  background-position: left;
+  background-size: contain;
+
+}
+
+#char-class {
+  background-image: url("../img/warrior1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /*keeps the whole image with in the area*/
+}
+
+/*sets the width of the input fields*/
+#char-card select {
+  width: 45%;
+}
+
+.stats input {
+  width: 30%;
+}
+
+#all-inputs {
+  width: 60%;
+  margin: 25px 15px;
+}
+
+/*adds spacing between the input fields*/
+#char-card select,
+#char-card input {
+  margin-bottom: 10px;
 }
