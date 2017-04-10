@@ -21,7 +21,24 @@ Character.prototype.addEnemy = function () {
 // FRONT END
 $(document).ready(function() {
 
-
+  // change character image - when user selects from dropdown
+  $("select.char-class").change(function() {
+    let userClass = $(".char-class option:selected").val();
+    console.log("class changed to: " , userClass);
+    switch (true) {
+      case (userClass === "Warrior"):
+        $("#char-img").attr('src', 'img/warrior_male1.png')
+        break;
+      case (userClass === "Mage"):
+        $("#char-img").attr('src', 'img/mage_male1.png')
+        break;
+      case (userClass === "Ranger"):
+        $("#char-img").attr('src', 'img/ranger_male1.png')
+        break;
+      default:
+        console.log("switch default!");
+    }
+  });
 
 
 
