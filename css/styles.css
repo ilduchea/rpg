@@ -53,7 +53,7 @@ body {
   margin-left: 25px;
 }
 
-#no-name {
+.alert-input {
   font-family: sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -62,18 +62,10 @@ body {
 
 #no-name-td {
   width: 50px;
-  /*text-align: right;
-  border-style: dashed;
-  border-width: 2px;
-  border-color: red;*/
 }
 
 #no-roll {
   text-align: right;
-  font-family: sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: red;
 }
 
 #char-card {
@@ -96,7 +88,6 @@ body {
   background-color: green;
   background-position: left;
   background-size: contain;
-
 }
 
 #char-class {
@@ -244,5 +235,10 @@ body {
 
 .dark_ranger_fem1{
   background: url("../img/enemy/dark_ranger_fem1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.unicorn1 {
+  background: url("../img/unicorn1.png") no-repeat center;
   background-size: contain;
 }

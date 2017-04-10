@@ -37,7 +37,7 @@
                 <input id="input-name" type="text" name="name" value="" class="form-control">
               </td>
               <td id="no-name-td">
-                <p><span id="no-name"></span></p>
+                <p><span id="no-name" class="alert-input"></span></p>
               </td>
             </tr>
             <tr class="form-group">
@@ -46,10 +46,14 @@
               </td>
               <td>
                 <select class="char-class form-control" name="class">
+                  <option value="Select">Select</option>
                   <option value="Warrior">Warrior</option>
                   <option value="Ranger">Ranger</option>
                   <option value="Mage">Mage</option>
                 </select>
+              </td>
+              <td id="no-class-td">
+                <p><span id="no-class" class="alert-input"></span></p>
               </td>
             </tr>
             <tr class="form-group">
@@ -58,10 +62,14 @@
               </td>
               <td>
                 <select class="char-gender form-control" name="gender">
+                  <option value="Select">Select</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Other">Other</option>
                 </select>
+              </td>
+              <td id="no-gender-td">
+                <p><span id="no-gender" class="alert-input"></span></p>
               </td>
             </tr>
             <div class="stats">
@@ -106,7 +114,7 @@
                   <h2>Roll your stats: <img id="die8" src="img/8sidedie.png" alt="8-sided die"></h2>
                 </td>
                 <td>
-                  <p id="no-roll"><span></span></p>
+                  <p id="no-roll" class="alert-input"><span></span></p>
                 </td>
               </tr>
             </table>
