@@ -9,7 +9,7 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -99;
   opacity: 0.75;
   /* Preserve aspet ratio */
   min-width: 100%;
@@ -18,7 +18,7 @@ h1 {
 
 body {
   font-family: 'Poiret One', cursive;
-  font-size: 16px;
+  font-size: 20px;
   font-style: bold;
 }
 
@@ -29,7 +29,6 @@ body {
 }
 
 .col-sm-6 {
-
   height: 600px;
 }
 
@@ -49,7 +48,7 @@ body {
   border-width: 1px;
 }
 
-#char-img {
+.char-img {
   float: right;
   width: 420px;
   border-radius: 30px;
@@ -89,4 +88,50 @@ body {
 #char-card select,
 #char-card input {
   margin-bottom: 10px;
+}
+
+/*character attack section*/
+
+#character {
+  color: white;
+  text-align: center;
+  width: 420px;
+  height: 600px;
+  border-radius: 30px;
+  border-style: none;
+  border-width: 1px;
+  text-shadow: -1px 1px #000,
+               -1px -1px #000,
+               1px -1px #000,
+               1px 1px #000;
+}
+
+.warrior_male1 {
+  background: url("../img/warrior_male1.png") no-repeat center;
+  background-size: contain;
+}
+
+.mage_male1 {
+  background: url("../img/mage_male1.png") no-repeat center;
+  background-size: contain;
+}
+
+.ranger_male1{
+  background: url("../img/ranger_male1.png") no-repeat center;
+  background-size: contain;
+}
+
+.warrior_fem1 {
+  background: url("../img/warrior_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.mage_fem1 {
+  background: url("../img/mage_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.ranger_fem1{
+  background: url("../img/ranger_fem1.png") no-repeat center;
+  background-size: contain;
 }

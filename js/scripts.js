@@ -28,13 +28,19 @@ $(document).ready(function() {
     if (userGender === "Male") {
       switch (true) {
         case (userClass === "Warrior"):
-          $("#char-img").attr('src', 'img/warrior_male1.png')
+          $(".char-img").attr('src', 'img/warrior_male1.png');
+          $(".combat #character").removeClass();
+          $(".combat #character").addClass("warrior_male1");
           break;
         case (userClass === "Mage"):
-          $("#char-img").attr('src', 'img/mage_male1.png')
+          $(".char-img").attr('src', 'img/mage_male1.png');
+          $(".combat #character").removeClass();
+          $(".combat #character").addClass("mage_male1");
           break;
         case (userClass === "Ranger"):
-          $("#char-img").attr('src', 'img/ranger_male1.png')
+          $(".char-img").attr('src', 'img/ranger_male1.png');
+          $(".combat #character").removeClass();
+          $(".combat #character").addClass("ranger_male1");
           break;
         default:
           console.log("switch default!");
@@ -42,13 +48,19 @@ $(document).ready(function() {
     } else if (userGender === "Female") {
       switch (true) {
         case (userClass === "Warrior"):
-          $("#char-img").attr('src', 'img/warrior_fem1.png')
+          $(".char-img").attr('src', 'img/warrior_fem1.png');
+          $(".combat #character").removeClass();
+          $(".combat #character").addClass("warrior_fem1");
           break;
         case (userClass === "Mage"):
-          $("#char-img").attr('src', 'img/mage_fem1.png')
+          $(".char-img").attr('src', 'img/mage_fem1.png');
+          $(".combat #character").removeClass();
+          $(".combat #character").addClass("mage_fem1");
           break;
         case (userClass === "Ranger"):
-          $("#char-img").attr('src', 'img/ranger_fem1.png')
+          $(".char-img").attr('src', 'img/ranger_fem1.png');
+          $(".combat #character").removeClass();
+          $(".combat #character").addClass("ranger_fem1");
           break;
         default:
           console.log("switch default!");
