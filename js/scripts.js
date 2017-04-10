@@ -81,6 +81,48 @@ $(document).ready(function() {
   var newGame = new Game();
   var newEnemy = new Enemy();
   var newChar = new Character();
+  
+  var enemyImageCardChange = function(){
+    let enemyClass = newEnemy.enemyClass;
+    let enemyGender = newEnemy.gender;
+    if (enemyGender === "Male"){
+      switch (true){
+        case (enemyClass === "Warrior"):
+          $("#enemy").removeClass();
+          $("#enemy").addClass("dark_warrior_male1");
+          break;
+        case (enemyClass === "Mage"):
+          $("#enemy").removeClass();
+          $("#enemy").addClass("dark_wizard_male1");
+          break;
+        case (enemyClass === "Ranger"):
+          $("#enemy").removeClass();
+          $("#enemy").addClass("dark_ranger_male1");
+          break;
+        default:
+          console.log("switch default!");
+      }  // end switch
+    } else if (enemyGender === "Female") {
+        switch (true){
+          case (enemyClass === "Warrior"):
+            $("#enemy").removeClass();
+            $("#enemy").addClass("dark_warrior_fem1");
+            break;
+          case (enemyClass === "Mage"):
+            $("#enemy").removeClass();
+            $("#enemy").addClass("dark_wizard_fem1");
+            break;
+          case (enemyClass === "Ranger"):
+            $("#enemy").removeClass();
+            $("#enemy").addClass("dark_ranger_fem1");
+            break;
+          default:
+            console.log("switch default!");
+        }
+    } else {
+        console.log("gender neutral")
+    } // END IF statement
+  };
 
   // function to handle ALL char image changes
   var charImageCardChange = function() {
@@ -159,11 +201,24 @@ $(document).ready(function() {
   });
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
+
     newGame.dieAddNewRoll(); // add 1 to roll count
     $("#input-str").val(dieRoll2to8());
     $("#input-dex").val(dieRoll2to8());
     $("#input-int").val(dieRoll2to8());
     $("#input-con").val(dieRoll2to8());
+  });
+
+  $("#revealText").click(function(){
+    newEnemy.createEnemy();
+    enemyImageCardChange();
+    $("#revealText").hide();
+    $("#enemy div").removeClass("hide");
+    $("#enemyNameInput").text(newEnemy.enemyClass);
+    $("#enemyStrInput").text(newEnemy.str);
+    $("#enemyDexInput").text(newEnemy.dex);
+    $("#enemyIntInput").text(newEnemy.int);
+    $("#enemyConInput").text(newEnemy.con);
   });
 
   $("#lets-play").click(function() {
@@ -180,6 +235,11 @@ $(document).ready(function() {
       $(".char-creation").hide();
       $(".combat").show();
       console.log("newChar = " , newChar);
+    }
+
+    // add a new roll to game
+    if (newGame.rollCount === 0) {
+      $("#no-roll").text("ROLL?");
     }
   });
 

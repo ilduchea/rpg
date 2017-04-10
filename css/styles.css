@@ -5,6 +5,7 @@ h1 {
   font-family: 'Cinzel Decorative', cursive;
 }
 
+
 #bg-img {
   position: fixed;
   top: 0;
@@ -18,8 +19,8 @@ h1 {
 
 body {
   font-family: 'Poiret One', cursive;
-  font-size: 20px;
-  font-style: bold;
+  font-size: 28px;
+  font-style: 900;
 }
 
 .well {
@@ -28,12 +29,20 @@ body {
   font-weight: bold;
 }
 
+
 .col-sm-6 {
   height: 600px;
 }
 
-.char-creation {
-  font-weight: bold;
+.char-creation h2 {
+  font-weight: 900;
+  text-align: center;
+  font-size: 38px;
+  color: white;
+  text-shadow: -1px 1px #000,
+               -1px -1px #000,
+               1px -1px #000,
+               1px 1px #000;
 }
 
 #all-inputs {
@@ -146,6 +155,30 @@ body {
                1px 1px #000;
 }
 
+#enemy {
+  float: right;
+}
+
+#revealText:hover {
+  cursor: pointer;
+}
+
+#charNameInput, #enemyNameInput{
+  font-size: 38px;
+}
+
+#enemyNameInput {
+  color: rgb(140, 42, 41);
+}
+
+.margin {
+  margin-top: 150px;
+}
+
+.hide {
+  display: none;
+}
+
 .warrior_male1 {
   background: url("../img/warrior_male1.png") no-repeat center;
   background-size: contain;
@@ -173,5 +206,39 @@ body {
 
 .ranger_fem1{
   background: url("../img/ranger_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.enemy_card{
+  background: url("../img/enemy/enemy_card.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_warrior_male1{
+  background: url("../img/enemy/dark_warrior_male1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_wizard_male1{
+  background: url("../img/enemy/dark_wizard_male1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_ranger_male1{
+  background: url("../img/enemy/dark_ranger_male1.jpg") no-repeat center;
+  background-size: contain;
+}
+.dark_warrior_fem1{
+  background: url("../img/enemy/dark_warrior_fem1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_wizard_fem1{
+  background: url("../img/enemy/dark_wizard_fem1.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.dark_ranger_fem1{
+  background: url("../img/enemy/dark_ranger_fem1.jpg") no-repeat center;
   background-size: contain;
 }
