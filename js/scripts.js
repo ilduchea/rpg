@@ -1,22 +1,27 @@
 // BACK END
 function Game() {
   this.char;
+  this.rollCount = 0;
   this.enemies = [];
 }
 
-function Character(name, charClass, gender, str, dex, int, con) {
-  this.name = name;
-  this.charClass = charClass;
-  this.gender = gender;
-  this.str = str;
-  this.dex = dex;
-  this.int = int;
-  this.con = con;
+function Character() {
+  this.name = "";
+  this.charClass = "";
+  this.gender = "";
+  this.str = 0;
+  this.dex = 0;
+  this.int = 0;
+  this.con = 0;
 }
 
-Character.prototype.addEnemy = function () {
+Character.prototype.addEnemy = function() {
   newGame.enemies.push(this);
 };
+
+Game.prototype.dieAddNewRoll = function() {
+  this.rollCount += 1;
+}
 
 //random die number generator (2-8)
 var dieRoll2to8 = function() {
@@ -24,11 +29,11 @@ var dieRoll2to8 = function() {
 }
 
 
-
 // FRONT END
 $(document).ready(function() {
 
-  var newGame = new Game();
+  var myGame = new Game();
+
   // function to handle ALL char image changes
   var charImageCardChange = function() {
     let userClass = $(".char-class option:selected").val();
@@ -88,10 +93,24 @@ $(document).ready(function() {
   });
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
+    // add 1 to roll count
+    myGame.dieAddNewRoll();
     $("#input-str").val(dieRoll2to8());
     $("#input-dex").val(dieRoll2to8());
     $("#input-int").val(dieRoll2to8());
     $("#input-con").val(dieRoll2to8());
+  });
+
+  $("#lets-play").click(function() {
+    // check if name has been entered
+    if ($("#input-name").val() === "") {
+      $("#no-name").text("NAME?");
+    }
+    // add a new roll to game
+    if (myGame.rollCount === 0) {
+      $("#no-roll").text("ROLL?");
+    }
+    
   });
 
   // simple page reload button function
