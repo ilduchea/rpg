@@ -33,7 +33,7 @@ $(document).ready(function() {
   var charImageCardChange = function() {
     let userClass = $(".char-class option:selected").val();
     let userGender = $(".char-gender option:selected").val();
-    if (newChar === "Male") {
+    if (userGender === "Male") {
       switch (true) {
         case (userClass === "Warrior"):
           $(".char-img").attr('src', 'img/warrior_male1.png');
@@ -53,7 +53,7 @@ $(document).ready(function() {
         default:
           console.log("switch default!");
       }  // end switch
-    } else if (newChar === "Female") {
+    } else if (userGender === "Female") {
       switch (true) {
         case (userClass === "Warrior"):
           $(".char-img").attr('src', 'img/warrior_fem1.png');

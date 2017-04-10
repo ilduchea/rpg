@@ -96,7 +96,15 @@ body {
 
 #die8 {
   cursor: pointer;
-  /*cursor: hand;*/
+}
+
+#play-btn {
+  float: right;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #63420f;
+  background-color: white;
 }
 
 /*character attack section*/
