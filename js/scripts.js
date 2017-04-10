@@ -2,6 +2,7 @@
 function Game() {
   this.char;
   this.rollCount = 0;
+  this.ready = false;
   this.enemies = [];
 }
 
@@ -14,6 +15,7 @@ function Character() {
   this.int = 0;
   this.con = 0;
 }
+
 
 Character.prototype.addEnemy = function() {
   newGame.enemies.push(this);
@@ -128,6 +130,24 @@ $(document).ready(function() {
     } // END IF statement
   }
 
+  var checkGameReady = function() {
+    $("#no-name").text("");
+    $("#no-roll").text("");
+    if (($("#input-name").val() === "") || (newGame.rollCount === 0)) {
+      if ($("#input-name").val() === "") {
+        newGame.ready = false;
+        $("#no-name").text("<<<<");
+      }
+      if (newGame.rollCount === 0) {
+        newGame.ready = false;
+        $("#no-roll").text("<<<<");
+      }
+    } else {
+      newGame.ready = true;
+    }
+    return newGame.ready;
+  }
+
   // check if the CLASS dropdown was clicked and update the image
   $("select.char-class").change(function() {
     charImageCardChange();
@@ -138,8 +158,7 @@ $(document).ready(function() {
   });
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
-    // add 1 to roll count
-    myGame.dieAddNewRoll();
+    newGame.dieAddNewRoll(); // add 1 to roll count
     $("#input-str").val(dieRoll2to8());
     $("#input-dex").val(dieRoll2to8());
     $("#input-int").val(dieRoll2to8());
@@ -148,12 +167,8 @@ $(document).ready(function() {
 
   $("#lets-play").click(function() {
     // check if name has been entered
-    if ($("#input-name").val() === "") {
-      $("#no-name").text("NAME?");
-    }
-    // add a new roll to game
-    if (myGame.rollCount === 0) {
-      $("#no-roll").text("ROLL?");
+    if (checkGameReady() === true) {
+      console.log("game ready");
     }
 
   });
