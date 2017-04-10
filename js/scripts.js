@@ -1,4 +1,6 @@
-// BACK END
+//==========//
+// BACK END //
+//==========//
 function Game() {
   this.char;
   this.rollCount = 0;
@@ -17,11 +19,9 @@ function Character() {
   this.con = 0;
 }
 
-
 Character.prototype.addEnemy = function() {
   newGame.enemies.push(this);
 }
-
 
 Game.prototype.dieAddNewRoll = function() {
   this.rollCount += 1;
@@ -74,14 +74,15 @@ var dieRoll2to8 = function() {
   return Math.floor(Math.random() * 7) + 2;
 }
 
-///////////////
+//===========//
 // FRONT END //
+//===========//
 $(document).ready(function() {
 
   var newGame = new Game();
   var newEnemy = new Enemy();
   var newChar = new Character();
-  
+
   var enemyImageCardChange = function(){
     let enemyClass = newEnemy.enemyClass;
     let enemyGender = newEnemy.gender;
@@ -98,7 +99,7 @@ $(document).ready(function() {
         case (enemyClass === "Ranger"):
           $("#enemy").removeClass();
           $("#enemy").addClass("dark_ranger_male1");
-          break;
+          break;``
         default:
           console.log("switch default!");
       }  // end switch
@@ -224,7 +225,7 @@ $(document).ready(function() {
   $("#lets-play").click(function() {
     // check if name has been entered
     if (checkGameReady() === true) {
-      console.log("game is ready");
+      // get starting stats for char from inputs
       newChar.name = $("#input-name").val();
       newChar.charClass = $(".char-class option:selected").val();
       newChar.gender = $(".char-gender option:selected").val();
@@ -232,15 +233,18 @@ $(document).ready(function() {
       newChar.dex = $("#input-dex").val();
       newChar.int = $("#input-int").val();
       newChar.con = $("#input-con").val();
+      // update combat char card with new stats
+
+      $("#charName").text(newChar.name);
+      $("#charStr").text(newChar.str);
+      $("#charDex").text(newChar.dex);
+      $("#charInt").text(newChar.int);
+      $("#charCon").text(newChar.con);
       $(".char-creation").hide();
       $(".combat").show();
-      console.log("newChar = " , newChar);
+      // console.log("newChar = " , newChar);
     }
 
-    // add a new roll to game
-    if (newGame.rollCount === 0) {
-      $("#no-roll").text("ROLL?");
-    }
   });
 
   // simple page reload button function

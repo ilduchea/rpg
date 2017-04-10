@@ -45,6 +45,10 @@ body {
                1px 1px #000;
 }
 
+.combat {
+  display: none;
+}
+
 #all-inputs {
   margin-left: 25px;
 }
