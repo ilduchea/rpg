@@ -67,7 +67,7 @@
                   <label for="strength" class="control-label">Strength:</label>
                 </td>
                 <td>
-                  <input type="number" name="strength" value="0" class="form-control">
+                  <input id="input-str" type="number" name="strength" value="1" class="form-control" disabled="disabled">
                 </td>
               </tr>
               <tr class="stats">
@@ -75,15 +75,15 @@
                   <label for="dexterity" class="control-label">Dexterity:</label>
                 </td>
                 <td>
-                  <input type="number" name="dexterity" value="0" class="form-control">
+                  <input id="input-dex" type="number" name="dexterity" value="1" class="form-control" disabled="disabled">
                 </td>
               </tr>
               <tr class="stats">
                 <td>
-                  <label for="intelligence" class="control-label">Intelligence:</label>
+                  <label for="intelligence" class="control-label" >Intelligence:</label>
                 </td>
                 <td>
-                  <input type="number" name="intelligence" value="0" class="form-control">
+                  <input id="input-int" type="number" name="intelligence" value="1" class="form-control" disabled="disabled">
                 </td>
               </tr>
               <tr class="stats">
@@ -91,11 +91,15 @@
                   <label for="constitution" class="control-label">Constitution:</label>
                 </td>
                 <td>
-                  <input type="number" name="constitution" value="0" class="form-control">
+                  <input id="input-con" type="number" name="constitution" value="1" class="form-control" disabled="disabled">
                 </td>
               </tr>
             </div>
           </table>
+          <div class="char-8die">
+            <h2>Roll your stats: <img id="die8" src="img/8sidedie.png" alt="8-sided die" /></h2>
+          </div>
+
         </div> <!--close char. card row div -->
 
         <div class="col-sm-6">

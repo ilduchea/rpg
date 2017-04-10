@@ -1,6 +1,6 @@
 // BACK END
-function Game(char) {
-  this.char = char;
+function Game() {
+  this.char;
   this.enemies = [];
 }
 
@@ -18,14 +18,22 @@ Character.prototype.addEnemy = function () {
   newGame.enemies.push(this);
 };
 
+//random die number generator (2-8)
+var dieRoll2to8 = function() {
+  return Math.floor(Math.random() * 7) + 2;
+}
+
+
+
 // FRONT END
 $(document).ready(function() {
 
+  var newGame = new Game();
   // function to handle ALL char image changes
   var charImageCardChange = function() {
     let userClass = $(".char-class option:selected").val();
     let userGender = $(".char-gender option:selected").val();
-    if (userGender === "Male") {
+    if (newChar === "Male") {
       switch (true) {
         case (userClass === "Warrior"):
           $(".char-img").attr('src', 'img/warrior_male1.png');
@@ -45,7 +53,7 @@ $(document).ready(function() {
         default:
           console.log("switch default!");
       }  // end switch
-    } else if (userGender === "Female") {
+    } else if (newChar === "Female") {
       switch (true) {
         case (userClass === "Warrior"):
           $(".char-img").attr('src', 'img/warrior_fem1.png');
@@ -77,6 +85,13 @@ $(document).ready(function() {
   // check if the GENDER dropdown was clicked and update the image
   $("select.char-gender").change(function() {
     charImageCardChange();
+  });
+  // role the 8-sided die and update stats when die is clicked
+  $("#die8").click(function() {
+    $("#input-str").val(dieRoll2to8());
+    $("#input-dex").val(dieRoll2to8());
+    $("#input-int").val(dieRoll2to8());
+    $("#input-con").val(dieRoll2to8());
   });
 
   // simple page reload button function
