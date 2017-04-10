@@ -153,6 +153,7 @@ body {
                -1px -1px #000,
                1px -1px #000,
                1px 1px #000;
+  display: table;
 }
 
 #enemy {
@@ -171,8 +172,20 @@ body {
   color: rgb(140, 42, 41);
 }
 
-.margin {
-  margin-top: 150px;
+.alignment{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.attacks {
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-family: 'Cinzel Decorative', cursive;
+  text-shadow: -1px 1px #000,
+               -1px -1px #000,
+               1px -1px #000,
+               1px 1px #000;
 }
 
 .hide {

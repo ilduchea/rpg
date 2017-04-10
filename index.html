@@ -123,21 +123,36 @@
         </div>
       </div> <!-- END ROW char-creation -->
 
+
       <div class="row combat">
+        <div class="row attacks">
+          <div class="col-sm-4" id="hero-attack">
+
+          </div>
+          <div class="col-sm-4">
+            <button id="attack" type="button" class="btn btn-danger btn-large">ATTACK!!!!</button>
+          </div>
+          <div class="col-sm-4" id="enemy-attack">
+
+          </div>
+        </div>
         <div class="col-sm-6">
           <!-- <img class="char-img" src="img/arms1.png" alt="charcter image" id="char-attack"> -->
           <div id="character">
-            <p class="margin"><span id="charNameInput">Name</span></p>
-            <p>Str:<span id="strInput"></span></p>
-            <p>Dex:<span id="dexInput"></span></p>
-            <p>Int:<span id="intInput"></span></p>
-            <p>Con:<span id="conInput"></span></p>
+            <p></p>
+            <div class="alignment">
+              <p><span id="charNameInput">Name</span></p>
+              <p>Str:<span id="strInput"></span></p>
+              <p>Dex:<span id="dexInput"></span></p>
+              <p>Int:<span id="intInput"></span></p>
+              <p>Con:<span id="conInput"></span></p>
+            </div>
           </div>
         </div>
         <div class="col-sm-6 enemy">
           <div id="enemy" class="enemy_card">
             <p id="revealText">Click to reveal your enemy...</p>
-            <div class="hide margin">
+            <div class="hide alignment">
               <p><span id="enemyNameInput"></span></p>
               <p>Str: <span id="enemyStrInput"></span></p>
               <p>Dex: <span id="enemyDexInput"></span></p>

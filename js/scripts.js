@@ -69,9 +69,25 @@ Enemy.prototype.createEnemy = function() {
   }
 }
 
+var getAttackStat = function(entity){
+  var str = entity.str;
+  var dex = entity.dex;
+  var int = entity.int;
+  if (str >= dex && str >= int){
+    return parseInt(str);
+  } else if (dex >= str && dex >= int){
+    return parseInt(dex);
+  } else if (int >= str && int >= dex){
+    return parseInt(int);
+  }
+};
 //random die number generator (2-8)
 var dieRoll2to8 = function() {
   return Math.floor(Math.random() * 7) + 2;
+}
+
+var attackRoll = function(){
+  return Math.floor(Math.random() * 20) + 1;
 }
 
 ///////////////
@@ -81,7 +97,7 @@ $(document).ready(function() {
   var newGame = new Game();
   var newEnemy = new Enemy();
   var newChar = new Character();
-  
+
   var enemyImageCardChange = function(){
     let enemyClass = newEnemy.enemyClass;
     let enemyGender = newEnemy.gender;
@@ -132,18 +148,18 @@ $(document).ready(function() {
       switch (true) {
         case (userClass === "Warrior"):
           $(".char-img").attr('src', 'img/warrior_male1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("warrior_male1");
+          $("#character").removeClass();
+          $("#character").addClass("warrior_male1");
           break;
         case (userClass === "Mage"):
           $(".char-img").attr('src', 'img/mage_male1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("mage_male1");
+          $("#character").removeClass();
+          $("#character").addClass("mage_male1");
           break;
         case (userClass === "Ranger"):
           $(".char-img").attr('src', 'img/ranger_male1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("ranger_male1");
+          $("#character").removeClass();
+          $("#character").addClass("ranger_male1");
           break;
         default:
           console.log("switch default!");
@@ -152,18 +168,18 @@ $(document).ready(function() {
       switch (true) {
         case (userClass === "Warrior"):
           $(".char-img").attr('src', 'img/warrior_fem1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("warrior_fem1");
+          $("#character").removeClass();
+          $("#character").addClass("warrior_fem1");
           break;
         case (userClass === "Mage"):
           $(".char-img").attr('src', 'img/mage_fem1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("mage_fem1");
+          $("#character").removeClass();
+          $("#character").addClass("mage_fem1");
           break;
         case (userClass === "Ranger"):
           $(".char-img").attr('src', 'img/ranger_fem1.png');
-          $(".combat #character").removeClass();
-          $(".combat #character").addClass("ranger_fem1");
+          $("#character").removeClass();
+          $("#character").addClass("ranger_fem1");
           break;
         default:
           console.log("switch default!");
@@ -243,6 +259,15 @@ $(document).ready(function() {
     }
   });
 
+  $("#attack").click(function(){
+    var attackMod = getAttackStat(newChar);
+    var enemyMod = getAttackStat(newEnemy);
+    var characterAttack = attackRoll() + attackMod;
+    var enemyAttack = attackRoll() + enemyMod;
+
+    $("#hero-attack").text(characterAttack);
+    $("#enemy-attack").text(enemyAttack);
+  });
   // simple page reload button function
   $("#btnReset").click(function() {
     location.reload();
