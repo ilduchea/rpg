@@ -21,26 +21,51 @@ Character.prototype.addEnemy = function () {
 // FRONT END
 $(document).ready(function() {
 
-  // change character image - when user selects from dropdown
-  $("select.char-class").change(function() {
+  // function to handle ALL char image changes
+  var charImageCardChange = function() {
     let userClass = $(".char-class option:selected").val();
-    console.log("class changed to: " , userClass);
-    switch (true) {
-      case (userClass === "Warrior"):
-        $("#char-img").attr('src', 'img/warrior_male1.png')
-        break;
-      case (userClass === "Mage"):
-        $("#char-img").attr('src', 'img/mage_male1.png')
-        break;
-      case (userClass === "Ranger"):
-        $("#char-img").attr('src', 'img/ranger_male1.png')
-        break;
-      default:
-        console.log("switch default!");
-    }
+    let userGender = $(".char-gender option:selected").val();
+    if (userGender === "Male") {
+      switch (true) {
+        case (userClass === "Warrior"):
+          $("#char-img").attr('src', 'img/warrior_male1.png')
+          break;
+        case (userClass === "Mage"):
+          $("#char-img").attr('src', 'img/mage_male1.png')
+          break;
+        case (userClass === "Ranger"):
+          $("#char-img").attr('src', 'img/ranger_male1.png')
+          break;
+        default:
+          console.log("switch default!");
+      }  // end switch
+    } else if (userGender === "Female") {
+      switch (true) {
+        case (userClass === "Warrior"):
+          $("#char-img").attr('src', 'img/warrior_fem1.png')
+          break;
+        case (userClass === "Mage"):
+          $("#char-img").attr('src', 'img/mage_fem1.png')
+          break;
+        case (userClass === "Ranger"):
+          $("#char-img").attr('src', 'img/ranger_fem1.png')
+          break;
+        default:
+          console.log("switch default!");
+      }  // end switch
+    } else {
+      console.log("gender neutral")
+    } // END IF statement
+  }
+
+  // check if the CLASS dropdown was clicked and update the image
+  $("select.char-class").change(function() {
+    charImageCardChange();
   });
-
-
+  // check if the GENDER dropdown was clicked and update the image
+  $("select.char-gender").change(function() {
+    charImageCardChange();
+  });
 
   // simple page reload button function
   $("#btnReset").click(function() {
