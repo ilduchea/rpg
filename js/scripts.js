@@ -81,7 +81,7 @@ $(document).ready(function() {
   var newGame = new Game();
   var newEnemy = new Enemy();
   var newChar = new Character();
-
+  
   var enemyImageCardChange = function(){
     let enemyClass = newEnemy.enemyClass;
     let enemyGender = newEnemy.gender;
