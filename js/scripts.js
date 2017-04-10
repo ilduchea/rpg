@@ -18,6 +18,48 @@ Character.prototype.addEnemy = function () {
   newGame.enemies.push(this);
 };
 
+function Enemy() {
+  this.enemyClass = "";
+  this.gender = "";
+  this.str = 0;
+  this.dex = 0;
+  this.int = 0;
+  this.con = 0;
+}
+
+Enemy.prototype.createEnemy = function(){
+  var str = dieRoll2to8();
+  var dex = dieRoll2to8();
+  var int = dieRoll2to8();
+  var con = dieRoll2to8();
+
+  this.str = str;
+  this.dex = dex;
+  this.int = int;
+  this.con = con;
+
+  var randomEnemyClass = function(){
+    return Math.floor(Math.random() * 3) + 1;
+  }
+  var randomEnemyGender = function(){
+    return Math.floor(Math.random() * 2) + 1;
+  }
+  var enemyClassRoll = randomEnemyClass();
+  var enemyGenderRoll = randomEnemyGender();
+  if (enemyClassRoll === 1){
+    this.enemyClass = "Warrior";
+  } else if (enemyClassRoll === 2){
+    this.enemyClass = "Ranger";
+  } else {
+    this.enemyClass = "Mage";
+  }
+  if (enemyGenderRoll === 1){
+    this.gender = "Male";
+  } else {
+    this.gender = "Female";
+  }
+}
+
 //random die number generator (2-8)
 var dieRoll2to8 = function() {
   return Math.floor(Math.random() * 7) + 2;
@@ -29,6 +71,7 @@ var dieRoll2to8 = function() {
 $(document).ready(function() {
 
   var newGame = new Game();
+  var newEnemy = new Enemy();
   // function to handle ALL char image changes
   var charImageCardChange = function() {
     let userClass = $(".char-class option:selected").val();

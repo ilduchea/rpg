@@ -109,7 +109,7 @@ body {
 
 /*character attack section*/
 
-#character {
+#character, #enemy {
   color: white;
   text-align: center;
   width: 420px;
