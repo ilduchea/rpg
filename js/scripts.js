@@ -1,9 +1,9 @@
-//==========//
-// BACK END //
-//==========//
+//============
+// BACK END
+//============
 function Game() {
   this.char;
-  this.rollCount = 0;
+  this.rollCount = 3;
   this.ready = false;
   this.enemies = [];
   this.characters = [];
@@ -23,8 +23,12 @@ Character.prototype.addEnemy = function() {
   newGame.enemies.push(this);
 }
 
-Game.prototype.dieAddNewRoll = function() {
-  this.rollCount += 1;
+Game.prototype.updateRollCount = function() {
+  if (this.rollCount >= 0) {
+    this.rollCount -= 1;
+  } else {
+    console.log("you're out of rolls");
+  }
 }
 
 function Enemy() {
@@ -90,9 +94,9 @@ var attackRoll = function(){
   return Math.floor(Math.random() * 20) + 1;
 }
 
-///////////////
-// FRONT END //
-//===========//
+//=============
+// FRONT END
+//=============
 $(document).ready(function() {
 
   var newGame = new Game();
@@ -204,19 +208,19 @@ $(document).ready(function() {
     $("#no-roll").text("");
     $("#no-class").text("");
     $("#no-gender").text("");
-    if (($("#input-name").val() === "") || (newGame.rollCount === 0) || ($(".char-class").val() === "Select") || ($(".char-gender").val() === "Select")) {
+    if (($("#input-name").val() === "") || (newGame.rollCount === 3) || ($(".char-class").val() === "Select") || ($(".char-gender").val() === "Select")) {
       newGame.ready = false;
       if ($("#input-name").val() === "") {
-        $("#no-name").text("<<<<");
+        $("#no-name").text("<--");
       }
-      if (newGame.rollCount === 0) {
-        $("#no-roll").text("<<<<");
+      if (newGame.rollCount === 3) {
+        $("#no-roll").text("<--");
       }
       if ($(".char-class").val() === "Select") {
-        $("#no-class").text("<<<<");
+        $("#no-class").text("<--");
       }
       if ($(".char-gender").val() === "Select") {
-        $("#no-gender").text("<<<<");
+        $("#no-gender").text("<--");
       }
     } else {
       newGame.ready = true;
@@ -236,13 +240,16 @@ $(document).ready(function() {
   });
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
-
-    newGame.dieAddNewRoll(); // add 1 to roll count
-    $("#input-str").val(dieRoll2to8());
-    $("#input-dex").val(dieRoll2to8());
-    $("#input-int").val(dieRoll2to8());
-    $("#input-con").val(dieRoll2to8());
-    $("#no-roll").text("");
+    //check if rolls are left and update the game object
+    newGame.updateRollCount();
+    if (newGame.rollCount >= 0) {
+      $("#rolls-left").text(newGame.rollCount);
+      $("#input-str").val(dieRoll2to8());
+      $("#input-dex").val(dieRoll2to8());
+      $("#input-int").val(dieRoll2to8());
+      $("#input-con").val(dieRoll2to8());
+      $("#no-roll").text("");
+    }
   });
 
   $("#revealText").click(function(){
