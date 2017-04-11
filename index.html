@@ -145,13 +145,18 @@
         <div class="col-sm-5">
           <!-- <img class="char-img" src="img/arms1.png" alt="charcter image" id="char-attack"> -->
           <div id="character">
-            <p></p>
-            <div class="alignment">
-              <p><span id="charName"></span></p>
-              <p>Str: <span id="charStr"></span></p>
-              <p>Dex: <span id="charDex"></span></p>
-              <p>Int: <span id="charInt"></span></p>
-              <p>Con: <span id="charCon"></span></p>
+            <p id="charName"></p>
+            <div class="card-table">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Str: <span id="charStr"></span></p>
+                  <p>Int: <span id="charInt"></span></p>
+                </div>
+                <div class="col-sm-6">
+                  <p>Dex: <span id="charDex"></span></p>
+                  <p>Con: <span id="charCon"></span></p>
+                </div>
+              </div>
             </div>
           </div>
           <div id="lose" class="enemy_card hide">
@@ -163,13 +168,21 @@
         </div>
         <div class="col-sm-5 enemy">
           <div id="enemy" class="enemy_card">
-            <p id="revealText">Click to reveal your enemy...</p>
-            <div id="back" class="alignment hide">
-              <p><span id="enemyNameInput"></span></p>
-              <p>Str: <span id="enemyStrInput"></span></p>
-              <p>Dex: <span id="enemyDexInput"></span></p>
-              <p>Int: <span id="enemyIntInput"></span></p>
-              <p>Con: <span id="enemyConInput"></span></p>
+            <p id="revealText" class="alignment">Click to reveal your enemy...</p>
+            <div id="back" class="hide">
+              <p id="enemyNameInput"></p>
+              <div class="card-table">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p>Str: <span id="enemyStrInput"></span></p>
+                    <p>Int: <span id="enemyIntInput"></span></p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Dex: <span id="enemyDexInput"></span></p>
+                    <p>Con: <span id="enemyConInput"></span></p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
