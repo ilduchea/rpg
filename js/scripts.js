@@ -102,7 +102,7 @@ var compareRolls = function (roll1, roll2){
   } else if (roll2 > roll1){
     return "You lose"
   } else {
-    return "It is a tie!"
+    return "It is a tie! Try again..."
   }
 };
 
@@ -336,7 +336,7 @@ $(document).ready(function() {
       $("#back").toggleClass("hide");
       $("#revealText").toggle();
       $(".attacks, #attack").show();
-      $(".combat").removeClass("attack");
+      $(".attacks").removeClass("attack");
       $("#enemyNameInput").text(newEnemy.enemyClass);
       $("#enemyStrInput").text(newEnemy.str);
       $("#enemyDexInput").text(newEnemy.dex);
@@ -353,7 +353,8 @@ $(document).ready(function() {
     var enemyAttack = enemyAttackRoll + enemyMod;
     var results = compareRolls(characterAttack, enemyAttack);
 
-    $(".combat").addClass("attack");
+    $(".attacks").addClass("attack");
+    $("#enemy, #character").removeClass("winner");
 
     if (results === "You Win!"){
       $("#back").toggleClass("hide");
@@ -367,7 +368,7 @@ $(document).ready(function() {
       $("#lose").addClass("char-lose");
       $("#enemy").addClass("winner")
       $("#attack").hide();
-    }
+    } 
 
     $("#hero-attack .roll").text(characterAttackRoll + " + ");
     $("#hero-attack .mod").text(attackMod + " = ");
@@ -381,7 +382,7 @@ $(document).ready(function() {
   $("#lose").click(function(){
     $("#lose, #character").toggleClass("hide");
     $("#character, #enemy, #lose").removeClass("winner enemy-lose char-lose");
-    $(".combat").removeClass("attack");
+    $(".attacks").removeClass("attack");
     $("#attack").show();
   })
   // simple page reload button function
