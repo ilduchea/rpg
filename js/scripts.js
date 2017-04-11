@@ -302,18 +302,6 @@ $(document).ready(function() {
     }
   });
 
-  $("#revealText").click(function(){
-    newEnemy.createEnemy();
-    enemyImageCardChange();
-    $("#revealText").hide();
-    $("#enemy div").removeClass("hide");
-    $("#enemyNameInput").text(newEnemy.enemyClass);
-    $("#enemyStrInput").text(newEnemy.str);
-    $("#enemyDexInput").text(newEnemy.dex);
-    $("#enemyIntInput").text(newEnemy.int);
-    $("#enemyConInput").text(newEnemy.con);
-  });
-
     $("#revealText").click(function(){
       newEnemy.createEnemy();
       enemyImageCardChange();
