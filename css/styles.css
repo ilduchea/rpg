@@ -139,11 +139,32 @@ body {
 }
 
 #accept-roll {
+  display: none;
   float: left;
   font-size: 30px;
   font-weight: bolder;
   color: #63420f;
   background-color: white;
+}
+
+.char-stats-alloc {
+  display: none;
+}
+
+.char-stats-alloc h2 {
+  font-weight: 900;
+  color: #63420f;
+  text-shadow: none;
+}
+
+#cross1 {
+  height: 120px;
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+#no-alloc {
+  height: auto;
 }
 
 #lets-play {

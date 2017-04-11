@@ -13,6 +13,7 @@ function Character() {
   this.name = "";
   this.charClass = "";
   this.gender = "";
+  this.statPoints = 5;
   this.str = 0;
   this.dex = 0;
   this.int = 0;
@@ -241,6 +242,8 @@ $(document).ready(function() {
   });
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
+    // show the "accept-roll" button for the first time
+    $("#accept-roll").show();
     //check if rolls are left and update the game object
     newGame.updateRollCount();
     if (newGame.rollCount >= 0) {
@@ -253,16 +256,10 @@ $(document).ready(function() {
     }
   });
 
-  $("#revealText").click(function(){
-    newEnemy.createEnemy();
-    enemyImageCardChange();
-    $("#revealText").hide();
-    $("#enemy div").removeClass("hide");
-    $("#enemyNameInput").text(newEnemy.enemyClass);
-    $("#enemyStrInput").text(newEnemy.str);
-    $("#enemyDexInput").text(newEnemy.dex);
-    $("#enemyIntInput").text(newEnemy.int);
-    $("#enemyConInput").text(newEnemy.con);
+  $("#accept-roll").click(function() {
+    $(".char-8die").hide();
+    $(".char-stats-alloc").show();
+
   });
 
   $("#lets-play").click(function() {
@@ -287,7 +284,18 @@ $(document).ready(function() {
       $(".combat").show();
       // console.log("newChar = " , newChar);
     }
+  });
 
+  $("#revealText").click(function(){
+    newEnemy.createEnemy();
+    enemyImageCardChange();
+    $("#revealText").hide();
+    $("#enemy div").removeClass("hide");
+    $("#enemyNameInput").text(newEnemy.enemyClass);
+    $("#enemyStrInput").text(newEnemy.str);
+    $("#enemyDexInput").text(newEnemy.dex);
+    $("#enemyIntInput").text(newEnemy.int);
+    $("#enemyConInput").text(newEnemy.con);
   });
 
   $("#attack").click(function(){
