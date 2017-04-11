@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <script src="js/jquery-3.2.0.js" charset="utf-8"></script>
     <script src="js/scripts.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css"  type="text/css">
+    <link rel="stylesheet" href="css/animation.css"  type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Poiret+One" rel="stylesheet">
     <title>RPG</title>
   </head>
@@ -16,13 +19,16 @@
       <div class="well">
         <h2>Welcome...</h2>
         <p>Welcome to the world of...Create your hero and fight against...</p>
-        <h3>Rules of the Game:</h3>
+        <h2>Rules of the Game:</h2>
         <ul>
           <li>First roll the die to determine the number of credits you can use to add to your character's stats.</li>
           <li>Create your character, determine their name, choose their gender and class.</li>
           <li>Apply the stat credits as you see fit.</li>
           <li>Face your enemy, roll the die to determine your hit points which will be added to your stats.</li>
         </ul>
+        <div class="start">
+          <button id="start" class="btn btn-danger" type="button">Create your character</button>
+        </div>
       </div>
       <div class="row char-creation">
         <h2>Create your character!</h2>
@@ -135,32 +141,46 @@
       <div class="row combat">
         <div class="row attacks">
           <div class="col-sm-4" id="hero-attack">
-
+            <p>
+              <span class="roll"></span>
+              <span class="mod"></span>
+              <span class="total"></span>
+            </p>
           </div>
           <div class="col-sm-4">
             <button id="attack" type="button" class="btn btn-danger btn-large">ATTACK!!!!</button>
           </div>
           <div class="col-sm-4" id="enemy-attack">
-
+            <p>
+              <span class="roll"></span>
+              <span class="mod"></span>
+              <span class="total"></span>
+            </p>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-5">
           <!-- <img class="char-img" src="img/arms1.png" alt="charcter image" id="char-attack"> -->
           <div id="character">
             <p></p>
             <div class="alignment">
               <p><span id="charName"></span></p>
-              <p>Str:<span id="charStr"></span></p>
-              <p>Dex:<span id="charDex"></span></p>
-              <p>Int:<span id="charInt"></span></p>
-              <p>Con:<span id="charCon"></span></p>
+              <p>Str: <span id="charStr"></span></p>
+              <p>Dex: <span id="charDex"></span></p>
+              <p>Int: <span id="charInt"></span></p>
+              <p>Con: <span id="charCon"></span></p>
             </div>
           </div>
+          <div id="lose" class="enemy_card hide">
+            <p class="alignment">Try Again</p>
+          </div>
         </div>
-        <div class="col-sm-6 enemy">
+        <div class="col-sm-2" id="results">
+          <p class="alignment"></p>
+        </div>
+        <div class="col-sm-5 enemy">
           <div id="enemy" class="enemy_card">
             <p id="revealText">Click to reveal your enemy...</p>
-            <div class="hide alignment">
+            <div id="back" class="alignment hide">
               <p><span id="enemyNameInput"></span></p>
               <p>Str: <span id="enemyStrInput"></span></p>
               <p>Dex: <span id="enemyDexInput"></span></p>
