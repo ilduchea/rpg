@@ -51,7 +51,7 @@ Enemy.prototype.createEnemy = function() {
   this.str = str;
   this.dex = dex;
   this.int = int;
-  this.con = con;
+  this.con = con + 2;
 
   var randomEnemyClass = function() {
     return Math.floor(Math.random() * 3) + 1;
@@ -63,10 +63,13 @@ Enemy.prototype.createEnemy = function() {
   var enemyGenderRoll = randomEnemyGender();
   if (enemyClassRoll === 1) {
     this.enemyClass = "Warrior";
+    this.str = parseInt(this.str + 3);
   } else if (enemyClassRoll === 2) {
     this.enemyClass = "Ranger";
+    this.dex = parseInt(this.dex + 3);
   } else {
     this.enemyClass = "Mage";
+    this.int = parseInt(this.int + 3);
   }
   if (enemyGenderRoll === 1) {
     this.gender = "Male";
@@ -79,11 +82,12 @@ var getAttackStat = function(entity){
   var str = entity.str;
   var dex = entity.dex;
   var int = entity.int;
-  if (str >= dex && str >= int){
+  
+  if ((str >= dex) && (str >= int)){
     return parseInt(str);
-  } else if (dex >= str && dex >= int){
+  } else if ((dex >= str) && (dex >= int)){
     return parseInt(dex);
-  } else if (int >= str && int >= dex){
+  } else if ((int >= str) && (int >= dex)){
     return parseInt(int);
   }
 };
@@ -353,7 +357,8 @@ $(document).ready(function() {
     var characterAttack = characterAttackRoll + attackMod;
     var enemyAttack = enemyAttackRoll + enemyMod;
     var results = compareRolls(characterAttack, enemyAttack);
-
+    console.log(newChar);
+    console.log(attackMod);
     $(".attacks").addClass("attack");
     $("#enemy, #character").removeClass("winner");
 
