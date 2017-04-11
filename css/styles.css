@@ -1,3 +1,10 @@
+
+table td {
+  /*border-width: 1px;
+  border-color: green;
+  border-style: dashed;*/
+}
+
 h1 {
   text-align: center;
   font-size: 90px;
@@ -19,7 +26,7 @@ h1 {
 
 body {
   font-family: 'Poiret One', cursive;
-  font-size: 28px;
+  font-size: 26px;
   font-style: 900;
 }
 
@@ -46,8 +53,33 @@ body {
   display: none;
 }
 
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+
 #all-inputs {
-  margin-left: 25px;
+  margin-left: 30px;
+  margin-top: 25px;
+}
+
+#all-inputs td {
+  width: 100px;
+}
+
+#table1 {
+
+}
+
+#table2 {
+
+}
+
+#input-name {
+  width: 200px;
+}
+
+#no-name-td {
+  width: 50px;
 }
 
 .alert-input {
@@ -57,8 +89,9 @@ body {
   color: red;
 }
 
-#no-name-td {
-  width: 50px;
+.stat-cross-img {
+  height: 25px;
+  float: left;
 }
 
 #no-roll {
@@ -93,34 +126,10 @@ body {
   width: 45%;
 }
 
-.stats input {
-  width: 30%;
-}
-
-#all-inputs {
-  width: 95%;
-  margin-top: 25px;
-
-}
-#all-inputs td {
-  /*border-width: 1px;
-  border-color: green;
-  border-style: dashed;*/
-}
-
-#td1 {
-  width: 70px;
-}
-
-#input-name {
-  width: 200px;
-}
-
 /*adds spacing between the input fields*/
 #char-card select, #char-card input {
   margin-bottom: 10px;
 }
-
 
 .char-8die {
   margin-left:40px;
@@ -149,6 +158,7 @@ body {
 
 .char-stats-alloc {
   display: none;
+  margin-left:40px;
 }
 
 .char-stats-alloc h2 {
@@ -159,13 +169,14 @@ body {
 
 #cross1 {
   height: 120px;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-right: 20px;
 }
 
 #no-alloc {
   height: auto;
 }
+
 
 #lets-play {
   float: right;
@@ -175,8 +186,12 @@ body {
   background-color: white;
 }
 
-/*character attack section*/
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
 
+
+/*character attack section*/
 #character, #enemy {
   color: white;
   text-align: center;

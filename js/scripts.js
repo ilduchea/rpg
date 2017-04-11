@@ -4,6 +4,7 @@
 function Game() {
   this.char;
   this.rollCount = 3;
+  this.statsToAlloc = 5;
   this.ready = false;
   this.enemies = [];
   this.characters = [];
@@ -13,7 +14,6 @@ function Character() {
   this.name = "";
   this.charClass = "";
   this.gender = "";
-  this.statPoints = 5;
   this.str = 0;
   this.dex = 0;
   this.int = 0;
@@ -243,7 +243,7 @@ $(document).ready(function() {
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
     // show the "accept-roll" button for the first time
-    $("#accept-roll").show();
+    $("#accept-roll").fadeIn(400);
     //check if rolls are left and update the game object
     newGame.updateRollCount();
     if (newGame.rollCount >= 0) {
@@ -258,7 +258,7 @@ $(document).ready(function() {
 
   $("#accept-roll").click(function() {
     $(".char-8die").hide();
-    $(".char-stats-alloc").show();
+    $(".char-stats-alloc").fadeIn(400);
 
   });
 

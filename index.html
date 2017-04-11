@@ -28,107 +28,77 @@
         <h2>Create your character!</h2>
         <div id="char-card" class="col-sm-6">
           <!-- placed everything into a table to keep things lined up nicely -->
-          <table id="all-inputs">
-            <tr  class="form-group">
-              <td id="td1">
-                <label for="name" class="control-label">Name:</label>
-              </td>
-              <td >
-                <input id="input-name" type="text" name="name" value="" class="form-control" placeholder="Who art thou?">
-              </td>
-              <td id="no-name-td">
-                <p><span id="no-name" class="alert-input"></span></p>
-              </td>
-            </tr>
-            <tr class="form-group">
-              <td>
-                <label for="class" class="control-label">Class:</label>
-              </td>
-              <td>
-                <select class="char-class form-control" name="class">
-                  <option value="Select">Select</option>
-                  <option value="Warrior">Warrior</option>
-                  <option value="Ranger">Ranger</option>
-                  <option value="Mage">Mage</option>
-                </select>
-              </td>
-              <td id="no-class-td">
-                <p><span id="no-class" class="alert-input"></span></p>
-              </td>
-            </tr>
-            <tr class="form-group">
-              <td>
-                <label for="gender" class="control-label">Gender:</label>
-              </td>
-              <td>
-                <select class="char-gender form-control" name="gender">
-                  <option value="Select">Select</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-              </td>
-              <td id="no-gender-td">
-                <p><span id="no-gender" class="alert-input"></span></p>
-              </td>
-            </tr>
-            <div class="stats">
-              <tr class="stats">
-                <td>
-                  <label for="strength" class="control-label">Strength:</label>
-                </td>
-                <td>
-                  <input id="input-str" type="number" name="strength" value="1" class="form-control" disabled="disabled">
-                </td>
+          <div id="all-inputs">
+            <table id="table1">
+              <tr  class="form-group">
+                <td id="td1"><label for="name" class="control-label">Name:</label></td>
+                <td><input id="input-name" type="text" name="name" value="" class="form-control" placeholder="Who art thou?"></td>
+                <td id="no-name-td"><p><span id="no-name" class="alert-input"></span></p></td>
               </tr>
-              <tr class="stats">
+              <tr class="form-group">
+                <td><label for="class" class="control-label">Class:</label></td>
                 <td>
-                  <label for="dexterity" class="control-label">Dexterity:</label>
+                  <select class="char-class form-control" name="class">
+                    <option value="Select">Select</option>
+                    <option value="Warrior">Warrior</option>
+                    <option value="Ranger">Ranger</option>
+                    <option value="Mage">Mage</option>
+                  </select>
                 </td>
-                <td>
-                  <input id="input-dex" type="number" name="dexterity" value="1" class="form-control" disabled="disabled">
-                </td>
+                <td id="no-class-td"><p><span id="no-class" class="alert-input"></span></p></td>
               </tr>
-              <tr class="stats">
+              <tr class="form-group">
+                <td><label for="gender" class="control-label">Gender:</label></td>
                 <td>
-                  <label for="intelligence" class="control-label" >Intelligence:</label>
+                  <select class="char-gender form-control" name="gender">
+                    <option value="Select">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </td>
-                <td>
-                  <input id="input-int" type="number" name="intelligence" value="1" class="form-control" disabled="disabled">
-                </td>
+                <td id="no-gender-td"><p><span id="no-gender" class="alert-input"></span></p></td>
               </tr>
-              <tr class="stats">
-                <td>
-                  <label for="constitution" class="control-label">Constitution:</label>
-                </td>
-                <td>
-                  <input id="input-con" type="number" name="constitution" value="1" class="form-control" disabled="disabled">
-                </td>
+            </table> <!-- END table 1 -->
+            <table id="table2">
+              <tr>
+                <td><label for="strength" class="control-label">Strength:</label></td>
+                <td><input id="input-str" type="number" name="strength" value="1" class="form-control" disabled="disabled"></td>
+                <td><img id="statUp1" class="stat-cross-img" src="img/cross2.png" alt="cross2" /></td>
               </tr>
-            </div>
-          </table>
+              <tr>
+                <td><label for="dexterity" class="control-label">Dexterity:</label></td>
+                <td><input id="input-dex" type="number" name="dexterity" value="1" class="form-control" disabled="disabled"></td>
+                <td><img id="statUp2" class="stat-cross-img" src="img/cross2.png" alt="cross2" /></td>
+              </tr>
+              <tr>
+                <td><label for="intelligence" class="control-label" >Intelligence:</label></td>
+                <td><input id="input-int" type="number" name="intelligence" value="1" class="form-control" disabled="disabled"></td>
+                <td><img id="statUp3" class="stat-cross-img" src="img/cross2.png" alt="cross2" /></td>
+              </tr>
+              <tr>
+                <td><label for="constitution" class="control-label">Constitution:</label></td>
+                <td><input id="input-con" type="number" name="constitution" value="1" class="form-control" disabled="disabled"></td>
+                <td><img id="statUp4" class="stat-cross-img" src="img/cross2.png" alt="cross2" /></td>
+              </tr>
+            </table> <!-- END table 2 -->
+          </div> <!-- END DIV all-inputs -->
+
           <div class="char-8die">
             <table>
               <tr>
-                <td>
-                  <h2><img id="die8" src="img/8sidedie.png" alt="8-sided die">Rolls left: <span id="rolls-left">3</span></h2>
-                </td>
-                <td>
-                  <p id="no-roll" class="alert-input"><span></span></p>
-                </td>
+                <td><h2><img id="die8" src="img/8sidedie.png" alt="8-sided die">Rolls left: <span id="rolls-left">3</span></h2></td>
+                <td><p id="no-roll" class="alert-input"><span></span></p></td>
               </tr>
             </table>
-          <button id="accept-roll" class="btn" type="button" name="button">Accept Roll</button>
+            <button id="accept-roll" class="btn" type="button" name="button">Accept Roll</button>
           </div>
+
           <div class="char-stats-alloc">
             <table>
               <tr>
-                <td>
-                  <h2><img id="cross1" src="img/cross1.png" alt="cross1">Stats left: <span id="stats-left">5</span></h2>
-                </td>
-                <td>
-                  <p id="no-alloc" class="alert-input"><span></span></p>
-                </td>
+                <td><h2><img id="cross1" src="img/cross1.png" alt="cross1">Stats left: <span id="stats-left">5</span></h2></td>
+                <td><p id="no-alloc" class="alert-input"><span></span></p></td>
               </tr>
             </table>
           </div>
