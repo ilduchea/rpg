@@ -69,12 +69,28 @@ Enemy.prototype.createEnemy = function() {
   }
 }
 
+var getAttackStat = function(entity){
+  var str = entity.str;
+  var dex = entity.dex;
+  var int = entity.int;
+  if (str >= dex && str >= int){
+    return parseInt(str);
+  } else if (dex >= str && dex >= int){
+    return parseInt(dex);
+  } else if (int >= str && int >= dex){
+    return parseInt(int);
+  }
+};
 //random die number generator (2-8)
 var dieRoll2to8 = function() {
   return Math.floor(Math.random() * 7) + 2;
 }
 
-//===========//
+var attackRoll = function(){
+  return Math.floor(Math.random() * 20) + 1;
+}
+
+///////////////
 // FRONT END //
 //===========//
 $(document).ready(function() {
@@ -266,6 +282,15 @@ $(document).ready(function() {
 
   });
 
+  $("#attack").click(function(){
+    var attackMod = getAttackStat(newChar);
+    var enemyMod = getAttackStat(newEnemy);
+    var characterAttack = attackRoll() + attackMod;
+    var enemyAttack = attackRoll() + enemyMod;
+
+    $("#hero-attack").text(characterAttack);
+    $("#enemy-attack").text(enemyAttack);
+  });
   // simple page reload button function
   $("#btnReset").click(function() {
     location.reload();
