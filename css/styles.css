@@ -1,8 +1,8 @@
 
 table td {
-  /*border-width: 1px;
+  border-width: 1px;
   border-color: green;
-  border-style: dashed;*/
+  border-style: dashed;
 }
 
 h1 {
@@ -66,12 +66,8 @@ body {
   width: 100px;
 }
 
-#table1 {
-
-}
-
-#table2 {
-
+#table1 input, #table2 input{
+  margin-top: 10px;
 }
 
 #input-name {
@@ -90,8 +86,10 @@ body {
 }
 
 .stat-cross-img {
-  height: 25px;
-  float: left;
+  display: none;
+  margin-bottom: 4px;
+  margin-left: 6px;
+  height: 32px;
 }
 
 #no-roll {
@@ -99,6 +97,7 @@ body {
 }
 
 #char-card {
+  height: 640px;
   background-image: url("../img/card1.png");
   background-repeat: no-repeat;
   border-radius: 30px;

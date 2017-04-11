@@ -259,7 +259,7 @@ $(document).ready(function() {
   $("#accept-roll").click(function() {
     $(".char-8die").hide();
     $(".char-stats-alloc").fadeIn(400);
-
+    $("#table2 .stat-cross-img").fadeIn(400);
   });
 
   $("#lets-play").click(function() {
@@ -308,6 +308,7 @@ $(document).ready(function() {
     $("#enemy-attack").text(enemyAttack);
   });
   // simple page reload button function
+
   $("#btnReset").click(function() {
     location.reload();
   });
