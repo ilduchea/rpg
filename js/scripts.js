@@ -18,6 +18,7 @@ function Character() {
   this.dex = 0;
   this.int = 0;
   this.con = 0;
+  this.hitpoints = 0;
 }
 
 Character.prototype.addEnemy = function() {
@@ -312,10 +313,10 @@ $(document).ready(function() {
       newChar.name = $("#input-name").val();
       newChar.charClass = $(".char-class option:selected").val();
       newChar.gender = $(".char-gender option:selected").val();
-      newChar.str = $("#input-str").val();
-      newChar.dex = $("#input-dex").val();
-      newChar.int = $("#input-int").val();
-      newChar.con = $("#input-con").val();
+      newChar.str = parseInt($("#input-str").val());
+      newChar.dex = parseInt($("#input-dex").val());
+      newChar.int = parseInt($("#input-int").val());
+      newChar.con = parseInt($("#input-con").val());
       // update combat char card with new stats
 
       $("#charName").text(newChar.name);
@@ -326,7 +327,7 @@ $(document).ready(function() {
       $(".char-creation").slideUp(400);
       $(".combat").slideDown(400);
       $(".attacks").hide();
-      // console.log("newChar = " , newChar);
+      console.log("newChar = " , newChar);
     }
   });
 
@@ -368,7 +369,7 @@ $(document).ready(function() {
       $("#lose").addClass("char-lose");
       $("#enemy").addClass("winner")
       $("#attack").hide();
-    } 
+    }
 
     $("#hero-attack .roll").text(characterAttackRoll + " + ");
     $("#hero-attack .mod").text(attackMod + " = ");
