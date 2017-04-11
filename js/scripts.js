@@ -116,8 +116,8 @@ $(document).ready(function() {
   var newChar = new Character();
 
   $("#start").click(function(){
-    $(".well").slideUp(1000);
-    $(".char-creation").slideDown(1000);
+    $(".well").slideUp(500);
+    $(".char-creation").slideDown(500);
   });
 
   var enemyImageCardChange = function(){
@@ -271,7 +271,6 @@ $(document).ready(function() {
     }
   });
 
-
   $("#accept-roll").click(function() {
     $(".char-8die").hide();
     $("#stats-left").text(newGame.statsToAlloc);
@@ -279,6 +278,7 @@ $(document).ready(function() {
     $("#table2 .stat-cross-img").fadeIn(400);
   });
 
+  // CLICK ON STAT CROSS
   $(".stat-cross-img").click(function() {
     // get ID name of stat image clicked
     let statClicked = $(this).attr("id");
@@ -292,7 +292,7 @@ $(document).ready(function() {
     } else if (statClicked === "statUpCon") {
       $("#input-con").val( parseInt($("#input-con").val()) + 1 );
     } else {
-      console.log("statUp problem");
+      console.log("statClicked problem");
     }
 
     newGame.statsToAlloc -= 1;
@@ -301,7 +301,7 @@ $(document).ready(function() {
     // out of stats? buttons disappear
     if (newGame.statsToAlloc === 0) {
       $(".char-stats-alloc").fadeOut(400);
-      $("#table2 .stat-cross-img").fadeOut(400);
+      $("#table2 .stat-cross-img").hide();
     }
   });
 
@@ -323,8 +323,8 @@ $(document).ready(function() {
       $("#charDex").text(newChar.dex);
       $("#charInt").text(newChar.int);
       $("#charCon").text(newChar.con);
-      $(".char-creation").slideUp(1000);
-      $(".combat").slideDown(1000);
+      $(".char-creation").slideUp(400);
+      $(".combat").slideDown(400);
       $(".attacks").hide();
       // console.log("newChar = " , newChar);
     }
@@ -385,8 +385,8 @@ $(document).ready(function() {
     $(".attacks").removeClass("attack");
     $("#attack").show();
   })
-  // simple page reload button function
 
+  // simple page reload button - maybe use this later
   $("#btnReset").click(function() {
     location.reload();
   });

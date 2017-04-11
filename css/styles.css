@@ -12,16 +12,12 @@ h1 {
   font-family: 'Cinzel Decorative', cursive;
 }
 
-
 #bg-img {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
   z-index: -99;
   opacity: 0.75;
-  /* Preserve aspet ratio */
-  min-width: 100%;
   min-height: 100%;
+  min-width: 100%;
 }
 
 body {
@@ -34,6 +30,10 @@ body {
   background-color: rgba(169, 179, 185, 0.7);
   border-color: rgba(169, 179, 185, 0.7);
   font-weight: bold;
+}
+
+.start img {
+  height: 100px;
 }
 
 .col-sm-6 {
@@ -56,13 +56,9 @@ body {
 /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
 /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
 
-#all-inputs {
+#char-card-tables {
   margin-left: 30px;
   margin-top: 25px;
-}
-
-#all-inputs td {
-  width: 100px;
 }
 
 #table1 input, #table2 input{
@@ -70,16 +66,28 @@ body {
   margin-bottom: 8px;
 }
 
+#table1 td {
+  width: 100px;
+}
+
+#table2 td {
+  width: 70px;
+}
+
 #table2 input {
-  width: 50px;
+  width: 60px;
 }
 
 #char-card select {
-  width: 45%;
+  width: 80px;
+}
+
+#td1 {
+  margin-right: 58px;
 }
 
 #input-name {
-  width: 200px;
+  width: 180px;
 }
 
 #no-name-td {
@@ -228,7 +236,22 @@ body {
   color: rgb(140, 42, 41);
 }
 
-.start, .attacks, .start #start, #results {
+
+.alignment {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.start #start {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bolder;
+  color: #3D3300;
+  background-color: rgba(169, 179, 185, 0.7);
+  border-color: #CCAC00;
+}
+
+.start, .attacks, #results {
   align-self: center;
   text-align: center;
   color: white;
