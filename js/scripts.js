@@ -88,6 +88,7 @@ var getAttackStat = function(entity){
 //random die number generator (2-8)
 var dieRoll2to8 = function() {
   return Math.floor(Math.random() * 7) + 2;
+
 }
 
 var attackRoll = function(){
