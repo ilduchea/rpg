@@ -65,12 +65,17 @@ body {
   width: 100px;
 }
 
-#table1 {
-
+#table1 input, #table2 input{
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-#table2 {
+#table2 input {
+  width: 50px;
+}
 
+#char-card select {
+  width: 45%;
 }
 
 #input-name {
@@ -89,8 +94,10 @@ body {
 }
 
 .stat-cross-img {
-  height: 25px;
-  float: left;
+  display: none;
+  margin-bottom: 4px;
+  margin-left: 6px;
+  height: 30px;
 }
 
 #no-roll {
@@ -98,6 +105,7 @@ body {
 }
 
 #char-card {
+  height: 640px;
   background-image: url("../img/card1.png");
   background-repeat: no-repeat;
   border-radius: 30px;
@@ -108,9 +116,6 @@ body {
 .char-img {
   float: right;
   width: 420px;
-  border-radius: 30px;
-  border-style: none;
-  border-width: 1px;
 }
 
 #char-class {
@@ -118,16 +123,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain; /*keeps the whole image with in the area*/
-}
-
-/*sets the width of the input fields*/
-#char-card select {
-  width: 45%;
-}
-
-/*adds spacing between the input fields*/
-#char-card select, #char-card input {
-  margin-bottom: 10px;
 }
 
 .char-8die {
