@@ -1,3 +1,10 @@
+
+table td {
+  /*border-width: 1px;
+  border-color: green;
+  border-style: dashed;*/
+}
+
 h1 {
   text-align: center;
   font-size: 90px;
@@ -19,7 +26,7 @@ h1 {
 
 body {
   font-family: 'Poiret One', cursive;
-  font-size: 28px;
+  font-size: 26px;
   font-style: 900;
 }
 
@@ -34,22 +41,44 @@ body {
 }
 
 .char-creation h2 {
-  font-weight: 900;
+  font-weight: 1200;
   text-align: center;
   font-size: 38px;
-  color: white;
-  text-shadow: -1px 1px #000,
-               -1px -1px #000,
-               1px -1px #000,
-               1px 1px #000;
+  color: #e0df7e;
+  text-shadow: -1px 1px #000;
 }
 
 .combat {
   display: none;
 }
 
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+
 #all-inputs {
-  margin-left: 25px;
+  margin-left: 30px;
+  margin-top: 25px;
+}
+
+#all-inputs td {
+  width: 100px;
+}
+
+#table1 {
+
+}
+
+#table2 {
+
+}
+
+#input-name {
+  width: 200px;
+}
+
+#no-name-td {
+  width: 50px;
 }
 
 .alert-input {
@@ -59,8 +88,9 @@ body {
   color: red;
 }
 
-#no-name-td {
-  width: 50px;
+.stat-cross-img {
+  height: 25px;
+  float: left;
 }
 
 #no-roll {
@@ -83,12 +113,6 @@ body {
   border-width: 1px;
 }
 
-.greenback {
-  background-color: green;
-  background-position: left;
-  background-size: contain;
-}
-
 #char-class {
   background-image: url("../img/warrior1.png");
   background-repeat: no-repeat;
@@ -101,23 +125,19 @@ body {
   width: 45%;
 }
 
-.stats input {
-  width: 30%;
-}
-
-#all-inputs {
-  width: 70%;
-  margin: 25px 15px;
-}
-
 /*adds spacing between the input fields*/
 #char-card select, #char-card input {
   margin-bottom: 10px;
 }
 
-
 .char-8die {
   margin-left:40px;
+}
+
+.char-8die h2 {
+  font-weight: 900;
+  color: #63420f;
+  text-shadow: none;
 }
 
 #die8 {
@@ -126,17 +146,51 @@ body {
   margin-right: 20px;
 }
 
-#lets-play {
-  float: right;
-  text-align: center;
+#accept-roll {
+  display: none;
+  float: left;
   font-size: 30px;
   font-weight: bolder;
   color: #63420f;
   background-color: white;
 }
 
-/*character attack section*/
+.char-stats-alloc {
+  display: none;
+  margin-left:40px;
+}
 
+.char-stats-alloc h2 {
+  font-weight: 900;
+  color: #63420f;
+  text-shadow: none;
+}
+
+#cross1 {
+  height: 120px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#no-alloc {
+  height: auto;
+}
+
+
+#lets-play {
+  float: right;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #63420f;
+  background-color: white;
+}
+
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
+
+
+/*character attack section*/
 #character, #enemy, #lose {
   color: white;
   text-align: center;

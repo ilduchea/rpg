@@ -4,6 +4,7 @@
 function Game() {
   this.char;
   this.rollCount = 3;
+  this.statsToAlloc = 5;
   this.ready = false;
   this.enemies = [];
   this.characters = [];
@@ -88,6 +89,7 @@ var getAttackStat = function(entity){
 //random die number generator (2-8)
 var dieRoll2to8 = function() {
   return Math.floor(Math.random() * 7) + 2;
+
 }
 
 var attackRoll = function(){
@@ -255,6 +257,8 @@ $(document).ready(function() {
   });
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
+    // show the "accept-roll" button for the first time
+    $("#accept-roll").fadeIn(400);
     //check if rolls are left and update the game object
     newGame.updateRollCount();
     if (newGame.rollCount >= 0) {
@@ -265,6 +269,12 @@ $(document).ready(function() {
       $("#input-con").val(dieRoll2to8());
       $("#no-roll").text("");
     }
+  });
+
+
+  $("#accept-roll").click(function() {
+    $(".char-8die").hide();
+    $(".char-stats-alloc").fadeIn(400);
   });
 
   $("#lets-play").click(function() {
@@ -290,7 +300,18 @@ $(document).ready(function() {
       $(".attacks").hide();
       // console.log("newChar = " , newChar);
     }
+  });
 
+  $("#revealText").click(function(){
+    newEnemy.createEnemy();
+    enemyImageCardChange();
+    $("#revealText").hide();
+    $("#enemy div").removeClass("hide");
+    $("#enemyNameInput").text(newEnemy.enemyClass);
+    $("#enemyStrInput").text(newEnemy.str);
+    $("#enemyDexInput").text(newEnemy.dex);
+    $("#enemyIntInput").text(newEnemy.int);
+    $("#enemyConInput").text(newEnemy.con);
   });
 
     $("#revealText").click(function(){
