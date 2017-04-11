@@ -258,8 +258,36 @@ $(document).ready(function() {
 
   $("#accept-roll").click(function() {
     $(".char-8die").hide();
+    $("#stats-left").text(newGame.statsToAlloc);
     $(".char-stats-alloc").fadeIn(400);
     $("#table2 .stat-cross-img").fadeIn(400);
+  });
+
+  $(".stat-cross-img").click(function() {
+    // get ID name of stat image clicked
+    let statClicked = $(this).attr("id");
+    // update the correct stat in UI
+    if (statClicked === "statUpStr") {
+      $("#input-str").val( parseInt($("#input-str").val()) + 1 );
+    } else if (statClicked === "statUpDex") {
+      $("#input-dex").val( parseInt($("#input-dex").val()) + 1 );
+    } else if (statClicked === "statUpInt") {
+      $("#input-int").val( parseInt($("#input-int").val()) + 1 );
+    } else if (statClicked === "statUpCon") {
+      $("#input-con").val( parseInt($("#input-con").val()) + 1 );
+    } else {
+      console.log("statUp problem");
+    }
+
+    newGame.statsToAlloc -= 1;
+    $("#stats-left").text(newGame.statsToAlloc);
+
+    // out of stats? buttons disappear
+    if (newGame.statsToAlloc === 0) {
+      $(".char-stats-alloc").fadeOut(400);
+      $("#table2 .stat-cross-img").fadeOut(400);
+    }
+
   });
 
   $("#lets-play").click(function() {
