@@ -194,6 +194,12 @@ body {
 
 
 /*character attack section*/
+
+.alignment {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 #character, #enemy, #lose {
   color: white;
   text-align: center;
@@ -213,17 +219,23 @@ body {
   float: right;
 }
 
-#revealText:hover {
+#revealText:hover, #lose:hover {
   cursor: pointer;
 }
 
-#charNameInput, #enemyNameInput{
+#charName {
+  color: #e0df7e;
+}
+
+#charName, #enemyNameInput{
   font-size: 38px;
+  margin-top: 40px;
 }
 
 #enemyNameInput {
   color: rgb(140, 42, 41);
 }
+
 
 .alignment {
   display: table-cell;
@@ -251,10 +263,32 @@ body {
                1px 1px #000;
 }
 
+#back {
+  height: 600px;
+  width: 420px;
+  display: table;
+  text-align: center;
+}
+
+.card-table {
+  display: table-row;
+  vertical-align: bottom;
+  height: 125px;
+}
+
+.card-table  .col-sm-6 {
+  height: 50px;
+}
+
+.spacer {
+  width: 200px;
+}
+
 #results {
   height: 600px;
   display: table;
 }
+
 .char-creation, .hide {
   display: none;
 }
