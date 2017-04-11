@@ -223,10 +223,6 @@ body {
   cursor: pointer;
 }
 
-#charName {
-  color: #e0df7e;
-}
-
 #charName, #enemyNameInput{
   font-size: 38px;
   margin-top: 40px;
@@ -251,7 +247,7 @@ body {
   border-color: #CCAC00;
 }
 
-.start, .attacks, #results {
+.start, .attacks, #results, .hitPoints {
   align-self: center;
   text-align: center;
   color: white;
@@ -261,6 +257,10 @@ body {
                -1px -1px #000,
                1px -1px #000,
                1px 1px #000;
+}
+
+#charName, p.hitPoints {
+  color: #e0df7e;
 }
 
 #back {
@@ -278,10 +278,6 @@ body {
 
 .card-table  .col-sm-6 {
   height: 50px;
-}
-
-.spacer {
-  width: 200px;
 }
 
 #results {

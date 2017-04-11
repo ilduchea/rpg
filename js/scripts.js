@@ -40,6 +40,7 @@ function Enemy() {
   this.dex = 0;
   this.int = 0;
   this.con = 0;
+  this.hitPoints = 0;
 }
 
 Enemy.prototype.createEnemy = function() {
@@ -52,6 +53,7 @@ Enemy.prototype.createEnemy = function() {
   this.dex = dex;
   this.int = int;
   this.con = con + 2;
+  this.hitPoints = this.con * 10;
 
   var randomEnemyClass = function() {
     return Math.floor(Math.random() * 3) + 1;
@@ -100,11 +102,13 @@ var attackRoll = function(){
   return Math.floor(Math.random() * 20) + 1;
 }
 
-var compareRolls = function (roll1, roll2){
+var compareRolls = function (roll1, roll2, char, enemy){
   if (roll1 > roll2){
-    return "You Win!"
+    enemy.hitPoints = enemy.hitPoints - (roll1 - roll2);
+    return "You hit for " + (roll1 - roll2) + " damage.";
   } else if (roll2 > roll1){
-    return "You lose"
+    char.hitPoints = char.hitPoints - (roll2 - roll1);
+    return "You take " + (roll2 - roll1) + " points of damage.";
   } else {
     return "It is a tie! Try again..."
   }
@@ -358,9 +362,7 @@ $(document).ready(function() {
     var enemyAttackRoll = attackRoll();
     var characterAttack = characterAttackRoll + attackMod;
     var enemyAttack = enemyAttackRoll + enemyMod;
-    var results = compareRolls(characterAttack, enemyAttack);
-    console.log(newChar);
-    console.log(attackMod);
+    var results = compareRolls(characterAttack, enemyAttack, newChar, newEnemy);
     $(".attacks").addClass("attack");
     $("#enemy, #character").removeClass("winner");
 
@@ -385,6 +387,8 @@ $(document).ready(function() {
     $("#enemy-attack .mod").text(enemyMod + " = ");
     $("#enemy-attack .total").text(enemyAttack);
     $("#results p").text(results);
+    $("#char-hitPoints p").text(newChar.hitPoints);
+    $("#enemy-hitPoints p").text(newEnemy.hitPoints);
   });
 
   $("#lose").click(function(){
