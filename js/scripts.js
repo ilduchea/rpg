@@ -103,6 +103,11 @@ $(document).ready(function() {
   var newEnemy = new Enemy();
   var newChar = new Character();
 
+  $("#start").click(function(){
+    $(".well").slideUp(1000);
+    $(".char-creation").slideDown(1000);
+  });
+
   var enemyImageCardChange = function(){
     let enemyClass = newEnemy.enemyClass;
     let enemyGender = newEnemy.gender;
@@ -252,18 +257,6 @@ $(document).ready(function() {
     }
   });
 
-  $("#revealText").click(function(){
-    newEnemy.createEnemy();
-    enemyImageCardChange();
-    $("#revealText").hide();
-    $("#enemy div").removeClass("hide");
-    $("#enemyNameInput").text(newEnemy.enemyClass);
-    $("#enemyStrInput").text(newEnemy.str);
-    $("#enemyDexInput").text(newEnemy.dex);
-    $("#enemyIntInput").text(newEnemy.int);
-    $("#enemyConInput").text(newEnemy.con);
-  });
-
   $("#lets-play").click(function() {
     // check if name has been entered
     if (checkGameReady() === true) {
@@ -282,12 +275,26 @@ $(document).ready(function() {
       $("#charDex").text(newChar.dex);
       $("#charInt").text(newChar.int);
       $("#charCon").text(newChar.con);
-      $(".char-creation").hide();
-      $(".combat").show();
+      $(".char-creation").slideUp(1000);
+      $(".combat").slideDown(1000);
+      $(".attacks").hide();
       // console.log("newChar = " , newChar);
     }
 
   });
+
+    $("#revealText").click(function(){
+      newEnemy.createEnemy();
+      enemyImageCardChange();
+      $("#back").removeClass("hide");
+      $("#revealText").hide();
+      $(".attacks").show();
+      $("#enemyNameInput").text(newEnemy.enemyClass);
+      $("#enemyStrInput").text(newEnemy.str);
+      $("#enemyDexInput").text(newEnemy.dex);
+      $("#enemyIntInput").text(newEnemy.int);
+      $("#enemyConInput").text(newEnemy.con);
+    });
 
   $("#attack").click(function(){
     var attackMod = getAttackStat(newChar);

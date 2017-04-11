@@ -169,12 +169,13 @@ body {
   color: rgb(140, 42, 41);
 }
 
-.alignment{
+.alignment {
   display: table-cell;
   vertical-align: middle;
 }
 
-.attacks {
+.start, .attacks, .start #start {
+  align-self: center;
   text-align: center;
   color: white;
   font-size: 32px;
@@ -185,7 +186,7 @@ body {
                1px 1px #000;
 }
 
-.hide {
+.char-creation, .hide {
   display: none;
 }
 

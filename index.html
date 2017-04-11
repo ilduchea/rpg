@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <script src="js/jquery-3.2.0.js" charset="utf-8"></script>
     <script src="js/scripts.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css"  type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Poiret+One" rel="stylesheet">
@@ -16,13 +18,16 @@
       <div class="well">
         <h2>Welcome...</h2>
         <p>Welcome to the world of...Create your hero and fight against...</p>
-        <h3>Rules of the Game:</h3>
+        <h2>Rules of the Game:</h2>
         <ul>
           <li>First roll the die to determine the number of credits you can use to add to your character's stats.</li>
           <li>Create your character, determine their name, choose their gender and class.</li>
           <li>Apply the stat credits as you see fit.</li>
           <li>Face your enemy, roll the die to determine your hit points which will be added to your stats.</li>
         </ul>
+        <div class="start">
+          <button id="start" class="btn btn-danger" type="button">Create your character</button>
+        </div>
       </div>
       <div class="row char-creation">
         <h2>Create your character!</h2>
@@ -160,7 +165,7 @@
         <div class="col-sm-6 enemy">
           <div id="enemy" class="enemy_card">
             <p id="revealText">Click to reveal your enemy...</p>
-            <div class="hide alignment">
+            <div id="back" class="alignment hide">
               <p><span id="enemyNameInput"></span></p>
               <p>Str: <span id="enemyStrInput"></span></p>
               <p>Dex: <span id="enemyDexInput"></span></p>
