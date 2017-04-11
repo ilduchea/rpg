@@ -18,7 +18,7 @@ function Character() {
   this.dex = 0;
   this.int = 0;
   this.con = 0;
-  this.hitpoints = 0;
+  this.hitPoints = 0;
 }
 
 Character.prototype.addEnemy = function() {
@@ -82,7 +82,6 @@ var getAttackStat = function(entity){
   var str = entity.str;
   var dex = entity.dex;
   var int = entity.int;
-  
   if ((str >= dex) && (str >= int)){
     return parseInt(str);
   } else if ((dex >= str) && (dex >= int)){
@@ -91,10 +90,10 @@ var getAttackStat = function(entity){
     return parseInt(int);
   }
 };
+
 //random die number generator (2-8)
 var dieRoll2to8 = function() {
   return Math.floor(Math.random() * 7) + 2;
-
 }
 
 var attackRoll = function(){
@@ -249,7 +248,6 @@ $(document).ready(function() {
     }
     return newGame.ready;
   }
-
   // check if the CLASS dropdown was clicked and update the image
   $("select.char-class").change(function() {
     $("#no-class").text("");
@@ -272,6 +270,7 @@ $(document).ready(function() {
       $("#input-dex").val(dieRoll2to8());
       $("#input-int").val(dieRoll2to8());
       $("#input-con").val(dieRoll2to8());
+      $("#input-hp").val(parseInt($("#input-con").val()) * 10);
       $("#no-roll").text("");
     }
   });
@@ -296,6 +295,7 @@ $(document).ready(function() {
       $("#input-int").val( parseInt($("#input-int").val()) + 1 );
     } else if (statClicked === "statUpCon") {
       $("#input-con").val( parseInt($("#input-con").val()) + 1 );
+      $("#input-hp").val(parseInt($("#input-con").val()) * 10)
     } else {
       console.log("statClicked problem");
     }
@@ -321,6 +321,8 @@ $(document).ready(function() {
       newChar.dex = parseInt($("#input-dex").val());
       newChar.int = parseInt($("#input-int").val());
       newChar.con = parseInt($("#input-con").val());
+      newChar.hitPoints = (newChar.con * 10);
+      console.log("newChar.con * 10" , newChar.con * 10);
       // update combat char card with new stats
 
       $("#charName").text(newChar.name);
@@ -335,19 +337,19 @@ $(document).ready(function() {
     }
   });
 
-    $("#revealText").click(function(){
-      newEnemy.createEnemy();
-      enemyImageCardChange();
-      $("#back").toggleClass("hide");
-      $("#revealText").toggle();
-      $(".attacks, #attack").show();
-      $(".attacks").removeClass("attack");
-      $("#enemyNameInput").text(newEnemy.enemyClass);
-      $("#enemyStrInput").text(newEnemy.str);
-      $("#enemyDexInput").text(newEnemy.dex);
-      $("#enemyIntInput").text(newEnemy.int);
-      $("#enemyConInput").text(newEnemy.con);
-    });
+  $("#revealText").click(function(){
+    newEnemy.createEnemy();
+    enemyImageCardChange();
+    $("#back").toggleClass("hide");
+    $("#revealText").toggle();
+    $(".attacks, #attack").show();
+    $(".attacks").removeClass("attack");
+    $("#enemyNameInput").text(newEnemy.enemyClass);
+    $("#enemyStrInput").text(newEnemy.str);
+    $("#enemyDexInput").text(newEnemy.dex);
+    $("#enemyIntInput").text(newEnemy.int);
+    $("#enemyConInput").text(newEnemy.con);
+  });
 
   $("#attack").click(function(){
     var attackMod = getAttackStat(newChar);
