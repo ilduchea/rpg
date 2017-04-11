@@ -29,7 +29,6 @@ body {
   font-weight: bold;
 }
 
-
 .col-sm-6 {
   height: 600px;
 }
@@ -138,7 +137,7 @@ body {
 
 /*character attack section*/
 
-#character, #enemy {
+#character, #enemy, #lose {
   color: white;
   text-align: center;
   width: 420px;
@@ -174,7 +173,7 @@ body {
   vertical-align: middle;
 }
 
-.start, .attacks, .start #start {
+.start, .attacks, .start #start, #results {
   align-self: center;
   text-align: center;
   color: white;
@@ -186,6 +185,10 @@ body {
                1px 1px #000;
 }
 
+#results {
+  height: 600px;
+  display: table;
+}
 .char-creation, .hide {
   display: none;
 }

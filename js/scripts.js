@@ -94,6 +94,16 @@ var attackRoll = function(){
   return Math.floor(Math.random() * 20) + 1;
 }
 
+var compareRolls = function (roll1, roll2){
+  if (roll1 > roll2){
+    return "You Win!"
+  } else if (roll2 > roll1){
+    return "You lose"
+  } else {
+    return "It is a tie!"
+  }
+};
+
 //=============
 // FRONT END
 //=============
@@ -286,9 +296,10 @@ $(document).ready(function() {
     $("#revealText").click(function(){
       newEnemy.createEnemy();
       enemyImageCardChange();
-      $("#back").removeClass("hide");
-      $("#revealText").hide();
-      $(".attacks").show();
+      $("#back").toggleClass("hide");
+      $("#revealText").toggle();
+      $(".attacks, #attack").show();
+      $(".combat").removeClass("attack");
       $("#enemyNameInput").text(newEnemy.enemyClass);
       $("#enemyStrInput").text(newEnemy.str);
       $("#enemyDexInput").text(newEnemy.dex);
@@ -299,12 +310,43 @@ $(document).ready(function() {
   $("#attack").click(function(){
     var attackMod = getAttackStat(newChar);
     var enemyMod = getAttackStat(newEnemy);
-    var characterAttack = attackRoll() + attackMod;
-    var enemyAttack = attackRoll() + enemyMod;
+    var characterAttackRoll = attackRoll();
+    var enemyAttackRoll = attackRoll();
+    var characterAttack = characterAttackRoll + attackMod;
+    var enemyAttack = enemyAttackRoll + enemyMod;
+    var results = compareRolls(characterAttack, enemyAttack);
 
-    $("#hero-attack").text(characterAttack);
-    $("#enemy-attack").text(enemyAttack);
+    $(".combat").addClass("attack");
+
+    if (results === "You Win!"){
+      $("#back").toggleClass("hide");
+      $("#revealText").toggle();
+      $("#enemy").removeClass();
+      $("#enemy").addClass("enemy_card enemy-lose");
+      $("#character").addClass("winner");
+      $("#attack").hide();
+    } else if (results === "You lose") {
+      $("#lose, #character").toggleClass("hide");
+      $("#lose").addClass("char-lose");
+      $("#enemy").addClass("winner")
+      $("#attack").hide();
+    }
+
+    $("#hero-attack .roll").text(characterAttackRoll + " + ");
+    $("#hero-attack .mod").text(attackMod + " = ");
+    $("#hero-attack .total").text(characterAttack);
+    $("#enemy-attack .roll").text(enemyAttackRoll + " + ");
+    $("#enemy-attack .mod").text(enemyMod + " = ");
+    $("#enemy-attack .total").text(enemyAttack);
+    $("#results p").text(results);
   });
+
+  $("#lose").click(function(){
+    $("#lose, #character").toggleClass("hide");
+    $("#character, #enemy, #lose").removeClass("winner enemy-lose char-lose");
+    $(".combat").removeClass("attack");
+    $("#attack").show();
+  })
   // simple page reload button function
   $("#btnReset").click(function() {
     location.reload();
