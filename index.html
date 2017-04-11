@@ -27,17 +27,19 @@
           <li>Face your enemy, roll the die to determine your hit points which will be added to your stats.</li>
         </ul>
         <div class="start">
-          <button id="start" class="btn btn-danger" type="button">Create your character</button>
+          <img src="img/armor1left.png" alt="armorleft" />
+          <button id="start" class="btn" type="button">Create your character</button>
+          <img src="img/armor1right.png" alt="armorright" />
         </div>
       </div>
       <div class="row char-creation">
         <h2>Create your character!</h2>
         <div id="char-card" class="col-sm-6">
           <!-- placed everything into a table to keep things lined up nicely -->
-          <div id="all-inputs">
+          <div id="char-card-tables">
             <table id="table1">
               <tr  class="form-group">
-                <td id="td1"><label for="name" class="control-label">Name:</label></td>
+                <td><label id="td1" for="name" class="control-label">Name:</label></td>
                 <td><input id="input-name" type="text" name="name" value="" class="form-control" placeholder="Who art thou?"></td>
                 <td id="no-name-td"><p><span id="no-name" class="alert-input"></span></p></td>
               </tr>
