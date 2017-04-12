@@ -46,6 +46,14 @@ Character.prototype.addEnemy = function() {
   newGame.enemies.push(this);
 }
 
+Character.prototype.charInputToStats = function() {
+  this.str = parseInt($("#input-str").val());
+  this.dex = parseInt($("#input-dex").val());
+  this.int = parseInt($("#input-int").val());
+  this.con = parseInt($("#input-con").val());
+  this.hitPoints = (this.con * 10);
+}
+
 Enemy.prototype.createEnemy = function(game) {
   var str = dieRoll2to8();
   var dex = dieRoll2to8();
@@ -360,10 +368,26 @@ $(document).ready(function() {
   });
   // LEVEL UP BUTTON
   $("#levelUpBtn").click(function() {
+    //disable name, class, gender inputs
+    $("#input-name").attr('disabled', 'disabled')
+    $(".char-creation .char-class").attr('disabled', 'disabled')
+    $(".char-creation .char-gender").attr('disabled', 'disabled')
+    // transition play area
     $("").text("LEVEL UP");
     // show and hide proper rows
     $(".combat").hide();
     $(".char-creation").slideDown(500);
+    // refresh stats allocator
+    newGame.statsToAlloc = 5;
+    $("#stats-left").text(newGame.statsToAlloc);
+    // show statup images
+    $(".char-stats-alloc").fadeIn(600);
+    $("#table2 .stat-cross-img").fadeIn(600)
+    // change header text to say level up
+    $("#char-title1").text("LEVEL UP!");
+    $("#char-title2").text("...you feel yourself growing stronger...");
+    // show and hide proper rows
+
   });
   // CLICK ON STAT CROSS
   $(".stat-cross-img").click(function() {
@@ -388,8 +412,14 @@ $(document).ready(function() {
 
     // out of stats? buttons disappear
     if (newGame.statsToAlloc === 0) {
-      $(".char-stats-alloc").fadeOut(400);
       $("#table2 .stat-cross-img").hide();
+      $(".char-stats-alloc").hide();
+      // handle showing correct play button
+      if (newGame.fightRound === 0) {
+        $("#lets-play").fadeIn(400);
+      } else {
+        $("#continue-play").fadeIn(400);
+      }
     }
   });
 
@@ -400,22 +430,39 @@ $(document).ready(function() {
       newChar.name = $("#input-name").val();
       newChar.charClass = $(".char-class option:selected").val();
       newChar.gender = $(".char-gender option:selected").val();
-      newChar.str = parseInt($("#input-str").val());
-      newChar.dex = parseInt($("#input-dex").val());
-      newChar.int = parseInt($("#input-int").val());
-      newChar.con = parseInt($("#input-con").val());
-      newChar.hitPoints = (newChar.con * 10);
+      // grab stats form UI and store them in char
+      newChar.charInputToStats();
       // update combat char card with new stats
+      updateCharHealthBar();
       $("#charName").text(newChar.name);
       $("#charStr").text(newChar.str);
       $("#charDex").text(newChar.dex);
       $("#charInt").text(newChar.int);
       $("#charCon").text(newChar.con);
-      updateCharHealthBar();
       $(".char-creation").slideUp(400);
       $(".combat").slideDown(400);
       $(".attacks").hide();
+      $("#lets-play").hide();
     }
+  });
+
+  $("#continue-play").click(function() {
+    newChar.charInputToStats();
+    $("#charName").text(newChar.name);
+    $("#charStr").text(newChar.str);
+    $("#charDex").text(newChar.dex);
+    $("#charInt").text(newChar.int);
+    $("#charCon").text(newChar.con);
+    updateCharHealthBar();
+    $(".attacks").hide();
+    $("#levelUpBtn").hide();
+    $("#continue-play").hide();
+    $("#enemy").removeClass("enemy-lose");
+    $("#character").removeClass("winner");
+    $("#results p").text("");
+    $("#attack").show();
+    $(".char-creation").slideUp(400);
+    $(".combat").slideDown(400);
   });
 
   $("#revealText").click(function(){
@@ -489,6 +536,7 @@ $(document).ready(function() {
   });  // END #attack button function
 
   $("#try-again").click(function(){
+
     // var currentEnemy = newGame.enemies[0];
     // newChar.hitPoints = (newChar.con * 10);
     // currentEnemy.hitPoints = (currentEnemy.con * 10);

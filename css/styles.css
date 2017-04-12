@@ -48,6 +48,10 @@ body {
   text-shadow: -1px 1px #000;
 }
 
+#char-title2 {
+  text-align: center;
+}
+
 .combat {
   display: none;
 }
@@ -156,6 +160,9 @@ body {
   font-weight: bolder;
   color: #63420f;
   background-color: white;
+  border-color: gold;
+  border-width: 1px;
+  border-style: outset;
 }
 
 .char-stats-alloc {
@@ -179,12 +186,18 @@ body {
   height: auto;
 }
 
-#lets-play {
-  float: right;
-  font-size: 30px;
+#lets-play, #continue-play {
+  display: none;
+  float: left;
+  margin-left: 64px;
+  margin-top: 40px;
+  font-size: 35px;
   font-weight: bolder;
   color: #63420f;
   background-color: white;
+  border-color: gold;
+  border-width: 1px;
+  border-style: outset;
 }
 
 /*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
@@ -243,9 +256,11 @@ body {
   text-align: center;
   font-size: 28px;
   font-weight: bolder;
-  color: #3D3300;
   background-color: rgba(169, 179, 185, 0.7);
-  border-color: #CCAC00;
+  color: #3D3300;
+  border-color: gold;
+  border-width: 1px;
+  border-style: outset;
 }
 
 .start, .attacks, #results, .hitPoints {
