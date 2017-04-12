@@ -199,6 +199,7 @@ body {
   vertical-align: middle;
 }
 
+/* */
 #character, #enemy, #lose {
   color: white;
   text-align: center;
@@ -279,7 +280,7 @@ body {
   display: table;
 }
 
-.char-creation, .hide {
+.char-creation, .hide, #levelUpBtn {
   display: none;
 }
 
