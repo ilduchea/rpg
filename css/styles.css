@@ -301,7 +301,12 @@ body {
   display: table;
 }
 
-.char-creation, .hide, #levelUpBtn {
+#row-loser {
+  align-self: center;
+  text-align: center;
+}
+
+.char-creation, .hide, #levelUpBtn, #row-loser {
   display: none;
 }
 

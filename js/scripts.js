@@ -368,11 +368,13 @@ $(document).ready(function() {
   });
   // LEVEL UP BUTTON
   $("#levelUpBtn").click(function() {
-    //diable name, class, gender inputs
+    //disable name, class, gender inputs
     $("#input-name").attr('disabled', 'disabled')
     $(".char-creation .char-class").attr('disabled', 'disabled')
     $(".char-creation .char-gender").attr('disabled', 'disabled')
     // transition play area
+    $("").text("LEVEL UP");
+    // show and hide proper rows
     $(".combat").hide();
     $(".char-creation").slideDown(500);
     // refresh stats allocator
@@ -505,7 +507,7 @@ $(document).ready(function() {
     updateCharHealthBar();
     // check who wins and update images and animations
     if (health === "You Win!"){
-      if ((newGame.enemies.length % 1)===0){ /////////////////////////////////////////////////////////////////////////////////
+      if ((newGame.enemies.length % 2)===0){
         $("#levelUpBtn").show();
       }
       $("#back").toggleClass("hide");
@@ -521,6 +523,7 @@ $(document).ready(function() {
       $("#enemy").addClass("winner");
       $("#attack").hide();
       results = "You Lose";
+
     }  // END IF - win/lose
     // display roll numbers at top of screen and on cards
     $("#hero-attack .roll").text(characterAttackRoll + " + ");
@@ -533,14 +536,17 @@ $(document).ready(function() {
   });  // END #attack button function
 
   $("#try-again").click(function(){
-    var currentEnemy = newGame.enemies[0];
-    newChar.hitPoints = (newChar.con * 10);
-    currentEnemy.hitPoints = (currentEnemy.con * 10);
-    updateCharHealthBar();
-    updateEnemyHealthBar();
+
+    // var currentEnemy = newGame.enemies[0];
+    // newChar.hitPoints = (newChar.con * 10);
+    // currentEnemy.hitPoints = (currentEnemy.con * 10);
+    // updateCharHealthBar();
+    // updateEnemyHealthBar();
+    // $("#attack").show();
     $("#try-again, #character").toggleClass("hide");
     $("#character, #enemy, #try-again").removeClass("winner enemy-lose char-lose");
-    $("#attack").show();
+    $(".combat").hide();
+    $("#row-loser").show();
   })
 
   // simple page reload button - maybe use this later
