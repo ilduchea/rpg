@@ -360,7 +360,7 @@ $(document).ready(function() {
   });
   // LEVEL UP BUTTON
   $("#levelUpBtn").click(function() {
-    #("").text("LEVEL UP");
+    $("").text("LEVEL UP");
     // show and hide proper rows
     $(".combat").hide();
     $(".char-creation").slideDown(500);
@@ -476,6 +476,7 @@ $(document).ready(function() {
       $("#enemy").addClass("winner");
       $("#attack").hide();
       results = "You Lose";
+
     }  // END IF - win/lose
     // display roll numbers at top of screen and on cards
     $("#hero-attack .roll").text(characterAttackRoll + " + ");
@@ -488,20 +489,16 @@ $(document).ready(function() {
   });  // END #attack button function
 
   $("#try-again").click(function(){
+    // var currentEnemy = newGame.enemies[0];
+    // newChar.hitPoints = (newChar.con * 10);
+    // currentEnemy.hitPoints = (currentEnemy.con * 10);
+    // updateCharHealthBar();
+    // updateEnemyHealthBar();
+    // $("#attack").show();
     $("#try-again, #character").toggleClass("hide");
     $("#character, #enemy, #try-again").removeClass("winner enemy-lose char-lose");
-
-  });
-
-  $("#lose").click(function(){
-    var currentEnemy = newGame.enemies[0];
-    newChar.hitPoints = (newChar.con * 10);
-    currentEnemy.hitPoints = (currentEnemy.con * 10);
-    updateCharHealthBar();
-    updateEnemyHealthBar();
-    $("#lose, #character").toggleClass("hide");
-    $("#character, #enemy, #lose").removeClass("winner enemy-lose char-lose");
-    $("#attack").show();
+    $(".combat").hide();
+    $("#row-loser").show();
   })
 
   // simple page reload button - maybe use this later
