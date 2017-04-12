@@ -354,7 +354,10 @@ $(document).ready(function() {
   });
   // LEVEL UP BUTTON
   $("#levelUpBtn").click(function() {
-
+    #("").text("LEVEL UP");
+    // show and hide proper rows
+    $(".combat").hide();
+    $(".char-creation").slideDown(500);
   });
   // CLICK ON STAT CROSS
   $(".stat-cross-img").click(function() {
