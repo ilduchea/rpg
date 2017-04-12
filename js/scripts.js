@@ -7,6 +7,7 @@ function Game() {
   this.statsToAlloc = 5;
   this.ready = false;
   this.enemies = [];
+  this.enemyLevel = 1;
   this.characters = [];
 }
 
@@ -49,17 +50,22 @@ Enemy.prototype.createEnemy = function(game) {
   var dex = dieRoll2to8();
   var int = dieRoll2to8();
   var con = dieRoll2to8();
-  // var charLevel = game.enemies.length / 2;
-  // var getLevelIncrement = function(level) {
-  //   if (level % 4 === 0) {
-  //   var i = charLevel;
-  // }
-  // }
+  //Increment enemy levels by 2 every 4th time the player wins
+  let currentEnemyLevel = game.enemyLevel;
+  var charWins = game.enemies.length;
+  var getLevelIncrement = function(i) {
+    if ((i > 0) && (i % 4 === 0)) {
+      currentEnemyLevel += 2;
+      return currentEnemyLevel;
+    }
+  }
+  getLevelIncrement(charWins);
+  //End enemy level check
 
   this.str = str;
   this.dex = dex;
   this.int = int;
-  this.con = con + 2;
+  this.con = con + (2 * currentEnemyLevel);
   this.hitPoints = this.con * 10;
 
   var randomEnemyClass = function() {
@@ -72,13 +78,13 @@ Enemy.prototype.createEnemy = function(game) {
   var enemyGenderRoll = randomEnemyGender();
   if (enemyClassRoll === 1) {
     this.enemyClass = "Warrior";
-    this.str = parseInt(this.str + 3);
+    this.str = parseInt(this.str + (3 * currentEnemyLevel));
   } else if (enemyClassRoll === 2) {
     this.enemyClass = "Ranger";
-    this.dex = parseInt(this.dex + 3);
+    this.dex = parseInt(this.dex + (3 * currentEnemyLevel));
   } else {
     this.enemyClass = "Mage";
-    this.int = parseInt(this.int + 3);
+    this.int = parseInt(this.int + (3 * currentEnemyLevel));
   }
   if (enemyGenderRoll === 1) {
     this.gender = "Male";
@@ -418,9 +424,9 @@ $(document).ready(function() {
     $("#enemyDexInput").text(newEnemy.dex);
     $("#enemyIntInput").text(newEnemy.int);
     $("#enemyConInput").text(newEnemy.con);
-    $("#char-hitPoints p").text(newChar.hitPoints);
-    $("#enemy-hitPoints p").text(newGame.enemies[0].hitPoints);
-    console.log(newGame);
+    // $("#char-hitPoints p").text(newChar.hitPoints);
+    // $("#enemy-hitPoints p").text(newGame.enemies[0].hitPoints);
+    updateCharHealthBar();
     updateEnemyHealthBar();
   });
 
@@ -471,11 +477,16 @@ $(document).ready(function() {
     $("#enemy-attack .mod").text(enemyMod + " = ");
     $("#enemy-attack .total").text(enemyAttack);
     $("#results p").text(results);
-    $("#char-hitPoints p").text(newChar.hitPoints);
-    $("#enemy-hitPoints p").text(newEnemy.hitPoints);
+    // $("#char-hitPoints p").text(newChar.hitPoints);
+    // $("#enemy-hitPoints p").text(newEnemy.hitPoints);
   });
 
   $("#lose").click(function(){
+    var currentEnemy = newGame.enemies[0];
+    newChar.hitPoints = (newChar.con * 10);
+    currentEnemy.hitPoints = (currentEnemy.con * 10);
+    updateCharHealthBar();
+    updateEnemyHealthBar();
     $("#lose, #character").toggleClass("hide");
     $("#character, #enemy, #lose").removeClass("winner enemy-lose char-lose");
     $("#attack").show();
