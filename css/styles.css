@@ -214,10 +214,6 @@ body {
   display: table;
 }
 
-#enemy {
-  float: right;
-}
-
 #revealText:hover, #lose:hover {
   cursor: pointer;
 }
