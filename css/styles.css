@@ -281,7 +281,7 @@ body {
   display: table;
 }
 
-.char-creation, .hide {
+.char-creation, .hide, #levelUpBtn {
   display: none;
 }
 

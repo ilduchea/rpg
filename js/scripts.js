@@ -19,10 +19,7 @@ function Character() {
   this.int = 0;
   this.con = 0;
   this.hitPoints = 0;
-}
-
-Character.prototype.addEnemy = function() {
-  newGame.enemies.push(this);
+  this.level = 1;
 }
 
 Game.prototype.updateRollCount = function() {
@@ -43,7 +40,7 @@ function Enemy() {
   this.hitPoints = 0;
 }
 
-Enemy.prototype.createEnemy = function() {
+Enemy.prototype.createEnemy = function(game) {
   var str = dieRoll2to8();
   var dex = dieRoll2to8();
   var int = dieRoll2to8();
@@ -78,6 +75,7 @@ Enemy.prototype.createEnemy = function() {
   } else {
     this.gender = "Female";
   }
+  game.enemies.unshift(this);
 }
 
 var getAttackStat = function(entity){
@@ -114,7 +112,7 @@ var compareRolls = function (roll1, roll2, char, enemy){
   }
 };
 
-var checkHealth = function(char, enemy){
+var checkHealth = function(char, enemy, game){
   if (enemy.hitPoints <= 0) {
     return "You Win!";
   } else if (char.hitPoints <= 0) {
@@ -128,7 +126,6 @@ var checkHealth = function(char, enemy){
 $(document).ready(function() {
 
   var newGame = new Game();
-  var newEnemy = new Enemy();
   var newChar = new Character();
 
   $("#start-btn").click(function(){
@@ -137,8 +134,9 @@ $(document).ready(function() {
   });
 
   var enemyImageCardChange = function(){
-    let enemyClass = newEnemy.enemyClass;
-    let enemyGender = newEnemy.gender;
+    let enemy = newGame.enemies[0];
+    let enemyClass = enemy.enemyClass;
+    let enemyGender = enemy.gender;
     if (enemyGender === "Male"){
       switch (true){
         case (enemyClass === "Warrior"):
@@ -350,8 +348,9 @@ $(document).ready(function() {
   });
 
   $("#revealText").click(function(){
+    let newEnemy = new Enemy();
+    newEnemy.createEnemy(newGame);
     newChar.hitPoints = (newChar.con * 10);
-    newEnemy.createEnemy();
     enemyImageCardChange();
     $("#back").toggleClass("hide");
     $("#revealText").hide();
@@ -364,9 +363,11 @@ $(document).ready(function() {
     $("#enemyConInput").text(newEnemy.con);
     $("#char-hitPoints p").text(newChar.hitPoints);
     $("#enemy-hitPoints p").text(newEnemy.hitPoints);
+    console.log(newGame);
   });
 
   $("#attack").click(function(){
+    let newEnemy = newGame.enemies[0];
     var attackMod = getAttackStat(newChar);
     var enemyMod = getAttackStat(newEnemy);
     var characterAttackRoll = attackRoll();
@@ -374,22 +375,27 @@ $(document).ready(function() {
     var characterAttack = characterAttackRoll + attackMod;
     var enemyAttack = enemyAttackRoll + enemyMod;
     var results = compareRolls(characterAttack, enemyAttack, newChar, newEnemy);
-    var health = checkHealth(newChar, newEnemy);
+    var health = checkHealth(newChar, newEnemy, newGame);
     $(".attacks").addClass("attack");
     $("#enemy, #character").removeClass("winner");
 
     if (health === "You Win!"){
+      if ((newGame.enemies.length % 2)===0){
+        $("#levelUpBtn").show();
+      }
       $("#back").toggleClass("hide");
       $("#revealText").show();
       $("#enemy").removeClass();
       $("#enemy").addClass("enemy_card enemy-lose");
       $("#character").addClass("winner");
       $("#attack").hide();
+      results = "You Win!";
     } else if (health === "You lose") {
       $("#lose, #character").toggleClass("hide");
       $("#lose").addClass("char-lose");
-      $("#enemy").addClass("winner")
+      $("#enemy").addClass("winner");
       $("#attack").hide();
+      results = "You Lose";
     }
 
     $("#hero-attack .roll").text(characterAttackRoll + " + ");
