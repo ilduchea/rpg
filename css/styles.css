@@ -179,7 +179,6 @@ body {
   height: auto;
 }
 
-
 #lets-play {
   float: right;
   font-size: 30px;
@@ -238,7 +237,7 @@ body {
   vertical-align: middle;
 }
 
-.start #start {
+.start #start-btn {
   text-align: center;
   font-size: 28px;
   font-weight: bolder;
@@ -276,7 +275,7 @@ body {
   height: 125px;
 }
 
-.card-table  .col-sm-6 {
+.card-table .col-sm-6 {
   height: 50px;
 }
 
