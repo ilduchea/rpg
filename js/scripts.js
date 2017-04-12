@@ -21,8 +21,14 @@ function Character() {
   this.hitPoints = 0;
 }
 
-Character.prototype.addEnemy = function() {
-  newGame.enemies.push(this);
+function Enemy() {
+  this.enemyClass = "";
+  this.gender = "";
+  this.str = 0;
+  this.dex = 0;
+  this.int = 0;
+  this.con = 0;
+  this.hitPoints = 0;
 }
 
 Game.prototype.updateRollCount = function() {
@@ -33,14 +39,8 @@ Game.prototype.updateRollCount = function() {
   }
 }
 
-function Enemy() {
-  this.enemyClass = "";
-  this.gender = "";
-  this.str = 0;
-  this.dex = 0;
-  this.int = 0;
-  this.con = 0;
-  this.hitPoints = 0;
+Character.prototype.addEnemy = function() {
+  newGame.enemies.push(this);
 }
 
 Enemy.prototype.createEnemy = function() {
@@ -136,7 +136,15 @@ $(document).ready(function() {
     $(".char-creation").slideDown(500);
   });
 
-  var enemyImageCardChange = function(){
+  var updateCharHealthBar = function() {
+    $(".char-hp-bar span").text(newChar.hitPoints + "/" + newChar.hitPoints);
+  }
+
+  var updateEnemyHealthBar = function() {
+    $(".enemy-hp-bar span").text(newEnemy.hitPoints + "/" + newEnemy.hitPoints);
+  }
+
+  var enemyImageCardChange = function() {
     let enemyClass = newEnemy.enemyClass;
     let enemyGender = newEnemy.gender;
     if (enemyGender === "Male"){
@@ -235,7 +243,7 @@ $(document).ready(function() {
       } // END sub IF
     } // END master IF
   } // END charImageCardChange function
-
+  // check that character creation is complete before proceeding to combat
   var checkGameReady = function() {
     $("#no-name").text("");
     $("#no-roll").text("");
@@ -334,22 +342,20 @@ $(document).ready(function() {
       newChar.int = parseInt($("#input-int").val());
       newChar.con = parseInt($("#input-con").val());
       newChar.hitPoints = (newChar.con * 10);
-      console.log("newChar.con * 10" , newChar.con * 10);
       // update combat char card with new stats
-
       $("#charName").text(newChar.name);
       $("#charStr").text(newChar.str);
       $("#charDex").text(newChar.dex);
       $("#charInt").text(newChar.int);
       $("#charCon").text(newChar.con);
+      updateCharHealthBar();
       $(".char-creation").slideUp(400);
       $(".combat").slideDown(400);
       $(".attacks").hide();
-      console.log("newChar = " , newChar);
     }
   });
 
-  $("#revealText").click(function(){
+  $("#revealText").click(function() {
     newEnemy.createEnemy();
     enemyImageCardChange();
     $("#back").toggleClass("hide");
@@ -361,9 +367,10 @@ $(document).ready(function() {
     $("#enemyDexInput").text(newEnemy.dex);
     $("#enemyIntInput").text(newEnemy.int);
     $("#enemyConInput").text(newEnemy.con);
+    updateEnemyHealthBar();
   });
 
-  $("#attack").click(function(){
+  $("#attack").click(function() {
     var attackMod = getAttackStat(newChar);
     var enemyMod = getAttackStat(newEnemy);
     var characterAttackRoll = attackRoll();

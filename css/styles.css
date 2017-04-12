@@ -227,10 +227,9 @@ body {
   color: rgb(140, 42, 41);
 }
 
-
-.alignment {
-  display: table-cell;
-  vertical-align: middle;
+.progress {
+  font-family: sans-serif;
+  color: white;
 }
 
 .start #start-btn {
