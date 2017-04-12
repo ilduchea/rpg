@@ -186,12 +186,12 @@ body {
   height: auto;
 }
 
-#lets-play {
+#lets-play, #continue-play  {
   display: none;
   float: left;
-  margin-left: 90px;
+  margin-left: 64px;
   margin-top: 40px;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bolder;
   color: #63420f;
   background-color: white;

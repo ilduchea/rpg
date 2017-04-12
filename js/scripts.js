@@ -404,7 +404,12 @@ $(document).ready(function() {
     if (newGame.statsToAlloc === 0) {
       $("#table2 .stat-cross-img").hide();
       $(".char-stats-alloc").hide();
-      $("#lets-play").fadeIn(400);
+      // handle showing correct play button
+      if (newGame.fightRound === 0) {
+        $("#lets-play").fadeIn(400);
+      } else {
+        $("#continue-play").fadeIn(400);
+      }
     }
   });
 
@@ -430,6 +435,7 @@ $(document).ready(function() {
       $(".char-creation").slideUp(400);
       $(".combat").slideDown(400);
       $(".attacks").hide();
+      $("#lets-play").hide();
     }
   });
 
