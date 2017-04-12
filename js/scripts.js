@@ -350,10 +350,11 @@ $(document).ready(function() {
   });
 
   $("#revealText").click(function(){
+    newChar.hitPoints = (newChar.con * 10);
     newEnemy.createEnemy();
     enemyImageCardChange();
     $("#back").toggleClass("hide");
-    $("#revealText").toggle();
+    $("#revealText").hide();
     $(".attacks, #attack").show();
     $(".attacks").removeClass("attack");
     $("#enemyNameInput").text(newEnemy.enemyClass);
@@ -361,6 +362,8 @@ $(document).ready(function() {
     $("#enemyDexInput").text(newEnemy.dex);
     $("#enemyIntInput").text(newEnemy.int);
     $("#enemyConInput").text(newEnemy.con);
+    $("#char-hitPoints p").text(newChar.hitPoints);
+    $("#enemy-hitPoints p").text(newEnemy.hitPoints);
   });
 
   $("#attack").click(function(){
@@ -377,7 +380,7 @@ $(document).ready(function() {
 
     if (health === "You Win!"){
       $("#back").toggleClass("hide");
-      $("#revealText").toggle();
+      $("#revealText").show();
       $("#enemy").removeClass();
       $("#enemy").addClass("enemy_card enemy-lose");
       $("#character").addClass("winner");
