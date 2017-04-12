@@ -125,18 +125,6 @@ var attackRoll = function(){
   return Math.floor(Math.random() * 20) + 1;
 }
 
-var compareRolls = function (roll1, roll2, char, enemy){
-  if (roll1 > roll2){
-    enemy.hitPoints = enemy.hitPoints - (roll1 - roll2);
-    return "You hit for " + (roll1 - roll2) + " damage.";
-  } else if (roll2 > roll1){
-    char.hitPoints = char.hitPoints - (roll2 - roll1);
-    return "You take " + (roll2 - roll1) + " points of damage.";
-  } else {
-    return "It is a tie! Try again..."
-  }
-};
-
 var checkHealth = function(char, enemy, game){
   if (enemy.hitPoints <= 0) {
     return "You Win!";
@@ -148,6 +136,24 @@ var checkHealth = function(char, enemy, game){
 //=============
 // FRONT END
 //=============
+var compareRolls = function (roll1, roll2, char, enemy){
+  if (roll1 > roll2){
+    $("#character .damage").text("");
+    $("#results p").text("");
+    enemy.hitPoints = enemy.hitPoints - (roll1 - roll2);
+    $("#enemy .damage").text("-" + (roll1 - roll2));
+  } else if (roll2 > roll1){
+    $("#enemy .damage").text("");
+    $("#results p").text("");
+    char.hitPoints = char.hitPoints - (roll2 - roll1);
+    $("#character .damage").text("-" + (roll2 - roll1));
+  } else {
+    $("#enemy .damage").text("");
+    $("#character .damage").text("");
+    $("#results p").text("It is a tie! Try again...");
+  }
+};
+
 $(document).ready(function() {
 
   var newGame = new Game();
@@ -501,14 +507,21 @@ $(document).ready(function() {
     var enemyAttackRoll = attackRoll();
     var characterAttack = characterAttackRoll + attackMod;
     var enemyAttack = enemyAttackRoll + enemyMod;
-    var results = compareRolls(characterAttack, enemyAttack, newChar, newEnemy);
-    var health = checkHealth(newChar, newEnemy, newGame);
+
+    compareRolls(characterAttack, enemyAttack, newChar, newEnemy);
     updateEnemyHealthBar();
     updateCharHealthBar();
+
+    var health = checkHealth(newChar, newEnemy, newGame);
+
     // check who wins and update images and animations
     if (health === "You Win!"){
       if ((newGame.enemies.length % 2)===0){
         $("#levelUpBtn").show();
+      }
+      if (newChar.level === 3){
+        $(".combat").slideUp();
+        $("#row-winner").slideDown();
       }
       $("#back").toggleClass("hide");
       $("#revealText").show();
@@ -516,23 +529,26 @@ $(document).ready(function() {
       $("#enemy").addClass("enemy_card enemy-lose");
       $("#character").addClass("winner");
       $("#attack").hide();
-      results = "You Win!";
+      $("#enemy .damage").text("");
+      $("#results p").text("You Win!");
+
     } else if (health === "You lose") {
       $("#try-again, #character").toggleClass("hide");
       $("#try-again").addClass("char-lose");
       $("#enemy").addClass("winner");
       $("#attack").hide();
-      results = "You Lose";
-
+      $("#character .damage").text("");
+      $("#results p").text("You Lose");
     }  // END IF - win/lose
     // display roll numbers at top of screen and on cards
+
     $("#hero-attack .roll").text(characterAttackRoll + " + ");
     $("#hero-attack .mod").text(attackMod + " = ");
     $("#hero-attack .total").text(characterAttack);
     $("#enemy-attack .roll").text(enemyAttackRoll + " + ");
     $("#enemy-attack .mod").text(enemyMod + " = ");
     $("#enemy-attack .total").text(enemyAttack);
-    $("#results p").text(results);
+
   });  // END #attack button function
 
   $("#try-again").click(function(){
@@ -550,7 +566,7 @@ $(document).ready(function() {
   })
 
   // simple page reload button - maybe use this later
-  $("#btnReset").click(function() {
+  $(".btnReset").click(function() {
     location.reload();
   });
 

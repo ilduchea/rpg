@@ -301,12 +301,24 @@ body {
   display: table;
 }
 
-#row-loser {
+#row-loser, #row-winner {
   align-self: center;
   text-align: center;
 }
 
-.char-creation, .hide, #levelUpBtn, #row-loser {
+.damage {
+  display: table-row;
+  vertical-align: center;
+  color: rgb(140, 42, 41);
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: -1px 1px rgb(217, 83, 79),
+               -1px -1px rgb(217, 83, 79),
+               1px -1px rgb(217, 83, 79),
+               1px 1px rgb(217, 83, 79);
+}
+
+.char-creation, .hide, #levelUpBtn, #row-loser, #row-winner {
   display: none;
 }
 

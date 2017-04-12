@@ -151,6 +151,7 @@
           </div>
           <div id="character">
             <p id="charName"></p>
+            <span class="damage"></span>
             <div class="card-table">
               <div class="row">
                 <div class="col-sm-6">
@@ -189,6 +190,7 @@
             <p id="revealText" class="alignment">Click to reveal your enemy...</p>
             <div id="back" class="hide">
               <p id="enemyNameInput"></p>
+              <span class="damage"></span>
               <div class="card-table">
                 <div class="row">
                   <div class="col-sm-6">
@@ -213,11 +215,14 @@
       </div>  <!-- END ROW COMBAT -->
 
       <div id="row-winner">
+        <img src="img/happyKnight.gif" alt="happy knight">
+        <h1>Yay! You win!!!</h1>
+        <button type="button" class="btn btn-danger btnReset">Play Again!</button>
       </div>
       <div id="row-loser">
         <img src="img/bunnyAttack.gif" alt="bunny attack">
         <h1>Game over. You died...</h1>
-        <button id="btnReset" type="button" class="btn btn-danger">Start Over</button>
+        <button type="button" class="btn btn-danger btnReset">Start Over</button>
       </div>
 
     </div>  <!-- END container -->
