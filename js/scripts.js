@@ -9,6 +9,7 @@ function Game() {
   this.enemies = [];
   this.enemyLevel = 1;
   this.characters = [];
+  this.fightRound = 0;
 }
 
 function Character() {
@@ -350,14 +351,20 @@ $(document).ready(function() {
       $("#no-roll").text("");
     }
   });
-
+  // ACCEPT ROLL button
   $("#accept-roll").click(function() {
     $(".char-8die").hide();
     $("#stats-left").text(newGame.statsToAlloc);
     $(".char-stats-alloc").fadeIn(400);
     $("#table2 .stat-cross-img").fadeIn(400);
   });
-
+  // LEVEL UP BUTTON
+  $("#levelUpBtn").click(function() {
+    #("").text("LEVEL UP");
+    // show and hide proper rows
+    $(".combat").hide();
+    $(".char-creation").slideDown(500);
+  });
   // CLICK ON STAT CROSS
   $(".stat-cross-img").click(function() {
     // get ID name of stat image clicked
@@ -412,6 +419,7 @@ $(document).ready(function() {
   });
 
   $("#revealText").click(function(){
+    newGame.fightRound += 1;
     let newEnemy = new Enemy();
     newEnemy.createEnemy(newGame);
     newChar.hitPoints = (newChar.con * 10);
@@ -450,7 +458,7 @@ $(document).ready(function() {
     var health = checkHealth(newChar, newEnemy, newGame);
     updateEnemyHealthBar();
     updateCharHealthBar();
-
+    // check who wins and update images and animations
     if (health === "You Win!"){
       if ((newGame.enemies.length % 2)===0){
         $("#levelUpBtn").show();
@@ -463,13 +471,13 @@ $(document).ready(function() {
       $("#attack").hide();
       results = "You Win!";
     } else if (health === "You lose") {
-      $("#lose, #character").toggleClass("hide");
-      $("#lose").addClass("char-lose");
+      $("#try-again, #character").toggleClass("hide");
+      $("#try-again").addClass("char-lose");
       $("#enemy").addClass("winner");
       $("#attack").hide();
       results = "You Lose";
-    }
-
+    }  // END IF - win/lose
+    // display roll numbers at top of screen and on cards
     $("#hero-attack .roll").text(characterAttackRoll + " + ");
     $("#hero-attack .mod").text(attackMod + " = ");
     $("#hero-attack .total").text(characterAttack);
@@ -477,8 +485,12 @@ $(document).ready(function() {
     $("#enemy-attack .mod").text(enemyMod + " = ");
     $("#enemy-attack .total").text(enemyAttack);
     $("#results p").text(results);
-    // $("#char-hitPoints p").text(newChar.hitPoints);
-    // $("#enemy-hitPoints p").text(newEnemy.hitPoints);
+  });  // END #attack button function
+
+  $("#try-again").click(function(){
+    $("#try-again, #character").toggleClass("hide");
+    $("#character, #enemy, #try-again").removeClass("winner enemy-lose char-lose");
+
   });
 
   $("#lose").click(function(){
