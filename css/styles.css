@@ -291,6 +291,18 @@ body {
   text-align: center;
 }
 
+.damage {
+  display: table-row;
+  vertical-align: center;
+  color: rgb(140, 42, 41);
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: -1px 1px rgb(217, 83, 79),
+               -1px -1px rgb(217, 83, 79),
+               1px -1px rgb(217, 83, 79),
+               1px 1px rgb(217, 83, 79);
+}
+
 .char-creation, .hide, #levelUpBtn, #row-loser {
   display: none;
 }
