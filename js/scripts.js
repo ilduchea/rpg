@@ -49,6 +49,12 @@ Enemy.prototype.createEnemy = function(game) {
   var dex = dieRoll2to8();
   var int = dieRoll2to8();
   var con = dieRoll2to8();
+  // var charLevel = game.enemies.length / 2;
+  // var getLevelIncrement = function(level) {
+  //   if (level % 4 === 0) {
+  //   var i = charLevel;
+  // }
+  // }
 
   this.str = str;
   this.dex = dex;
@@ -407,19 +413,26 @@ $(document).ready(function() {
     $("#back").toggleClass("hide");
     $("#revealText").hide();
     $(".attacks, #attack").show();
-    $(".attacks").removeClass("attack");
     $("#enemyNameInput").text(newEnemy.enemyClass);
     $("#enemyStrInput").text(newEnemy.str);
     $("#enemyDexInput").text(newEnemy.dex);
     $("#enemyIntInput").text(newEnemy.int);
     $("#enemyConInput").text(newEnemy.con);
-    updateEnemyHealthBar();
     $("#char-hitPoints p").text(newChar.hitPoints);
-    $("#enemy-hitPoints p").text(newEnemy.hitPoints);
+    $("#enemy-hitPoints p").text(newGame.enemies[0].hitPoints);
     console.log(newGame);
+    updateEnemyHealthBar();
   });
 
   $("#attack").click(function(){
+    $(".attacks").addClass("shake");
+
+    $(".attacks").one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
+    function(e) {
+    // code to execute after animation ends
+    $(".attacks").removeClass("shake");
+    });
+
     let newEnemy = newGame.enemies[0];
     var attackMod = getAttackStat(newChar);
     var enemyMod = getAttackStat(newEnemy);
@@ -429,8 +442,6 @@ $(document).ready(function() {
     var enemyAttack = enemyAttackRoll + enemyMod;
     var results = compareRolls(characterAttack, enemyAttack, newChar, newEnemy);
     var health = checkHealth(newChar, newEnemy, newGame);
-    $(".attacks").addClass("attack");
-    $("#enemy, #character").removeClass("winner");
     updateEnemyHealthBar();
     updateCharHealthBar();
 
@@ -467,7 +478,6 @@ $(document).ready(function() {
   $("#lose").click(function(){
     $("#lose, #character").toggleClass("hide");
     $("#character, #enemy, #lose").removeClass("winner enemy-lose char-lose");
-    $(".attacks").removeClass("attack");
     $("#attack").show();
   })
 
