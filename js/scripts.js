@@ -49,6 +49,12 @@ Enemy.prototype.createEnemy = function(game) {
   var dex = dieRoll2to8();
   var int = dieRoll2to8();
   var con = dieRoll2to8();
+  // var charLevel = game.enemies.length / 2;
+  // var getLevelIncrement = function(level) {
+  //   if (level % 4 === 0) {
+  //   var i = charLevel;
+  // }
+  // }
 
   this.str = str;
   this.dex = dex;
