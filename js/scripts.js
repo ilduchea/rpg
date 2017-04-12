@@ -114,6 +114,14 @@ var compareRolls = function (roll1, roll2, char, enemy){
   }
 };
 
+var checkHealth = function(char, enemy){
+  if (enemy.hitPoints <= 0) {
+    return "You Win!";
+  } else if (char.hitPoints <= 0) {
+    return "You lose";
+  }
+}
+
 //=============
 // FRONT END
 //=============
@@ -363,17 +371,18 @@ $(document).ready(function() {
     var characterAttack = characterAttackRoll + attackMod;
     var enemyAttack = enemyAttackRoll + enemyMod;
     var results = compareRolls(characterAttack, enemyAttack, newChar, newEnemy);
+    var health = checkHealth(newChar, newEnemy);
     $(".attacks").addClass("attack");
     $("#enemy, #character").removeClass("winner");
 
-    if (results === "You Win!"){
+    if (health === "You Win!"){
       $("#back").toggleClass("hide");
       $("#revealText").toggle();
       $("#enemy").removeClass();
       $("#enemy").addClass("enemy_card enemy-lose");
       $("#character").addClass("winner");
       $("#attack").hide();
-    } else if (results === "You lose") {
+    } else if (health === "You lose") {
       $("#lose, #character").toggleClass("hide");
       $("#lose").addClass("char-lose");
       $("#enemy").addClass("winner")
