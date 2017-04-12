@@ -14,24 +14,27 @@
   </head>
   <img src="img/back1.jpg" id="bg-img">
   <body>
+
     <div class="container">
-      <h1>Iron Born</h1>
+      <h1>Qvrty's &#164; Qvest</h1>
+
       <div class="well">
         <h2>Welcome...</h2>
-        <p>Welcome to the world of...Create your hero and fight against...</p>
+        <p>...to the world of Quintonton! Create your hero and forge a new destiny for your kingtom, be they pathetic putrid peons or laughing langushing lords!</p>
         <h2>Rules of the Game:</h2>
         <ul>
-          <li>First roll the die to determine the number of credits you can use to add to your character's stats.</li>
+          <li>Roll the die to determine the number of credits you can use to add to your character's stats.</li>
           <li>Create your character, determine their name, choose their gender and class.</li>
           <li>Apply the stat credits as you see fit.</li>
           <li>Face your enemy, roll the die to determine your hit points which will be added to your stats.</li>
         </ul>
         <div class="start">
           <img src="img/armor1left.png" alt="armorleft" />
-          <button id="start" class="btn" type="button">Begin Your Quest...</button>
+          <button id="start-btn" class="btn" type="button">Begin Your Quest...</button>
           <img src="img/armor1right.png" alt="armorright" />
         </div>
-      </div>
+      </div>  <!-- END welcome -->
+
       <div class="row char-creation">
         <h2>Create your character!</h2>
         <div id="char-card" class="col-sm-6">
@@ -168,10 +171,17 @@
           <div id="lose" class="enemy_card hide">
             <p class="alignment">Try Again</p>
           </div>
-        </div>
+          <div class="progress char-hp-bar">
+            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+              <span class="sr-only">70% Complete (danger)</span>
+            </div>
+          </div>
+        </div> <!-- END COL ENEMY -->
+
         <div class="col-sm-2" id="results">
           <p class="alignment"></p>
         </div>
+
         <div class="col-sm-5 enemy">
           <div id="enemy-hitPoints">
             <p class="hitPoints"></p>
@@ -193,9 +203,15 @@
                 </div>
               </div>
             </div>
+            <div class="progress enemy-hp-bar">
+              <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                <span class="sr-only">50%</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </div> <!-- END COL ENEMY -->
+
+      </div>  <!-- END ROW COMBAT -->
 
       <div class="row winner">
       </div>

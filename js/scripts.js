@@ -131,8 +131,8 @@ $(document).ready(function() {
   var newEnemy = new Enemy();
   var newChar = new Character();
 
-  $("#start").click(function(){
-    $(".well").slideUp(500);
+  $("#start-btn").click(function(){
+    $(".well").hide();
     $(".char-creation").slideDown(500);
   });
 
