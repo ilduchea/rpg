@@ -360,10 +360,24 @@ $(document).ready(function() {
   });
   // LEVEL UP BUTTON
   $("#levelUpBtn").click(function() {
-    $("").text("LEVEL UP");
-    // show and hide proper rows
+    //diable name, class, gender inputs
+    $("#input-name").attr('disabled', 'disabled')
+    $(".char-creation .char-class").attr('disabled', 'disabled')
+    $(".char-creation .char-gender").attr('disabled', 'disabled')
+    // transition play area
     $(".combat").hide();
     $(".char-creation").slideDown(500);
+    // refresh stats allocator
+    newGame.statsToAlloc = 5;
+    $("#stats-left").text(newGame.statsToAlloc);
+    // show statup images
+    $(".char-stats-alloc").fadeIn(600);
+    $("#table2 .stat-cross-img").fadeIn(600)
+    // change header text to say level up
+    $("#char-title1").text("LEVEL UP!");
+    $("#char-title2").text("...you feel yourself growing stronger...");
+    // show and hide proper rows
+
   });
   // CLICK ON STAT CROSS
   $(".stat-cross-img").click(function() {
@@ -388,8 +402,9 @@ $(document).ready(function() {
 
     // out of stats? buttons disappear
     if (newGame.statsToAlloc === 0) {
-      $(".char-stats-alloc").fadeOut(400);
       $("#table2 .stat-cross-img").hide();
+      $(".char-stats-alloc").hide();
+      $("#lets-play").fadeIn(400);
     }
   });
 
@@ -460,7 +475,7 @@ $(document).ready(function() {
     updateCharHealthBar();
     // check who wins and update images and animations
     if (health === "You Win!"){
-      if ((newGame.enemies.length % 2)===0){
+      if ((newGame.enemies.length % 1)===0){ /////////////////////////////////////////////////////////////////////////////////
         $("#levelUpBtn").show();
       }
       $("#back").toggleClass("hide");
