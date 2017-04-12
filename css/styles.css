@@ -286,7 +286,7 @@ body {
   display: table;
 }
 
-#row-loser {
+#row-loser, #row-winner {
   align-self: center;
   text-align: center;
 }
@@ -303,7 +303,7 @@ body {
                1px 1px rgb(217, 83, 79);
 }
 
-.char-creation, .hide, #levelUpBtn, #row-loser {
+.char-creation, .hide, #levelUpBtn, #row-loser, #row-winner {
   display: none;
 }
 

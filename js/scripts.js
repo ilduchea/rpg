@@ -472,6 +472,10 @@ $(document).ready(function() {
       if ((newGame.enemies.length % 2)===0){
         $("#levelUpBtn").show();
       }
+      if (newChar.level === 3){
+        $(".combat").slideUp();
+        $("#row-winner").slideDown();
+      }
       $("#back").toggleClass("hide");
       $("#revealText").show();
       $("#enemy").removeClass();
@@ -480,6 +484,7 @@ $(document).ready(function() {
       $("#attack").hide();
       $("#enemy .damage").text("");
       $("#results p").text("You Win!");
+
     } else if (health === "You lose") {
       $("#try-again, #character").toggleClass("hide");
       $("#try-again").addClass("char-lose");
@@ -487,7 +492,6 @@ $(document).ready(function() {
       $("#attack").hide();
       $("#character .damage").text("");
       $("#results p").text("You Lose");
-
     }  // END IF - win/lose
     // display roll numbers at top of screen and on cards
 
@@ -514,7 +518,7 @@ $(document).ready(function() {
   })
 
   // simple page reload button - maybe use this later
-  $("#btnReset").click(function() {
+  $(".btnReset").click(function() {
     location.reload();
   });
 
