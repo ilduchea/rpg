@@ -12,6 +12,8 @@ A Role Playing Game.
 
 Specifications
 
+||||
+
 ## Setup/Installation Requirements
 
 *_navigate to https://github.com/ilduchea/rpg _
