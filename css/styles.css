@@ -200,7 +200,7 @@ body {
 }
 
 /* */
-#character, #enemy, #lose {
+#character, #enemy, #try-again {
   color: white;
   text-align: center;
   width: 420px;
@@ -215,7 +215,7 @@ body {
   display: table;
 }
 
-#revealText:hover, #lose:hover {
+#revealText:hover, #try-again:hover {
   cursor: pointer;
 }
 
