@@ -186,7 +186,7 @@ body {
   height: auto;
 }
 
-#lets-play, #continue-play  {
+#lets-play, #continue-play {
   display: none;
   float: left;
   margin-left: 64px;

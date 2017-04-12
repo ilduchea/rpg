@@ -46,6 +46,14 @@ Character.prototype.addEnemy = function() {
   newGame.enemies.push(this);
 }
 
+Character.prototype.charInputToStats = function() {
+  this.str = parseInt($("#input-str").val());
+  this.dex = parseInt($("#input-dex").val());
+  this.int = parseInt($("#input-int").val());
+  this.con = parseInt($("#input-con").val());
+  this.hitPoints = (this.con * 10);
+}
+
 Enemy.prototype.createEnemy = function(game) {
   var str = dieRoll2to8();
   var dex = dieRoll2to8();
@@ -420,23 +428,39 @@ $(document).ready(function() {
       newChar.name = $("#input-name").val();
       newChar.charClass = $(".char-class option:selected").val();
       newChar.gender = $(".char-gender option:selected").val();
-      newChar.str = parseInt($("#input-str").val());
-      newChar.dex = parseInt($("#input-dex").val());
-      newChar.int = parseInt($("#input-int").val());
-      newChar.con = parseInt($("#input-con").val());
-      newChar.hitPoints = (newChar.con * 10);
+      // grab stats form UI and store them in char
+      newChar.charInputToStats();
       // update combat char card with new stats
+      updateCharHealthBar();
       $("#charName").text(newChar.name);
       $("#charStr").text(newChar.str);
       $("#charDex").text(newChar.dex);
       $("#charInt").text(newChar.int);
       $("#charCon").text(newChar.con);
-      updateCharHealthBar();
       $(".char-creation").slideUp(400);
       $(".combat").slideDown(400);
       $(".attacks").hide();
       $("#lets-play").hide();
     }
+  });
+
+  $("#continue-play").click(function() {
+    newChar.charInputToStats();
+    $("#charName").text(newChar.name);
+    $("#charStr").text(newChar.str);
+    $("#charDex").text(newChar.dex);
+    $("#charInt").text(newChar.int);
+    $("#charCon").text(newChar.con);
+    updateCharHealthBar();
+    $(".attacks").hide();
+    $("#levelUpBtn").hide();
+    $("#continue-play").hide();
+    $("#enemy").removeClass("enemy-lose");
+    $("#character").removeClass("winner");
+    $("#results p").text("");
+    $("#attack").show();
+    $(".char-creation").slideUp(400);
+    $(".combat").slideDown(400);
   });
 
   $("#revealText").click(function(){
