@@ -228,9 +228,15 @@ body {
   color: rgb(140, 42, 41);
 }
 
+/* both char and enemy progress bars */
 .progress {
   font-family: sans-serif;
-  color: white;
+}
+
+/* both char and enemy progress bar text */
+.progress span {
+  color: black;
+  font-weight: bolder;
 }
 
 .start #start-btn {
