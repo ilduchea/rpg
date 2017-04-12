@@ -138,11 +138,52 @@ $(document).ready(function() {
   });
 
   var updateCharHealthBar = function() {
-    $(".char-hp-bar span").text(newChar.hitPoints + "/" + newChar.hitPoints);
+    // update bar LABEL
+    $(".char-hp-bar span").text(newChar.hitPoints + " / " + (newChar.con * 10));
+    // update bar FILL
+    let percentFull = Math.round( ( newChar.hitPoints / (newChar.con * 10) ) * 100 );
+    let percentFullStr = ("width: " + percentFull + "%");
+    $(".char-hp-bar .progress-bar").prop("style" , percentFullStr);
+    // remove old COLOR classes
+    $(".char-hp-bar .progress-bar").removeClass("progress-bar-success");
+    $(".char-hp-bar .progress-bar").removeClass("progress-bar-warning");
+    $(".char-hp-bar .progress-bar").removeClass("progress-bar-danger");
+    // update bar new COLOR class
+    if (percentFull >= 60) {
+      $(".char-hp-bar .progress-bar").addClass("progress-bar-success");
+    } else if ((percentFull < 60) && (percentFull >= 25)) {
+      $(".char-hp-bar .progress-bar").addClass("progress-bar-warning");
+    } else if ((percentFull < 25) && (percentFull > 0)) {
+      $(".char-hp-bar .progress-bar").addClass("progress-bar-danger");
+    } else {
+      console.log("char DIED bruh!");
+    }
   }
 
   var updateEnemyHealthBar = function() {
-    $(".enemy-hp-bar span").text(newEnemy.hitPoints + "/" + newEnemy.hitPoints);
+    // update bar LABEL
+    let tmpEnemy = newGame.enemies[0];
+    console.log("enemies[0]", tmpEnemy);
+    console.log("typeof tmpEnemy.hitPoints :", typeof tmpEnemy.hitPoints);
+    $(".enemy-hp-bar span").text(tmpEnemy.hitPoints + " / " + (tmpEnemy.con * 10));
+    // update bar FILL
+    let percentFull = Math.round( (tmpEnemy.hitPoints / (tmpEnemy.con * 10) ) * 100 );
+    let percentFullStr = ("width: " + percentFull + "%");
+    $(".enemy-hp-bar .progress-bar").prop("style" , percentFullStr);
+    // remove old COLOR classes
+    $(".enemy-hp-bar .progress-bar").removeClass("progress-bar-success");
+    $(".enemy-hp-bar .progress-bar").removeClass("progress-bar-warning");
+    $(".enemy-hp-bar .progress-bar").removeClass("progress-bar-danger");
+    // update bar new COLOR class
+    if (percentFull >= 60) {
+      $(".enemy-hp-bar .progress-bar").addClass("progress-bar-success");
+    } else if ((percentFull < 60) && (percentFull >= 25)) {
+      $(".enemy-hp-bar .progress-bar").addClass("progress-bar-warning");
+    } else if ((percentFull < 25) && (percentFull > 0)) {
+      $(".enemy-hp-bar .progress-bar").addClass("progress-bar-danger");
+    } else {
+      console.log("enemy DIED, huzzah!");
+    }
   }
 
   var enemyImageCardChange = function(){
@@ -390,6 +431,8 @@ $(document).ready(function() {
     var health = checkHealth(newChar, newEnemy, newGame);
     $(".attacks").addClass("attack");
     $("#enemy, #character").removeClass("winner");
+    updateEnemyHealthBar();
+    updateCharHealthBar();
 
     if (health === "You Win!"){
       if ((newGame.enemies.length % 2)===0){
