@@ -343,7 +343,7 @@ $(document).ready(function() {
   }
   // START the game
   $("#start-btn").click(function(){
-    $(".well").hide();
+    $("#intro").hide();
     $(".char-creation").slideDown(500);
   });
   // check if the CLASS dropdown was clicked and update the image
