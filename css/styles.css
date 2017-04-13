@@ -404,7 +404,11 @@ body {
 .card-table {
   display: table-row;
   vertical-align: bottom;
-  height: 125px;
+  height: 140px;
+}
+
+#back div.card-table {
+  height: 95px;
 }
 
 .card-table .col-sm-6 {
