@@ -45,7 +45,7 @@ body {
 }
 
 .col-sm-6 {
-  height: 600px;
+  height: 550px;
 }
 
 .char-creation h2 {
@@ -145,6 +145,10 @@ body {
 .char-img {
   float: right;
   width: 420px;
+  height: 550px;
+  border-radius: 50px;
+  background-color: #727171;
+  box-shadow: 0px 2px 16px 10px #727171;
 }
 
 #char-class {
@@ -242,18 +246,14 @@ body {
 }
 
 #character, #enemy, #try-again {
-  color: #efdb77;
+  color: rgb(224, 190, 8);
   font-weight: bold;
   text-align: center;
   width: 420px;
-  height: 600px;
-  border-radius: 30px;
+  height: 550px;
+  border-radius: 50px;
   border-style: none;
   border-width: 1px;
-  /*text-shadow: -1px 1px darkgrey,
-               -1px -1px darkgrey,
-               1px -1px darkgrey,
-               1px 1px darkgrey;*/
   display: table;
 }
 
@@ -261,14 +261,32 @@ body {
   cursor: pointer;
 }
 
-#charName, #enemyNameInput{
+#charName{
   font-size: 38px;
-  margin-top: 40px;
+  margin-top: 20px;
+  color: #42a53d;
+  text-shadow: 2px 2px 6px #000000;
 }
 
-#enemyNameInput {
-  color: rgb(140, 42, 41);
+#character {
+  text-shadow: 2px 2px 10px #000000;
+  background-color: #727171;
+  box-shadow: 0px 2px 16px 10px #727171;
 }
+
+#enemyNameInput{
+  color: #8c2a29;
+  font-size: 38px;
+  margin-top: 20px;
+  text-shadow: 2px 2px 6px #540101;
+}
+
+#enemy {
+  text-shadow: 2px 2px 10px #540101;
+  background-color: #4c4c4c;
+  box-shadow: 0px 2px 16px 10px #4c4c4c;
+}
+
 
 /* both char and enemy progress bars */
 .progress {
@@ -292,15 +310,21 @@ body {
 }
 
 .start #start-btn {
+  font-family: 'Cinzel Decorative', cursive;
   text-align: center;
-  font-size: 25px;
+  font-size: 28px;
   font-weight: bolder;
+  color: black;
   background-color: rgba(169, 179, 185, 0.7);
-  color: #3D3300;
   border-color: gold;
   border-width: 1px;
   border-style: outset;
 }
+
+#start-btn:hover {
+  color: rgb(224, 190, 8);
+}
+
 
 #attackBtn {
   font-size: 25px;
@@ -319,21 +343,16 @@ body {
 .start, .attacks, #results, .hitPoints {
   align-self: center;
   text-align: center;
-  color: white;
+  color: rgb(224, 190, 8);
   font-size: 32px;
   font-family: 'UnifrakturCook:700', cursive;
-  text-shadow: -1px 1px #000,
-               -1px -1px #000,
-               1px -1px #000,
-               1px 1px #000;
+  text-shadow: 2px 2px 6px #000000;
 }
 
-#charName {
-  color: #42a53d;
-}
+
 
 #back {
-  height: 600px;
+  height: 550px;
   width: 420px;
   display: table;
   text-align: center;
@@ -350,7 +369,7 @@ body {
 }
 
 #results {
-  height: 600px;
+  height: 550px;
   display: table;
 }
 
