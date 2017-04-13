@@ -513,8 +513,8 @@ $(document).ready(function() {
     // check who wins and update images and animations
     if (health === "You Win!"){
       if ((newGame.enemies.length % 2)===0){
-        //Corecctly displays Game winning screen when player gets level 3. Set the neumber to 1 less then the winning level.
-        if (newChar.level === 2){
+        //Correctly displays Game winning screen when player gets level 3. Set the neumber to 1 less then the winning level.
+        if (newChar.level === 3){
           $(".combat").slideUp();
           $("#row-winner").slideDown();
         } else {
