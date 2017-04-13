@@ -115,16 +115,15 @@ var getAttackStat = function(entity){
     return parseInt(int);
   }
 };
-
-//random die number generator (2-8)
+// random die number generator (2-8)
 var dieRoll2to8 = function() {
   return Math.floor(Math.random() * 7) + 2;
 }
-
+// main attack roll generator
 var attackRoll = function(){
   return Math.floor(Math.random() * 20) + 1;
 }
-
+// check for winning condition
 var checkHealth = function(char, enemy, game){
   if (enemy.hitPoints <= 0) {
     return "You Win!";
@@ -136,17 +135,12 @@ var checkHealth = function(char, enemy, game){
 //=============
 // FRONT END
 //=============
-
 $(document).ready(function() {
 
   var newGame = new Game();
-  var newChar = new Character();
+  var newChar = new Character();   // this needs to move into the game
 
-  $("#start-btn").click(function(){
-    $(".well").hide();
-    $(".char-creation").slideDown(500);
-  });
-
+  // MASTER ROLL compare between char and enemy
   var compareRolls = function (roll1, roll2, char, enemy){
     if (roll1 > roll2){
       $("#character .damage").text("");
@@ -164,7 +158,7 @@ $(document).ready(function() {
       $("#results p").text("It is a tie! Try again...");
     }
   };
-
+  // update a group of char combat texts
   var updateCharCombatCardStats = function() {
     $("#charName").text(newChar.name);
     $("#charStr").text(newChar.str);
@@ -172,7 +166,7 @@ $(document).ready(function() {
     $("#charInt").text(newChar.int);
     $("#charCon").text(newChar.con);
   }
-
+  // change character health bar look based on percent of HP
   var updateCharHealthBar = function() {
     // update bar LABEL
     $(".char-hp-bar span").text(newChar.hitPoints + " / " + (newChar.con * 10));
@@ -195,7 +189,7 @@ $(document).ready(function() {
       console.log("char DIED bruh!");
     }
   }
-
+  // change enemy health bar look based on percent of HP
   var updateEnemyHealthBar = function() {
     // update bar LABEL
     let tmpEnemy = newGame.enemies[0];
@@ -221,12 +215,11 @@ $(document).ready(function() {
       console.log("enemy DIED, huzzah!");
     }
   }
-
+  // change enemy based on...
   var enemyImageCardChange = function(){
     let enemy = newGame.enemies[0];
     let enemyClass = enemy.enemyClass;
     let enemyGender = enemy.gender;
-
     if (enemyGender === "Male"){
       switch (true){
         case (enemyClass === "Warrior"):
@@ -265,7 +258,6 @@ $(document).ready(function() {
         console.log("gender neutral")
     } // END IF statement
   };
-
   // function to handle ALL char image changes
   var charImageCardChange = function() {
     let userClass = $(".char-class option:selected").val();
@@ -348,6 +340,11 @@ $(document).ready(function() {
     }
     return newGame.ready;
   }
+  // START the game
+  $("#start-btn").click(function(){
+    $(".well").hide();
+    $(".char-creation").slideDown(500);
+  });
   // check if the CLASS dropdown was clicked and update the image
   $("select.char-class").change(function() {
     $("#no-class").text("");
@@ -437,7 +434,7 @@ $(document).ready(function() {
       }
     }
   });
-
+  // LETS PLAY, click to enter the combat screen
   $("#lets-play").click(function() {
     // check if name has been entered
     if (checkGameReady() === true) {
@@ -456,7 +453,7 @@ $(document).ready(function() {
       $("#lets-play").hide();
     }
   });
-
+  // CONTINUE onto the combat screen after leveling up
   $("#continue-play").click(function() {
     newChar.charInputToStats();
     updateCharCombatCardStats();
@@ -471,7 +468,7 @@ $(document).ready(function() {
     $(".char-creation").slideUp(400);
     $(".combat").slideDown(400);
   });
-
+  // Click REVEAL ENEMY, update combat text area
   $("#revealText").click(function(){
     newGame.fightRound += 1;
     let newEnemy = new Enemy();
@@ -491,7 +488,7 @@ $(document).ready(function() {
     updateCharHealthBar();
     updateEnemyHealthBar();
   });
-
+  // ATTCK BUTTON!
   $("#attack").click(function(){
     $(".attacks").addClass("shake");
     $(".attacks").one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
@@ -544,7 +541,7 @@ $(document).ready(function() {
     $("#enemy-attack .mod").text(enemyMod + " = ");
     $("#enemy-attack .total").text(enemyAttack);
   });  // END #attack button function
-
+  // TRY AGAIN text when char dies
   $("#try-again").click(function(){
     // var currentEnemy = newGame.enemies[0];
     // newChar.hitPoints = (newChar.con * 10);
@@ -557,10 +554,9 @@ $(document).ready(function() {
     $(".combat").hide();
     $("#row-loser").show();
   })
-
-  // simple page reload button - maybe use this later
+  // simple page reload button, used on game over screen
   $(".btnReset").click(function() {
     location.reload();
   });
 
-});
+});  // END DOCUMENT READY CALLBACK FUNCTION
