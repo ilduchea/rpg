@@ -465,7 +465,7 @@ $(document).ready(function() {
     $("#enemy").removeClass("enemy-lose");
     $("#character").removeClass("winner");
     $("#results p").text("");
-    $("#attack").show();
+    $("#attackBtn").show();
     // refresh enemy bar for better appearence
     $(".enemy-hp-bar .progress-bar").prop("style" , "width: 100%");
     $(".enemy-hp-bar span").text("");
@@ -482,7 +482,7 @@ $(document).ready(function() {
     $("#back").toggleClass("hide");
     $("#revealText").hide();
     $("#results p").text("");
-    $(".attacks, #attack").show();
+    $(".attacks, #attackBtn").show();
     $("#enemyNameInput").text(newEnemy.enemyClass);
     $("#enemyStrInput").text(newEnemy.str);
     $("#enemyDexInput").text(newEnemy.dex);
@@ -492,7 +492,7 @@ $(document).ready(function() {
     updateEnemyHealthBar();
   });
   // ATTCK BUTTON!
-  $("#attack").click(function(){
+  $("#attackBtn").click(function(){
     $(".attacks").addClass("shake");
     $(".attacks").one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
     function(e) {
@@ -527,7 +527,7 @@ $(document).ready(function() {
       $("#enemy").removeClass();
       $("#enemy").addClass("enemy_card enemy-lose");
       $("#character").addClass("winner");
-      $("#attack").hide();
+      $("#attackBtn").hide();
       $("#enemy .damage").text("");
       $("#results p").text("You Win!");
 
@@ -535,7 +535,7 @@ $(document).ready(function() {
       $("#try-again, #character").toggleClass("hide");
       $("#try-again").addClass("char-lose");
       $("#enemy").addClass("winner");
-      $("#attack").hide();
+      $("#attackBtn").hide();
       $("#character .damage").text("");
       $("#results p").text("You Lose");
     }  // END IF - win/lose
@@ -546,7 +546,7 @@ $(document).ready(function() {
     $("#enemy-attack .roll").text(enemyAttackRoll + " + ");
     $("#enemy-attack .mod").text(enemyMod + " = ");
     $("#enemy-attack .total").text(enemyAttack);
-  });  // END #attack button function
+  });  // END #attackBtn function
   // TRY AGAIN text when char dies
   $("#try-again").click(function(){
     // var currentEnemy = newGame.enemies[0];
@@ -554,7 +554,7 @@ $(document).ready(function() {
     // currentEnemy.hitPoints = (currentEnemy.con * 10);
     // updateCharHealthBar();
     // updateEnemyHealthBar();
-    // $("#attack").show();
+    // $("#attackBtn").show();
     $("#try-again, #character").toggleClass("hide");
     $("#character, #enemy, #try-again").removeClass("winner enemy-lose char-lose");
     $(".combat").hide();

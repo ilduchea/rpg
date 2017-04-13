@@ -21,7 +21,7 @@ h1 {
 }
 
 body {
-  font-family: 'Poiret One', cursive;
+  font-family: 'UnifrakturCook:700', cursive;
   font-size: 26px;
   font-style: 900;
 }
@@ -49,15 +49,12 @@ body {
 }
 
 #char-title1 {
+  font-family: 'Cinzel Decorative', cursive;
   font-weight: bold;
   color: #efdb77;
 }
 #char-title2 {
   text-align: center;
-}
-
-.combat {
-  display: none;
 }
 
 /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
@@ -168,6 +165,7 @@ body {
 #accept-roll {
   display: none;
   float: left;
+  font-family: 'Cinzel Decorative', cursive;
   font-size: 30px;
   font-weight: bolder;
   color: #63420f;
@@ -203,6 +201,7 @@ body {
   float: left;
   margin-left: 64px;
   margin-top: 40px;
+  font-family: 'Cinzel Decorative', cursive;
   font-size: 35px;
   font-weight: bolder;
   color: #63420f;
@@ -278,6 +277,7 @@ body {
 }
 
 .start #start-btn {
+  font-family: 'Cinzel Decorative', cursive;
   text-align: center;
   font-size: 28px;
   font-weight: bolder;
@@ -288,8 +288,9 @@ body {
   border-style: outset;
 }
 
-#attack {
+#attackBtn {
   font-size: 25px;
+  font-family: 'Cinzel Decorative', cursive;
 }
 
 .start, .attacks, #results, .hitPoints {
@@ -297,7 +298,7 @@ body {
   text-align: center;
   color: white;
   font-size: 32px;
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'UnifrakturCook:700', cursive;
   text-shadow: -1px 1px #000,
                -1px -1px #000,
                1px -1px #000,
@@ -339,6 +340,11 @@ body {
   font-size: 30px;
   font-weight: bolder;
   color: black;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+#levelUpBtn {
+  font-family: 'Cinzel Decorative', cursive;
 }
 
 .damage {
@@ -353,7 +359,7 @@ body {
                1px 1px rgb(217, 83, 79);
 }
 
-.char-creation, .hide, #levelUpBtn, #row-loser, #row-winner {
+.char-creation, .hide, #levelUpBtn, #row-loser, #row-winner, .combat {
   display: none;
 }
 
