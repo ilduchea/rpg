@@ -50,7 +50,7 @@ body {
 
 #char-title1 {
   font-weight: bold;
-  color: #FFD700;
+  color: #efdb77;
 }
 #char-title2 {
   text-align: center;
@@ -83,11 +83,11 @@ body {
 }
 
 #table2 input {
-  width: 60px;
+  width: 70px;
 }
 
 #char-card select {
-  width: 80px;
+  width: 100px;
 }
 
 #td1 {
@@ -210,25 +210,29 @@ body {
 
 
 /*character attack section*/
+/*character attack section*/
+/*character attack section*/
 
 .alignment {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* */
 #character, #enemy, #try-again {
-  color: white;
+  /*color: #f9dc40;*/
+  /*color: #f7de5b;*/
+  color: #efdb77;
+  font-weight: bold;
   text-align: center;
   width: 420px;
   height: 600px;
   border-radius: 30px;
   border-style: none;
   border-width: 1px;
-  text-shadow: -1px 1px #000,
-               -1px -1px #000,
-               1px -1px #000,
-               1px 1px #000;
+  /*text-shadow: -1px 1px darkgrey,
+               -1px -1px darkgrey,
+               1px -1px darkgrey,
+               1px 1px darkgrey;*/
   display: table;
 }
 
@@ -266,8 +270,6 @@ body {
   border-width: 1px;
   border-style: outset;
 }
-
-
 
 #attack {
   font-size: 25px;
@@ -314,6 +316,12 @@ body {
 #row-loser, #row-winner {
   align-self: center;
   text-align: center;
+}
+
+#row-loser #btn-Reset {
+  font-size: 30px;
+  font-weight: bolder;
+  color: black;
 }
 
 .damage {
