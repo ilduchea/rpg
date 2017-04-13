@@ -19,7 +19,7 @@
       <br>
       <div id="intro-well" class="well">
         <h2>Welcome...</h2>
-        <p>...to the world of Tereborn<em>!</em> Create a hero and forge the destiny for your people, be they pathetic putrid peons or laughing langushing lords<em>!</em></p>
+        <p>...to the world of Tereborn! Create a hero and forge the destiny for your people, be they pathetic putrid peons or laughing langushing lords! Fight against the countless enemies the Killer Rabbit of Caerbannog has placed before you. Should you win peace shall grace the country at least. But if you are not victorious the Killer Rabbit of Caerbannog will have your head.</p>
         <div class="rules">
           <h2>Story</h2>
           <ul>
@@ -139,6 +139,14 @@
       </div> <!-- END ROW char-creation -->
 
       <div class="row combat">  <!-- START ROW COMBAT char-creation -->
+        <div class="well" id="combatWell">
+          <h2 id="combat-title1">Battleground!</h2>
+          <div id="combat-title2">
+            <p>Click the attack button to roll your die.</p>
+            <p>The roll value plus your highest stat will be added to determine your attack roll.</p>
+            <p>Whomever has the highest attack roll value will win the match and the difference between your attack rolls will be subtracted from your health. Good luck!</p>
+          </div>
+        </div>
         <div class="row attacks">
           <div class="col-sm-4" id="hero-attack">
             <p>
@@ -236,11 +244,13 @@
       <div id="row-winner">
         <img src="img/happyKnight.gif" alt="happy knight">
         <h1>You win!!!</h1>
+        <p>Congratulations. At last all is well in the land of Tereborn! Your victory will be remembered for generations to come.</p>
         <button type="button" class="btn btn-danger reset-btn">Play Again!</button>
       </div>
       <div id="row-loser">
         <img src="img/bunnyAttack.gif" alt="bunny attack">
         <h1>Game over</h1>
+        <p>You were defeated by your enemy. Now the Killer Rabbit of Caerbannog will revel in your demise.</p>
         <button type="button" class="btn btn-danger reset-btn">Start Over</button>
       </div>
 
