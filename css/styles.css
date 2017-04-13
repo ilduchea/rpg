@@ -213,14 +213,16 @@ body {
 /*character attack section*/
 /*character attack section*/
 
+.col-sm-5 {
+  text-align: center;
+}
+
 .alignment {
   display: table-cell;
   vertical-align: middle;
 }
 
 #character, #enemy, #try-again {
-  /*color: #f9dc40;*/
-  /*color: #f7de5b;*/
   color: #efdb77;
   font-weight: bold;
   text-align: center;
@@ -318,7 +320,7 @@ body {
   text-align: center;
 }
 
-#row-loser #btn-Reset {
+.reset-btn {
   font-size: 30px;
   font-weight: bolder;
   color: black;

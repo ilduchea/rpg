@@ -145,7 +145,8 @@
             </p>
           </div>
         </div>
-        <div class="col-sm-5">
+        <!-- COMBAT character column -->
+        <div id="char-col" class="col-sm-5">
           <div id="char-hitPoints">
             <p class="hitPoints"></p>
           </div>
@@ -173,7 +174,7 @@
               <span></span>
             </div>
           </div>
-        </div> <!-- END COL ENEMY -->
+        </div> <!-- END CHAR COL -->
 
         <div class="col-sm-2" id="results">
           <div class="alignment">
@@ -181,7 +182,7 @@
             <button id="levelUpBtn" class="btn btn-warning" type="button">&uarr; Level Up &uarr;</button>
           </div>
         </div>
-
+        <!-- ENEMY COLUMN -->
         <div id="enemy-col" class="col-sm-5">
           <div id="enemy-hitPoints">
             <p class="hitPoints"></p>
@@ -210,19 +211,19 @@
               <span></span>
             </div>
           </div>
-        </div> <!-- END COL ENEMY -->
+        </div> <!-- END ENEMY COL -->
 
       </div>  <!-- END ROW COMBAT -->
 
       <div id="row-winner">
         <img src="img/happyKnight.gif" alt="happy knight">
         <h1>Yay! You win!!!</h1>
-        <button type="button" class="btn btn-danger btnReset">Play Again!</button>
+        <button type="button" class="btn btn-danger reset-btn">Play Again!</button>
       </div>
       <div id="row-loser">
         <img src="img/bunnyAttack.gif" alt="bunny attack">
         <h1>Game over. You died...</h1>
-        <button id="btn-Reset" type="button" class="btn btn-danger">Start Over</button>
+        <button type="button" class="btn btn-danger reset-btn">Start Over</button>
       </div>
 
     </div>  <!-- END container -->
