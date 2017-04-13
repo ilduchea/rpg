@@ -75,7 +75,7 @@ Enemy.prototype.createEnemy = function(game) {
   this.str = str;
   this.dex = dex;
   this.int = int;
-  this.con = con + (2 * currentEnemyLevel);
+  this.con = con;
   this.hitPoints = this.con * 10;
 
   var randomEnemyClass = function() {
@@ -88,13 +88,13 @@ Enemy.prototype.createEnemy = function(game) {
   var enemyGenderRoll = randomEnemyGender();
   if (enemyClassRoll === 1) {
     this.enemyClass = "Warrior";
-    this.str = parseInt(this.str + (3 * currentEnemyLevel));
+    this.str = parseInt(this.str + (5 * currentEnemyLevel));
   } else if (enemyClassRoll === 2) {
     this.enemyClass = "Ranger";
-    this.dex = parseInt(this.dex + (3 * currentEnemyLevel));
+    this.dex = parseInt(this.dex + (5 * currentEnemyLevel));
   } else {
     this.enemyClass = "Mage";
-    this.int = parseInt(this.int + (3 * currentEnemyLevel));
+    this.int = parseInt(this.int + (5 * currentEnemyLevel));
   }
   if (enemyGenderRoll === 1) {
     this.gender = "Male";
@@ -162,6 +162,7 @@ $(document).ready(function() {
   // update a group of char combat texts
   var updateCharCombatCardStats = function() {
     $("#charName").text(newChar.name);
+    $("#charLevel").text(newChar.level);
     $("#charStr").text(newChar.str);
     $("#charDex").text(newChar.dex);
     $("#charInt").text(newChar.int);
@@ -516,7 +517,7 @@ $(document).ready(function() {
     if (health === "You Win!"){
       if ((newGame.enemies.length % 2)===0){
         //Correctly displays Game winning screen when player gets level 3. Set the neumber to 1 less then the winning level.
-        if (newChar.level === 3){
+        if (newChar.level === 4){
           $(".combat").slideUp();
           $("#row-winner").slideDown();
         } else {
