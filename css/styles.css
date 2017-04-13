@@ -268,7 +268,7 @@ body {
 
 /*Keep enemy card col in position when level up button apears.*/
 #enemy-col {
-  width: 40%; 
+  width: 40%;
 }
 
 /*float both items to the right side of the column they are inside*/
@@ -393,7 +393,11 @@ body {
 .card-table {
   display: table-row;
   vertical-align: bottom;
-  height: 125px;
+  height: 140px;
+}
+
+#back div.card-table {
+  height: 95px;
 }
 
 .card-table .col-sm-6 {
