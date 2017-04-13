@@ -386,7 +386,6 @@ $(document).ready(function() {
     $(".char-creation .char-class").attr('disabled', 'disabled')
     $(".char-creation .char-gender").attr('disabled', 'disabled')
     // transition play area
-    $("").text("LEVEL UP");
     // show and hide proper rows
     $(".combat").hide();
     $(".char-creation").slideDown(500);
@@ -399,6 +398,8 @@ $(document).ready(function() {
     // change header text to say level up
     $("#char-title1").text("LEVEL UP!");
     $("#char-title2").text("...you feel yourself growing stronger...");
+    $("#char-title1").addClass("text-align-me");
+    $("#char-title2").addClass("text-align-me");
     // show and hide proper rows
     newChar.level += 1; //Increment character level.
   });
