@@ -69,9 +69,17 @@ body {
   margin-top: 25px;
 }
 
+
 #table1 input, #table2 input{
   margin-top: 8px;
   margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#table1 select {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 #table1 td {
@@ -222,6 +230,11 @@ body {
   vertical-align: middle;
 }
 
+/*float both items to the right side of the column they are inside*/
+#enemy, .enemy-hp-bar {
+  float: right;
+}
+
 #character, #enemy, #try-again {
   color: #efdb77;
   font-weight: bold;
@@ -254,6 +267,8 @@ body {
 /* both char and enemy progress bars */
 .progress {
   font-family: sans-serif;
+  /* 420px is the same width as the column backrounds for char and enemy cards*/
+  width: 420px;
 }
 
 /* both char and enemy progress bar text */
@@ -289,8 +304,8 @@ body {
                1px 1px #000;
 }
 
-#charName, p.hitPoints {
-  color: #e0df7e;
+#charName {
+  color: #42a53d;
 }
 
 #back {
