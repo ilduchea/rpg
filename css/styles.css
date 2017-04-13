@@ -32,10 +32,16 @@ body {
   font-style: 900;
 }
 
-.well {
-  background-color: rgba(169, 179, 185, 0.7);
-  border-color: rgba(169, 179, 185, 0.7);
+#intro-well, #char-well {
+  background-color: rgba(169, 179, 185, 0.5);
+  border-color: rgba(169, 179, 185, 0.5);
   font-weight: bold;
+}
+
+#char-well {
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 0px;
 }
 
 .rules h2 {
@@ -66,8 +72,15 @@ body {
   font-family: 'Cinzel Decorative', cursive;
   color: #efdb77;
 }
-#char-title2 {
-  text-align: center;
+#char-title2 span {
+  font-family: 'Cinzel Decorative', cursive;
+  padding: 2px;
+  color: #63420f;
+  font-size: 16px;
+  border-width: 1px;
+  border-radius: 2px;
+  border-color: gold;
+  border-style: outset;
 }
 
 /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
@@ -268,7 +281,7 @@ body {
 
 /*Keep enemy card col in position when level up button apears.*/
 #enemy-col {
-  width: 40%; 
+  width: 40%;
 }
 
 /*float both items to the right side of the column they are inside*/
@@ -380,8 +393,6 @@ body {
   font-family: 'UnifrakturCook:700', cursive;
   text-shadow: 2px 2px 6px #000000;
 }
-
-
 
 #back {
   height: 550px;
