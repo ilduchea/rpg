@@ -48,6 +48,10 @@ body {
   text-shadow: -1px 1px #000;
 }
 
+#char-title1 {
+  font-weight: bold;
+  color: #FFD700;
+}
 #char-title2 {
   text-align: center;
 }
@@ -261,6 +265,12 @@ body {
   border-color: gold;
   border-width: 1px;
   border-style: outset;
+}
+
+
+
+#attack {
+  font-size: 25px;
 }
 
 .start, .attacks, #results, .hitPoints {
