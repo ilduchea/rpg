@@ -19,14 +19,10 @@
       <br>
       <div id="intro-well" class="well">
         <h2>Welcome...</h2>
-        <p>...to the world of Tereborn! Create a hero and forge the destiny for your people, be they pathetic putrid peons or laughing langushing lords! Fight against the countless enemies the Killer Rabbit of Caerbannog has placed before you. Should you win peace shall grace the country at least. But if you are not victorious the Killer Rabbit of Caerbannog will have your head.</p>
-        <div class="rules">
-          <h2>Story</h2>
-          <ul>
-            <li>The story thus far...</li>
-            <li></li>
-          </ul>
-        </div>
+        <br>
+        <p>...to the world of Tereborn! Create a hero and forge the destiny for your people, be they pathetic putrid peons or laughing langushing lords!</p><br>
+        <p>Fight against the countless enemies the Killer Rabbit of Caerbannog has placed before you. Should you win, peace shall grace the countryside at last. But if you are not victorious, the Killer Rabbit of Caerbannog will have your head.</p>
+        <br>
         <div class="start">
           <img src="img/armor1left.png" alt="armorleft" />
           <button id="start-btn" class="btn" type="button">Begin Your Quest...</button>
@@ -242,16 +238,20 @@
       </div>  <!-- END ROW COMBAT -->
 
       <div id="row-winner">
-        <img src="img/happyKnight.gif" alt="happy knight">
-        <h1>You win!!!</h1>
-        <p>Congratulations. At last all is well in the land of Tereborn! Your victory will be remembered for generations to come.</p>
-        <button type="button" class="btn btn-danger reset-btn">Play Again!</button>
+        <div class="well" id="winWell">
+          <h1><span class="winHeader">You win!!!</span></h1>
+          <img src="img/happyKnight.gif" alt="happy knight">
+          <p>Congratulations. At last all is well in the land of Tereborn! Your victory will be remembered for generations to come.</p>
+          <button type="button" class="btn btn-success reset-btn">Play Again!</button>
+        </div>
       </div>
       <div id="row-loser">
-        <img src="img/bunnyAttack.gif" alt="bunny attack">
-        <h1>Game over</h1>
-        <p>You were defeated by your enemy. Now the Killer Rabbit of Caerbannog will revel in your demise.</p>
-        <button type="button" class="btn btn-danger reset-btn">Start Over</button>
+        <div class="well" id="gameOverWell">
+          <h1><span class="gameOverHeaderRed">Game over</span></h1>
+          <img src="img/bunnyAttack.gif" alt="bunny attack">
+          <p>You were defeated by your enemy. Now the Killer Rabbit of Caerbannog will revel in your demise.</p>
+          <button type="button" class="btn btn-danger reset-btn">Start Over</button>
+        </div>
       </div>
 
     </div>  <!-- END container -->

@@ -32,25 +32,18 @@ body {
   font-style: 900;
 }
 
-#intro h2 {
-  font-family: 'Cinzel Decorative', cursive;
-  font-weight: 1200px;
-  text-align: center;
-  font-size: 38px;
-  color: #efdb77;
-  text-shadow: -1px 1px #000;
-}
-
-#intro-well, #char-well, #combatWell {
+#intro-well, #char-well, #combatWell, #gameOverWell, #winWell {
   background-color: rgba(169, 179, 185, 0.5);
   border-color: rgba(169, 179, 185, 0.5);
   font-weight: bold;
-  padding: 0px;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
-#char-well {
-  margin-left: 5%;
-  margin-right: 5%;
+
+#char-well, #combatWell {
+  margin-left: 8%;
+  margin-right: 8%;
   padding: 0px;
 }
 
@@ -70,11 +63,10 @@ body {
   height: 550px;
 }
 
-#combat-title1 {
+#intro-well h2, #combat-title1 {
   font-family: 'Cinzel Decorative', cursive;
-  font-weight: 1200px;
   text-align: center;
-  font-size: 38px;
+  font-size: 55px;
   color: #efdb77;
   text-shadow: -1px 1px #000;
 }
@@ -87,7 +79,7 @@ body {
   font-family: 'Cinzel Decorative', cursive;
   color: #efdb77;
 }
-  
+
 #char-title2 span {
   font-family: 'Cinzel Decorative', cursive;
   padding: 2px;
@@ -451,7 +443,12 @@ body {
                1px 1px rgb(217, 83, 79);
 }
 
-
+.gameOverHeaderRed{
+  color: red;
+}
+.winHeader{
+  color: #efdb77;
+}
 .char-creation, .hide, #levelUpBtn, #row-loser, #row-winner, .combat {
   display: none;
 }
