@@ -49,9 +49,14 @@ body {
 }
 
 #char-well {
-  margin-left: 5%;
-  margin-right: 5%;
   padding: 0px;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+#char-well ul {
+  margin-left: 6%;
+  margin-right: 2%;
 }
 
 .rules h2 {
@@ -87,7 +92,12 @@ body {
   font-family: 'Cinzel Decorative', cursive;
   color: #efdb77;
 }
-  
+
+#char-title2 {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 #char-title2 span {
   font-family: 'Cinzel Decorative', cursive;
   padding: 2px;
