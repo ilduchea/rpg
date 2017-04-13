@@ -32,6 +32,14 @@ body {
   font-weight: bold;
 }
 
+.rules h2 {
+  text-align: center;
+}
+
+.rules li {
+  font-size: 25px;
+}
+
 .start img {
   height: 100px;
 }
@@ -162,11 +170,14 @@ body {
   margin-right: 20px;
 }
 
+.text-align-me {
+  text-align: center;
+}
+
 #accept-roll {
   display: none;
-  float: left;
   font-family: 'Cinzel Decorative', cursive;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bolder;
   color: #63420f;
   background-color: white;
@@ -220,10 +231,6 @@ body {
 /*character attack section*/
 /*character attack section*/
 
-.col-sm-5 {
-  text-align: center;
-}
-
 .alignment {
   display: table-cell;
   vertical-align: middle;
@@ -265,7 +272,7 @@ body {
 
 /* both char and enemy progress bars */
 .progress {
-  font-family: sans-serif;
+  font-family: 'UnifrakturCook:700', cursive;
   /* 420px is the same width as the column backrounds for char and enemy cards*/
   width: 420px;
 }
@@ -276,10 +283,17 @@ body {
   font-weight: bolder;
 }
 
-.start #start-btn {
+/*BUTTONS BUTTONS BUTTONS*/
+/*BUTTONS BUTTONS BUTTONS*/
+/*BUTTONS BUTTONS BUTTONS*/
+
+#start-btn, #attackBtn, #levelUpBtn, .reset-btn {
   font-family: 'Cinzel Decorative', cursive;
+}
+
+.start #start-btn {
   text-align: center;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bolder;
   background-color: rgba(169, 179, 185, 0.7);
   color: #3D3300;
@@ -290,7 +304,16 @@ body {
 
 #attackBtn {
   font-size: 25px;
-  font-family: 'Cinzel Decorative', cursive;
+}
+
+#levelUpBtn {
+  font-size: 25px;
+}
+
+.reset-btn {
+  font-size: 30px;
+  font-weight: bolder;
+  color: black;
 }
 
 .start, .attacks, #results, .hitPoints {
@@ -334,17 +357,6 @@ body {
 #row-loser, #row-winner {
   align-self: center;
   text-align: center;
-}
-
-.reset-btn {
-  font-size: 30px;
-  font-weight: bolder;
-  color: black;
-  font-family: 'Cinzel Decorative', cursive;
-}
-
-#levelUpBtn {
-  font-family: 'Cinzel Decorative', cursive;
 }
 
 .damage {
