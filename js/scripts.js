@@ -60,15 +60,16 @@ Enemy.prototype.createEnemy = function(game) {
   var int = dieRoll2to8();
   var con = dieRoll2to8();
   //Increment enemy levels by 2 every 4th time the player wins
-  let currentEnemyLevel = game.enemyLevel;
   var charWins = game.enemies.length;
   var getLevelIncrement = function(i) {
     if ((i > 0) && (i % 4 === 0)) {
-      currentEnemyLevel += 2;
-      return currentEnemyLevel;
+      game.enemyLevel += 2;
+      // return currentEnemyLevel;
     }
   }
   getLevelIncrement(charWins);
+  let currentEnemyLevel = game.enemyLevel;
+  console.log(game);
   //End enemy level check
 
   this.str = str;
@@ -193,8 +194,8 @@ $(document).ready(function() {
   var updateEnemyHealthBar = function() {
     // update bar LABEL
     let tmpEnemy = newGame.enemies[0];
-    console.log("enemies[0]", tmpEnemy);
-    console.log("typeof tmpEnemy.hitPoints :", typeof tmpEnemy.hitPoints);
+    // console.log("enemies[0]", tmpEnemy);
+    // console.log("typeof tmpEnemy.hitPoints :", typeof tmpEnemy.hitPoints);
     $(".enemy-hp-bar span").text(tmpEnemy.hitPoints + " / " + (tmpEnemy.con * 10));
     // update bar FILL
     let percentFull = Math.round( (tmpEnemy.hitPoints / (tmpEnemy.con * 10) ) * 100 );
@@ -399,7 +400,7 @@ $(document).ready(function() {
     $("#char-title1").text("LEVEL UP!");
     $("#char-title2").text("...you feel yourself growing stronger...");
     // show and hide proper rows
-
+    newChar.level += 1; //Increment character level.
   });
   // CLICK ON STAT CROSS
   $(".stat-cross-img").click(function() {
@@ -512,12 +513,15 @@ $(document).ready(function() {
     // check who wins and update images and animations
     if (health === "You Win!"){
       if ((newGame.enemies.length % 2)===0){
-        $("#levelUpBtn").show();
+        //Corecctly displays Game winning screen when player gets level 3. Set the neumber to 1 less then the winning level.
+        if (newChar.level === 2){
+          $(".combat").slideUp();
+          $("#row-winner").slideDown();
+        } else {
+          $("#levelUpBtn").show();
+        }
       }
-      if (newChar.level === 3){
-        $(".combat").slideUp();
-        $("#row-winner").slideDown();
-      }
+
       $("#back").toggleClass("hide");
       $("#revealText").show();
       $("#enemy").removeClass();
