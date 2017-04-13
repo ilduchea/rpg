@@ -32,11 +32,6 @@ body {
   font-style: 900;
 }
 
-#intro {
-  background-color: rgba(169, 179, 185, 0.5);
-  border-color: rgba(169, 179, 185, 0.5);
-  font-weight: bold;
-}
 #intro h2 {
   font-family: 'Cinzel Decorative', cursive;
   font-weight: 1200px;
@@ -45,10 +40,17 @@ body {
   color: #efdb77;
   text-shadow: -1px 1px #000;
 }
-#combatWell {
+
+#intro-well, #char-well, #combatWell {
   background-color: rgba(169, 179, 185, 0.5);
   border-color: rgba(169, 179, 185, 0.5);
   font-weight: bold;
+  padding: 0px;
+}
+
+#char-well {
+  margin-left: 5%;
+  margin-right: 5%;
   padding: 0px;
 }
 
@@ -68,7 +70,7 @@ body {
   height: 550px;
 }
 
-#char-title1, #combat-title1 {
+#combat-title1 {
   font-family: 'Cinzel Decorative', cursive;
   font-weight: 1200px;
   text-align: center;
@@ -77,8 +79,24 @@ body {
   text-shadow: -1px 1px #000;
 }
 
-#char-title2, #combat-title2 {
+#combat-title2 {
   text-align: center;
+}
+
+#char-title1 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: #efdb77;
+}
+  
+#char-title2 span {
+  font-family: 'Cinzel Decorative', cursive;
+  padding: 2px;
+  color: #63420f;
+  font-size: 16px;
+  border-width: 1px;
+  border-radius: 2px;
+  border-color: gold;
+  border-style: outset;
 }
 
 /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
@@ -390,8 +408,6 @@ body {
   text-shadow: 2px 2px 6px #000000;
 }
 
-
-
 #back {
   height: 550px;
   width: 420px;
@@ -402,7 +418,11 @@ body {
 .card-table {
   display: table-row;
   vertical-align: bottom;
-  height: 125px;
+  height: 140px;
+}
+
+#back div.card-table {
+  height: 95px;
 }
 
 .card-table .col-sm-6 {

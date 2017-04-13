@@ -17,16 +17,14 @@
     <div class="container">
       <h1>Qvrty's &#164; Qvest</h1>
       <br>
-      <div id="intro" class="well">
+      <div id="intro-well" class="well">
         <h2>Welcome...</h2>
         <p>...to the world of Tereborn! Create a hero and forge the destiny for your people, be they pathetic putrid peons or laughing langushing lords! Fight against the countless enemies the Killer Rabbit of Caerbannog has placed before you. Should you win peace shall grace the country at least. But if you are not victorious the Killer Rabbit of Caerbannog will have your head.</p>
         <div class="rules">
-          <h2>Rules of the Game:</h2>
+          <h2>Story</h2>
           <ul>
-            <li>Roll the die to determine the number of credits you can use to add to your character's stats.</li>
-            <li>Create your character, determine their name, choose their gender and class.</li>
-            <li>Apply the stat credits as you see fit.</li>
-            <li>Face your enemy, roll the die to determine your hit points which will be added to your stats.</li>
+            <li>The story thus far...</li>
+            <li></li>
           </ul>
         </div>
         <div class="start">
@@ -37,8 +35,16 @@
       </div>  <!-- END welcome -->
 
       <div class="row char-creation">
-        <h2 id="char-title1">Create your character!</h2>
-        <p id="char-title2"></p><br>
+        <div id="char-well" class="well">
+          <h2 id="char-title1">Create your character.</h2>
+          <ul id="char-title2">
+            <li>Choose your hero's name, class, and gender according to your temperament.</li>
+            <li>Roll the 8-sided die, and let the fates determinte your starting values.</li>
+            <li>Click <span>Accept Roll</span> when ready to continue.</li>
+            <li>Allocate 5 addition points as you deem. (use the small + buttons)</li>
+            <li>Click <span>Let's Play</span> when you're ready to face the enemy!</li>
+          </ul>
+        </div>
         <div id="char-card" class="col-sm-6">
           <!-- placed everything into a table to keep things lined up nicely -->
           <div id="char-card-tables">
@@ -170,6 +176,9 @@
               <p id="charName"></p>
               <span class="damage"></span>
               <div class="card-table">
+                <div class="row">
+                  <p>Level: <span id="charLevel"></span></p>
+                </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <p>Str: <span id="charStr"></span></p>
