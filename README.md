@@ -1,4 +1,4 @@
-#Querty's Quest
+# Querty's Quest
 
 #### _**A Role Playing Game.**_, April 13, 2017
 
@@ -7,7 +7,7 @@
 ## Description
 A Role Playing Game. Create a character, 7 options to choose from. Determine character stats. Fight against random enemies, 6 total enemy characters.
 
-##Specifications
+## Specifications
 
 | Behavior |  Input   |  Output  |
 |----------|:--------:|:--------:|
@@ -32,7 +32,7 @@ A Role Playing Game. Create a character, 7 options to choose from. Determine cha
 |After player adds stat points "Into the Fray" button should appear, when player clicks button level up section should hide and combat section should reappear and game should begin again|n/a|"Into the Fray!", combat section|
 |After player wins against 6 enemies Win screen should appear|n/a|"Yay! You win!!!"|
 
-##Setup/Installation Requirements
+## Setup/Installation Requirements
 * Ensure connection to the Internet
 * Enter the following URL in your computer browser to access the active git hub link to this page: https://ilduchea.github.io/rpg/
 OR
@@ -40,16 +40,17 @@ OR
 * Once in terminal run the command: cd desktop
 * Run the command: git clone https://github.com/ilduchea/rpg
 * Run the command: cd rpg
+* Open index.html in chrome.
 * Run the command: atom .
 * This will open all of the files included in the rpg folder including index.html, README.md, jquery-3.2.0.js, scripts.js, bootstrap.css, styles.css, animation.css and img folder
 * To make changes to the text on the page that the user will see you will need to access the index.html file.
 * To make changes to the look of the file you will need to access the styles.css file.
 * To make changes to the functions of the form you will need to access the scripts.js file.
 
-##Known Bugs
+## Known Bugs
 _There are no known bugs at this time._
 
-##Support and Contact details
+## Support and Contact details
 * Tyler Stephenson
 * ilduchea@gmail.com
 
@@ -59,15 +60,16 @@ _There are no known bugs at this time._
 * Nicole Santamaria
 * nicolersantamaria@gmail.com
 
-##Technologies Used
+## Technologies Used
 * Atom
 * HTML5
 * CSS3
+* javaScript
 * Bootstrap
 * Jquery
 * Animation css
 
-###License
+### License
 
 *This is web page is licensed under the MIT License.*
 
