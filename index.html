@@ -14,20 +14,21 @@
   </head>
   <img src="img/back1.jpg" id="bg-img">
   <body>
-
     <div class="container">
       <h1>Qvrty's &#164; Qvest</h1>
       <br>
-      <div class="well">
+      <div id="intro" class="well">
         <h2>Welcome...</h2>
-        <p>...to the world of Quintonton<em>!</em> Create your hero and forge a new destiny for your kingtom, be they pathetic putrid peons or laughing langushing lords<em>!</em></p>
-        <h2>Rules of the Game:</h2>
-        <ul>
-          <li>Roll the die to determine the number of credits you can use to add to your character's stats.</li>
-          <li>Create your character, determine their name, choose their gender and class.</li>
-          <li>Apply the stat credits as you see fit.</li>
-          <li>Face your enemy, roll the die to determine your hit points which will be added to your stats.</li>
-        </ul>
+        <p>...to the world of Tereborn<em>!</em> Create a hero and forge the destiny for your people, be they pathetic putrid peons or laughing langushing lords<em>!</em></p>
+        <div class="rules">
+          <h2>Rules of the Game:</h2>
+          <ul>
+            <li>Roll the die to determine the number of credits you can use to add to your character's stats.</li>
+            <li>Create your character, determine their name, choose their gender and class.</li>
+            <li>Apply the stat credits as you see fit.</li>
+            <li>Face your enemy, roll the die to determine your hit points which will be added to your stats.</li>
+          </ul>
+        </div>
         <div class="start">
           <img src="img/armor1left.png" alt="armorleft" />
           <button id="start-btn" class="btn" type="button">Begin Your Quest...</button>
@@ -106,7 +107,9 @@
                 <td><p id="no-roll" class="alert-input"><span></span></p></td>
               </tr>
             </table>
-            <button id="accept-roll" class="btn" type="button" name="button">Accept Roll</button>
+            <div class="text-align-me">
+              <button id="accept-roll" class="btn" type="button" name="button">Accept Roll</button></p>
+            </div>
           </div>
           <div class="char-stats-alloc">
             <table>
@@ -146,7 +149,7 @@
           </div>
         </div>
         <!-- COMBAT character column -->
-        <div id="char-col" class="col-sm-5">
+        <div id="char-col" class="col-sm-5 text-align-me">
           <div id="char-hitPoints">
             <p class="hitPoints"></p>
           </div>
@@ -183,7 +186,7 @@
           </div>
         </div>
         <!-- ENEMY COLUMN -->
-        <div id="enemy-col" class="col-sm-5">
+        <div id="enemy-col" class="col-sm-5 text-align-me">
           <div id="enemy-hitPoints">
             <p class="hitPoints"></p>
           </div>
