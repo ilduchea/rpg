@@ -227,6 +227,10 @@ body {
   margin-left: 34%;
 }
 
+.continue-play-btn-div {
+  margin-left: 25%;
+}
+
 #lets-play-btn, #continue-play-btn {
   display: none;
   margin-top: 60px;
