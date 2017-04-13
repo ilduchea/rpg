@@ -464,6 +464,7 @@ $(document).ready(function() {
     $("#continue-play").hide();
     $("#enemy").removeClass("enemy-lose");
     $("#character").removeClass("winner");
+    $("#revealText").removeClass("hide");
     $("#results p").text("");
     $("#attackBtn").show();
     // refresh enemy bar for better appearence
@@ -519,6 +520,7 @@ $(document).ready(function() {
           $("#row-winner").slideDown();
         } else {
           $("#levelUpBtn").show();
+          $("#revealText").addClass("hide");
         }
       }
 
