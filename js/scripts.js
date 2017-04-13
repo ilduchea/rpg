@@ -136,23 +136,6 @@ var checkHealth = function(char, enemy, game){
 //=============
 // FRONT END
 //=============
-var compareRolls = function (roll1, roll2, char, enemy){
-  if (roll1 > roll2){
-    $("#character .damage").text("");
-    $("#results p").text("");
-    enemy.hitPoints = enemy.hitPoints - (roll1 - roll2);
-    $("#enemy .damage").text("-" + (roll1 - roll2));
-  } else if (roll2 > roll1){
-    $("#enemy .damage").text("");
-    $("#results p").text("");
-    char.hitPoints = char.hitPoints - (roll2 - roll1);
-    $("#character .damage").text("-" + (roll2 - roll1));
-  } else {
-    $("#enemy .damage").text("");
-    $("#character .damage").text("");
-    $("#results p").text("It is a tie! Try again...");
-  }
-};
 
 $(document).ready(function() {
 
@@ -163,6 +146,32 @@ $(document).ready(function() {
     $(".well").hide();
     $(".char-creation").slideDown(500);
   });
+
+  var compareRolls = function (roll1, roll2, char, enemy){
+    if (roll1 > roll2){
+      $("#character .damage").text("");
+      $("#results p").text("");
+      enemy.hitPoints = enemy.hitPoints - (roll1 - roll2);
+      $("#enemy .damage").text("-" + (roll1 - roll2));
+    } else if (roll2 > roll1){
+      $("#enemy .damage").text("");
+      $("#results p").text("");
+      char.hitPoints = char.hitPoints - (roll2 - roll1);
+      $("#character .damage").text("-" + (roll2 - roll1));
+    } else {
+      $("#enemy .damage").text("");
+      $("#character .damage").text("");
+      $("#results p").text("It is a tie! Try again...");
+    }
+  };
+
+  var updateCharCombatCardStats = function() {
+    $("#charName").text(newChar.name);
+    $("#charStr").text(newChar.str);
+    $("#charDex").text(newChar.dex);
+    $("#charInt").text(newChar.int);
+    $("#charCon").text(newChar.con);
+  }
 
   var updateCharHealthBar = function() {
     // update bar LABEL
@@ -440,11 +449,7 @@ $(document).ready(function() {
       newChar.charInputToStats();
       // update combat char card with new stats
       updateCharHealthBar();
-      $("#charName").text(newChar.name);
-      $("#charStr").text(newChar.str);
-      $("#charDex").text(newChar.dex);
-      $("#charInt").text(newChar.int);
-      $("#charCon").text(newChar.con);
+      updateCharCombatCardStats();
       $(".char-creation").slideUp(400);
       $(".combat").slideDown(400);
       $(".attacks").hide();
@@ -454,11 +459,7 @@ $(document).ready(function() {
 
   $("#continue-play").click(function() {
     newChar.charInputToStats();
-    $("#charName").text(newChar.name);
-    $("#charStr").text(newChar.str);
-    $("#charDex").text(newChar.dex);
-    $("#charInt").text(newChar.int);
-    $("#charCon").text(newChar.con);
+    updateCharCombatCardStats();
     updateCharHealthBar();
     $(".attacks").hide();
     $("#levelUpBtn").hide();
@@ -493,13 +494,11 @@ $(document).ready(function() {
 
   $("#attack").click(function(){
     $(".attacks").addClass("shake");
-
     $(".attacks").one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
     function(e) {
     // code to execute after animation ends
     $(".attacks").removeClass("shake");
     });
-
     let newEnemy = newGame.enemies[0];
     var attackMod = getAttackStat(newChar);
     var enemyMod = getAttackStat(newEnemy);
@@ -507,13 +506,10 @@ $(document).ready(function() {
     var enemyAttackRoll = attackRoll();
     var characterAttack = characterAttackRoll + attackMod;
     var enemyAttack = enemyAttackRoll + enemyMod;
-
     compareRolls(characterAttack, enemyAttack, newChar, newEnemy);
     updateEnemyHealthBar();
     updateCharHealthBar();
-
     var health = checkHealth(newChar, newEnemy, newGame);
-
     // check who wins and update images and animations
     if (health === "You Win!"){
       if ((newGame.enemies.length % 2)===0){
@@ -541,18 +537,15 @@ $(document).ready(function() {
       $("#results p").text("You Lose");
     }  // END IF - win/lose
     // display roll numbers at top of screen and on cards
-
     $("#hero-attack .roll").text(characterAttackRoll + " + ");
     $("#hero-attack .mod").text(attackMod + " = ");
     $("#hero-attack .total").text(characterAttack);
     $("#enemy-attack .roll").text(enemyAttackRoll + " + ");
     $("#enemy-attack .mod").text(enemyMod + " = ");
     $("#enemy-attack .total").text(enemyAttack);
-
   });  // END #attack button function
 
   $("#try-again").click(function(){
-
     // var currentEnemy = newGame.enemies[0];
     // newChar.hitPoints = (newChar.con * 10);
     // currentEnemy.hitPoints = (currentEnemy.con * 10);
