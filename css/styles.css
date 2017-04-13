@@ -1,8 +1,14 @@
 
-table td {
   /*border-width: 1px;
   border-color: green;
   border-style: dashed;*/
+
+.col-xs-5 {
+  padding: 0;
+}
+
+.combat-cards-row {
+  display: inline-flex;
 }
 
 h1 {
@@ -58,7 +64,6 @@ body {
 
 #char-title1 {
   font-family: 'Cinzel Decorative', cursive;
-  font-weight: bold;
   color: #efdb77;
 }
 #char-title2 {
@@ -75,16 +80,23 @@ body {
 }
 
 
-#table1 input, #table2 input{
+#table1 input, #table2 input {
   margin-top: 8px;
   margin-bottom: 8px;
-  font-size: 16px;
   font-weight: bold;
+}
+
+#table1 input {
+  font-size: 16px;
 }
 
 #table1 select {
   font-size: 16px;
   font-weight: bold;
+}
+
+#table2 input {
+  font-size: 20px;
 }
 
 #table1 td {
@@ -166,7 +178,7 @@ body {
 
 #die8 {
   cursor: pointer;
-  margin-left: 20px;
+  margin-left: 85px;
   margin-right: 20px;
 }
 
@@ -175,9 +187,13 @@ body {
 }
 
 #accept-roll {
+  margin-left: 27%;
+}
+
+#accept-roll .btn {
   display: none;
   font-family: 'Cinzel Decorative', cursive;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bolder;
   color: #63420f;
   background-color: white;
@@ -197,9 +213,9 @@ body {
   text-shadow: none;
 }
 
-#cross1 {
+#cross1 img {
   height: 120px;
-  margin-left: 20px;
+  margin-left: 72px;
   margin-right: 20px;
 }
 
@@ -207,19 +223,25 @@ body {
   height: auto;
 }
 
-#lets-play, #continue-play {
+.play-btns-div {
+  margin-left: 34%;
+}
+
+#lets-play-btn, #continue-play-btn {
   display: none;
-  float: left;
-  margin-left: 64px;
-  margin-top: 40px;
+  margin-top: 60px;
   font-family: 'Cinzel Decorative', cursive;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bolder;
   color: #63420f;
   background-color: white;
   border-color: gold;
   border-width: 1px;
   border-style: outset;
+}
+
+#lets-play-btn:hover, #continue-play-btn:hover {
+  color: rgb(224, 190, 8);
 }
 
 /*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
@@ -240,6 +262,7 @@ body {
 #enemy, .enemy-hp-bar {
   float: right;
 }
+
 
 #character, #enemy, #try-again {
   color: #efdb77;
@@ -270,17 +293,17 @@ body {
   color: rgb(140, 42, 41);
 }
 
-/* both char and enemy progress bars */
 .progress {
-  font-family: 'UnifrakturCook:700', cursive;
   /* 420px is the same width as the column backrounds for char and enemy cards*/
   width: 420px;
 }
 
-/* both char and enemy progress bar text */
-.progress span {
-  color: black;
+/* both char and enemy progress bars */
+.progress * {
+  font-family: 'UnifrakturCook:700', cursive;
+  font-size: 15px;
   font-weight: bolder;
+  color: black;
 }
 
 /*BUTTONS BUTTONS BUTTONS*/
@@ -307,7 +330,7 @@ body {
 }
 
 #levelUpBtn {
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .reset-btn {
@@ -370,6 +393,7 @@ body {
                1px -1px rgb(217, 83, 79),
                1px 1px rgb(217, 83, 79);
 }
+
 
 .char-creation, .hide, #levelUpBtn, #row-loser, #row-winner, .combat {
   display: none;

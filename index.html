@@ -6,7 +6,7 @@
     <script src="js/scripts.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/styles.css"  type="text/css">
     <link rel="stylesheet" href="css/animation.css"  type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|UnifrakturCook:700" rel="stylesheet">
@@ -108,20 +108,22 @@
                 <td><p id="no-roll" class="alert-input"><span></span></p></td>
               </tr>
             </table>
-            <div class="text-align-me">
-              <button id="accept-roll" class="btn" type="button" name="button">Accept Roll</button></p>
+            <div id="accept-roll">
+              <button class="btn" type="button" name="button">Accept Roll</button></p>
             </div>
           </div>
           <div class="char-stats-alloc">
             <table>
-              <tr>
-                <td><h2><img id="cross1" src="img/cross1.png" alt="cross1">Add Stats: <span id="stats-left">5</span></h2></td>
+              <tr id="cross1">
+                <td><h2><img src="img/cross1.png" alt="cross1">Add Stats: <span id="stats-left">5</span></h2></td>
                 <td><p id="no-alloc" class="alert-input"><span></span></p></td>
               </tr>
             </table>
           </div>
-          <button id="lets-play" class="btn" type="button" name="button">Let's Play!</button>
-          <button id="continue-play" class="btn" type="button" name="button">Into the Fray!</button>
+          <div class="play-btns-div">
+            <button id="lets-play-btn" class="btn" type="button" name="button">Let's Play!</button>
+            <button id="continue-play-btn" class="btn" type="button" name="button">Into the Fray!</button>
+          </div>
         </div> <!--close char. card row div -->
 
         <div class="col-sm-6">
@@ -150,83 +152,85 @@
           </div>
         </div>
         <!-- COMBAT character column -->
-        <div id="char-col" class="col-sm-5 text-align-me">
-          <div id="char-hitPoints">
-            <p class="hitPoints"></p>
-          </div>
-          <div id="character">
-            <p id="charName"></p>
-            <span class="damage"></span>
-            <div class="card-table">
-              <div class="row">
-                <div class="col-sm-6">
-                  <p>Str: <span id="charStr"></span></p>
-                  <p>Int: <span id="charInt"></span></p>
-                </div>
-                <div class="col-sm-6">
-                  <p>Dex: <span id="charDex"></span></p>
-                  <p>Con: <span id="charCon"></span></p>
-                </div>
-              </div>
+        <div class="row combat-cards-row">
+          <div id="char-col" class="col-xs-5 text-align-me">
+            <div id="char-hitPoints">
+              <p class="hitPoints"></p>
             </div>
-          </div>
-          <div id="try-again" class="enemy_card hide">
-            <p class="alignment">You Died!!!!!!</p>
-          </div>
-          <div class="progress char-hp-bar">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-              <span></span>
-            </div>
-          </div>
-        </div> <!-- END CHAR COL -->
-
-        <div class="col-sm-2" id="results">
-          <div class="alignment">
-            <p></p>
-            <button id="levelUpBtn" class="btn btn-warning" type="button">&uarr; Level Up &uarr;</button>
-          </div>
-        </div>
-        <!-- ENEMY COLUMN -->
-        <div id="enemy-col" class="col-sm-5 text-align-me">
-          <div id="enemy-hitPoints">
-            <p class="hitPoints"></p>
-          </div>
-          <div id="enemy" class="enemy_card">
-            <p id="revealText" class="alignment">Click to reveal your enemy...</p>
-            <div id="back" class="hide">
-              <p id="enemyNameInput"></p>
+            <div id="character">
+              <p id="charName"></p>
               <span class="damage"></span>
               <div class="card-table">
                 <div class="row">
                   <div class="col-sm-6">
-                    <p>Str: <span id="enemyStrInput"></span></p>
-                    <p>Int: <span id="enemyIntInput"></span></p>
+                    <p>Str: <span id="charStr"></span></p>
+                    <p>Int: <span id="charInt"></span></p>
                   </div>
                   <div class="col-sm-6">
-                    <p>Dex: <span id="enemyDexInput"></span></p>
-                    <p>Con: <span id="enemyConInput"></span></p>
+                    <p>Dex: <span id="charDex"></span></p>
+                    <p>Con: <span id="charCon"></span></p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="progress enemy-hp-bar">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-              <span></span>
+            <div id="try-again" class="enemy_card hide">
+              <p class="alignment">You Died!!!!!!</p>
+            </div>
+            <div class="progress char-hp-bar">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                <span></span>
+              </div>
+            </div>
+          </div> <!-- END CHAR COL -->
+
+          <div class="col-xs-2" id="results">
+            <div class="alignment">
+              <p></p>
+              <button id="levelUpBtn" class="btn btn-warning" type="button">&uarr; Level Up &uarr;</button>
             </div>
           </div>
-        </div> <!-- END ENEMY COL -->
+          <!-- ENEMY COLUMN -->
+          <div id="enemy-col" class="col-xs-5 text-align-me">
+            <div id="enemy-hitPoints">
+              <p class="hitPoints"></p>
+            </div>
+            <div id="enemy" class="enemy_card">
+              <p id="revealText" class="alignment">Click to reveal your enemy...</p>
+              <div id="back" class="hide">
+                <p id="enemyNameInput"></p>
+                <span class="damage"></span>
+                <div class="card-table">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p>Str: <span id="enemyStrInput"></span></p>
+                      <p>Int: <span id="enemyIntInput"></span></p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>Dex: <span id="enemyDexInput"></span></p>
+                      <p>Con: <span id="enemyConInput"></span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="progress enemy-hp-bar">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                <span></span>
+              </div>
+            </div>
+          </div> <!-- END ENEMY COL -->
+        </div> <!-- END ROW COMBAT CARDS -->
 
       </div>  <!-- END ROW COMBAT -->
 
       <div id="row-winner">
         <img src="img/happyKnight.gif" alt="happy knight">
-        <h1>Yay! You win!!!</h1>
+        <h1>You win!!!</h1>
         <button type="button" class="btn btn-danger reset-btn">Play Again!</button>
       </div>
       <div id="row-loser">
         <img src="img/bunnyAttack.gif" alt="bunny attack">
-        <h1>Game over. You died...</h1>
+        <h1>Game over</h1>
         <button type="button" class="btn btn-danger reset-btn">Start Over</button>
       </div>
 

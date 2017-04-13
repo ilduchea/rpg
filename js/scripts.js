@@ -359,7 +359,7 @@ $(document).ready(function() {
   // role the 8-sided die and update stats when die is clicked
   $("#die8").click(function() {
     // show the "accept-roll" button for the first time
-    $("#accept-roll").fadeIn(400);
+    $("#accept-roll .btn").fadeIn(400);
     //check if rolls are left and update the game object
     newGame.updateRollCount();
     if (newGame.rollCount >= 0) {
@@ -373,7 +373,7 @@ $(document).ready(function() {
     }
   });
   // ACCEPT ROLL button
-  $("#accept-roll").click(function() {
+  $("#accept-roll .btn").click(function() {
     $(".char-8die").hide();
     $("#stats-left").text(newGame.statsToAlloc);
     $(".char-stats-alloc").fadeIn(400);
@@ -429,14 +429,14 @@ $(document).ready(function() {
       $(".char-stats-alloc").hide();
       // handle showing correct play button
       if (newGame.fightRound === 0) {
-        $("#lets-play").fadeIn(400);
+        $("#lets-play-btn").fadeIn(400);
       } else {
-        $("#continue-play").fadeIn(400);
+        $("#continue-play-btn").fadeIn(400);
       }
     }
   });
   // LETS PLAY, click to enter the combat screen
-  $("#lets-play").click(function() {
+  $("#lets-play-btn").click(function() {
     // check if name has been entered
     if (checkGameReady() === true) {
       // get starting stats for char from inputs
@@ -451,17 +451,17 @@ $(document).ready(function() {
       $(".char-creation").slideUp(400);
       $(".combat").slideDown(400);
       $(".attacks").hide();
-      $("#lets-play").hide();
+      $("#lets-play-btn").hide();
     }
   });
   // CONTINUE onto the combat screen after leveling up
-  $("#continue-play").click(function() {
+  $("#continue-play-btn").click(function() {
     newChar.charInputToStats();
     updateCharCombatCardStats();
     updateCharHealthBar();
     $(".attacks").hide();
     $("#levelUpBtn").hide();
-    $("#continue-play").hide();
+    $("#continue-play-btn").hide();
     $("#enemy").removeClass("enemy-lose");
     $("#character").removeClass("winner");
     $("#results p").text("");
