@@ -32,10 +32,26 @@ body {
   font-style: 900;
 }
 
-.well {
-  background-color: rgba(169, 179, 185, 0.7);
-  border-color: rgba(169, 179, 185, 0.7);
+#intro h2 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 1200px;
+  text-align: center;
+  font-size: 38px;
+  color: #efdb77;
+  text-shadow: -1px 1px #000;
+}
+
+#intro-well, #char-well, #combatWell {
+  background-color: rgba(169, 179, 185, 0.5);
+  border-color: rgba(169, 179, 185, 0.5);
   font-weight: bold;
+  padding: 0px;
+}
+
+#char-well {
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 0px;
 }
 
 .rules h2 {
@@ -54,20 +70,33 @@ body {
   height: 550px;
 }
 
-.char-creation h2 {
-  font-weight: 1200;
+#combat-title1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 1200px;
   text-align: center;
   font-size: 38px;
-  color: #e0df7e;
+  color: #efdb77;
   text-shadow: -1px 1px #000;
+}
+
+#combat-title2 {
+  text-align: center;
 }
 
 #char-title1 {
   font-family: 'Cinzel Decorative', cursive;
   color: #efdb77;
 }
-#char-title2 {
-  text-align: center;
+  
+#char-title2 span {
+  font-family: 'Cinzel Decorative', cursive;
+  padding: 2px;
+  color: #63420f;
+  font-size: 16px;
+  border-width: 1px;
+  border-radius: 2px;
+  border-color: gold;
+  border-style: outset;
 }
 
 /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
@@ -248,9 +277,7 @@ body {
   border-style: outset;
 }
 
-#lets-play-btn:hover, #continue-play-btn:hover {
-  color: rgb(224, 190, 8);
-}
+
 
 /*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
 /*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
@@ -353,8 +380,8 @@ body {
   border-style: outset;
 }
 
-#start-btn:hover {
-  color: rgb(224, 190, 8);
+#start-btn:hover, #accept-roll .btn:hover , #lets-play-btn:hover, #continue-play-btn:hover {
+  color: #efdb77;
 }
 
 
@@ -380,8 +407,6 @@ body {
   font-family: 'UnifrakturCook:700', cursive;
   text-shadow: 2px 2px 6px #000000;
 }
-
-
 
 #back {
   height: 550px;
