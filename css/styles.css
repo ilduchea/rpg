@@ -266,6 +266,11 @@ body {
   vertical-align: middle;
 }
 
+/*Keep enemy card col in position when level up button apears.*/
+#enemy-col {
+  width: 40%; 
+}
+
 /*float both items to the right side of the column they are inside*/
 #enemy, .enemy-hp-bar {
   float: right;
