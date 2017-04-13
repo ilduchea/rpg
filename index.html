@@ -4,113 +4,225 @@
     <meta charset="utf-8">
     <script src="js/jquery-3.2.0.js" charset="utf-8"></script>
     <script src="js/scripts.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css"  type="text/css">
+    <link rel="stylesheet" href="css/animation.css"  type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Poiret+One" rel="stylesheet">
     <title>RPG</title>
   </head>
   <img src="img/back1.jpg" id="bg-img">
   <body>
+
     <div class="container">
-      <h1>Iron Born</h1>
+      <h1>Qvrty's &#164; Qvest</h1>
+
       <div class="well">
         <h2>Welcome...</h2>
-        <p>Welcome to the world of...Create your hero and fight against...</p>
-        <h3>Rules of the Game:</h3>
+        <p>...to the world of Quintonton<em>!</em> Create your hero and forge a new destiny for your kingtom, be they pathetic putrid peons or laughing langushing lords<em>!</em></p>
+        <h2>Rules of the Game:</h2>
         <ul>
-          <li>First roll the die to determine the number of credits you can use to add to your character's stats.</li>
+          <li>Roll the die to determine the number of credits you can use to add to your character's stats.</li>
           <li>Create your character, determine their name, choose their gender and class.</li>
           <li>Apply the stat credits as you see fit.</li>
           <li>Face your enemy, roll the die to determine your hit points which will be added to your stats.</li>
         </ul>
-      </div>
+        <div class="start">
+          <img src="img/armor1left.png" alt="armorleft" />
+          <button id="start-btn" class="btn" type="button">Begin Your Quest...</button>
+          <img src="img/armor1right.png" alt="armorright" />
+        </div>
+      </div>  <!-- END welcome -->
+
       <div class="row char-creation">
-        <h2>Create your character!</h2>
+        <h2 id="char-title1">Create your character!</h2>
+        <p id="char-title2"></p><br>
         <div id="char-card" class="col-sm-6">
           <!-- placed everything into a table to keep things lined up nicely -->
-          <table id="all-inputs">
-            <tr class="form-group">
-              <td>
-                <label for="name" class="control-label">Name:</label>
-              </td>
-              <td>
-                <input type="text" name="name" value="" class="form-control">
-              </td>
-            </tr>
-            <tr class="form-group">
-              <td>
-                <label for="class" class="control-label">Class:</label>
-              </td>
-              <td>
-                <select class="char-class form-control" name="class">
-                  <option value="Warrior">Warrior</option>
-                  <option value="Ranger">Ranger</option>
-                  <option value="Mage">Mage</option>
-                </select>
-              </td>
-            </tr>
-            <tr class="form-group">
-              <td>
-                <label for="gender" class="control-label">Gender:</label>
-              </td>
-              <td>
-                <select class="char-gender form-control" name="gender">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-              </td>
-            </tr>
-            <div class="stats">
-              <tr class="stats">
-                <td>
-                  <label for="strength" class="control-label">Strength:</label>
-                </td>
-                <td>
-                  <input type="number" name="strength" value="0" class="form-control">
-                </td>
+          <div id="char-card-tables">
+            <table id="table1">
+              <tr  class="form-group">
+                <td><label id="td1" for="name" class="control-label">Name:</label></td>
+                <td><input id="input-name" type="text" name="name" value="" class="form-control" placeholder="Who art thou?"></td>
+                <td id="no-name-td"><p><span id="no-name" class="alert-input"></span></p></td>
               </tr>
-              <tr class="stats">
+              <tr class="form-group">
+                <td><label for="class" class="control-label">Class:</label></td>
                 <td>
-                  <label for="dexterity" class="control-label">Dexterity:</label>
+                  <select class="char-class form-control" name="class">
+                    <option value="Select">Select</option>
+                    <option value="Warrior">Warrior</option>
+                    <option value="Ranger">Ranger</option>
+                    <option value="Mage">Mage</option>
+                  </select>
                 </td>
-                <td>
-                  <input type="number" name="dexterity" value="0" class="form-control">
-                </td>
+                <td id="no-class-td"><p><span id="no-class" class="alert-input"></span></p></td>
               </tr>
-              <tr class="stats">
+              <tr class="form-group">
+                <td><label for="gender" class="control-label">Gender:</label></td>
                 <td>
-                  <label for="intelligence" class="control-label">Intelligence:</label>
+                  <select class="char-gender form-control" name="gender">
+                    <option value="Select">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </td>
-                <td>
-                  <input type="number" name="intelligence" value="0" class="form-control">
-                </td>
+                <td id="no-gender-td"><p><span id="no-gender" class="alert-input"></span></p></td>
               </tr>
-              <tr class="stats">
-                <td>
-                  <label for="constitution" class="control-label">Constitution:</label>
-                </td>
-                <td>
-                  <input type="number" name="constitution" value="0" class="form-control">
-                </td>
+            </table> <!-- END table 1 -->
+            <table id="table2">
+              <tr>
+                <td><label for="strength" class="control-label">Strength:</label></td>
+                <td><input id="input-str" type="number" name="strength" value="0" class="form-control" disabled="disabled"></td>
+                <td><img id="statUpStr" class="stat-cross-img" src="img/cross2.png" alt="cross2" /></td>
               </tr>
-            </div>
-          </table>
+              <tr>
+                <td><label for="dexterity" class="control-label">Dexterity:</label></td>
+                <td><input id="input-dex" type="number" name="dexterity" value="0" class="form-control" disabled="disabled"></td>
+                <td><img id="statUpDex" class="stat-cross-img" src="img/cross2.png" alt="cross2" /></td>
+              </tr>
+              <tr>
+                <td><label for="intelligence" class="control-label" >Intelligence:</label></td>
+                <td><input id="input-int" type="number" name="intelligence" value="0" class="form-control" disabled="disabled"></td>
+                <td><img id="statUpInt" class="stat-cross-img" src="img/cross2.png" alt="cross2" /></td>
+              </tr>
+              <tr>
+                <td><label for="constitution" class="control-label">Constitution:</label></td>
+                <td><input id="input-con" type="number" name="constitution" value="0" class="form-control" disabled="disabled"></td>
+                <td><img id="statUpCon" class="stat-cross-img" src="img/cross2.png" alt="cross2" /></td>
+              </tr>
+              <tr>
+                <td><label for="hp" class="control-label">Health</label></td>
+                <td><input id="input-hp" type="number" name="hp" value="0" class="form-control" disabled="disabled"></td>
+              </tr>
+            </table> <!-- END table 2 -->
+          </div> <!-- END DIV all-inputs -->
+          <div class="char-8die">
+            <table>
+              <tr>
+                <td><h2><img id="die8" src="img/8sidedie.png" alt="8-sided die">Rolls left: <span id="rolls-left">3</span></h2></td>
+                <td><p id="no-roll" class="alert-input"><span></span></p></td>
+              </tr>
+            </table>
+            <button id="accept-roll" class="btn" type="button" name="button">Accept Roll</button>
+          </div>
+          <div class="char-stats-alloc">
+            <table>
+              <tr>
+                <td><h2><img id="cross1" src="img/cross1.png" alt="cross1">Add Stats: <span id="stats-left">5</span></h2></td>
+                <td><p id="no-alloc" class="alert-input"><span></span></p></td>
+              </tr>
+            </table>
+          </div>
+          <button id="lets-play" class="btn" type="button" name="button">Let's Play!</button>
+          <button id="continue-play" class="btn" type="button" name="button">Into the Fray!</button>
         </div> <!--close char. card row div -->
 
-        <div id="char-class" class="col-sm-6">
+        <div class="col-sm-6">
+          <img class="char-img" src="img/arms1.png" alt="charcter image">
+        </div>
+      </div> <!-- END ROW char-creation -->
 
+      <div class="row combat">  <!-- START ROW COMBAT char-creation -->
+        <div class="row attacks">
+          <div class="col-sm-4" id="hero-attack">
+            <p>
+              <span class="roll"></span>
+              <span class="mod"></span>
+              <span class="total"></span>
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <button id="attack" type="button" class="btn btn-danger btn-large">ATTACK!!!!</button>
+          </div>
+          <div class="col-sm-4" id="enemy-attack">
+            <p>
+              <span class="roll"></span>
+              <span class="mod"></span>
+              <span class="total"></span>
+            </p>
+          </div>
         </div>
-      </div> <!-- END char row -->
+        <div class="col-sm-5">
+          <div id="char-hitPoints">
+            <p class="hitPoints"></p>
+          </div>
+          <div id="character">
+            <p id="charName"></p>
+            <span class="damage"></span>
+            <div class="card-table">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Str: <span id="charStr"></span></p>
+                  <p>Int: <span id="charInt"></span></p>
+                </div>
+                <div class="col-sm-6">
+                  <p>Dex: <span id="charDex"></span></p>
+                  <p>Con: <span id="charCon"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="try-again" class="enemy_card hide">
+            <p class="alignment">You Died!!!!!!</p>
+          </div>
+          <div class="progress char-hp-bar">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              <span></span>
+            </div>
+          </div>
+        </div> <!-- END COL ENEMY -->
 
-      <div class="row combat">
-        <div class="col-sm-6 character">
+        <div class="col-sm-2" id="results">
+          <div class="alignment">
+            <p></p>
+            <button id="levelUpBtn" class="btn btn-warning" type="button">&uarr; Level Up &uarr;</button>
+          </div>
         </div>
-        <div class="col-sm-6 enemy">
-        </div>
+
+        <div id="enemy-col" class="col-sm-5">
+          <div id="enemy-hitPoints">
+            <p class="hitPoints"></p>
+          </div>
+          <div id="enemy" class="enemy_card">
+            <p id="revealText" class="alignment">Click to reveal your enemy...</p>
+            <div id="back" class="hide">
+              <p id="enemyNameInput"></p>
+              <span class="damage"></span>
+              <div class="card-table">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p>Str: <span id="enemyStrInput"></span></p>
+                    <p>Int: <span id="enemyIntInput"></span></p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>Dex: <span id="enemyDexInput"></span></p>
+                    <p>Con: <span id="enemyConInput"></span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="progress enemy-hp-bar">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+              <span></span>
+            </div>
+          </div>
+        </div> <!-- END COL ENEMY -->
+
+      </div>  <!-- END ROW COMBAT -->
+
+      <div id="row-winner">
+        <img src="img/happyKnight.gif" alt="happy knight">
+        <h1>Yay! You win!!!</h1>
+        <button type="button" class="btn btn-danger btnReset">Play Again!</button>
       </div>
-
-      <div class="row winner">
+      <div id="row-loser">
+        <img src="img/bunnyAttack.gif" alt="bunny attack">
+        <h1>Game over. You died...</h1>
+        <button id="btn-Reset" type="button" class="btn btn-danger">Start Over</button>
       </div>
 
     </div>  <!-- END container -->

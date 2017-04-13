@@ -1,3 +1,10 @@
+
+table td {
+  /*border-width: 1px;
+  border-color: green;
+  border-style: dashed;*/
+}
+
 h1 {
   text-align: center;
   font-size: 90px;
@@ -6,37 +13,125 @@ h1 {
 }
 
 #bg-img {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  position: absolute;
+  z-index: -99;
   opacity: 0.75;
-  /* Preserve aspet ratio */
-  min-width: 100%;
   min-height: 100%;
+  min-width: 100%;
 }
 
 body {
   font-family: 'Poiret One', cursive;
-  font-size: 16px;
-  font-style: bold;
+  font-size: 26px;
+  font-style: 900;
 }
 
 .well {
   background-color: rgba(169, 179, 185, 0.7);
   border-color: rgba(169, 179, 185, 0.7);
+  font-weight: bold;
 }
+
+.start img {
+  height: 100px;
+}
+
 .col-sm-6 {
-  height: 500px;
-  display: inline-block;
+  height: 600px;
+}
+
+.char-creation h2 {
+  font-weight: 1200;
+  text-align: center;
+  font-size: 38px;
+  color: #e0df7e;
+  text-shadow: -1px 1px #000;
+}
+
+#char-title1 {
+  font-weight: bold;
+  color: #efdb77;
+}
+#char-title2 {
+  text-align: center;
+}
+
+.combat {
+  display: none;
+}
+
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+/*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/ /*CHAR INPUTS TABLE*/
+
+#char-card-tables {
+  margin-left: 30px;
+  margin-top: 25px;
+}
+
+#table1 input, #table2 input{
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#table1 td {
+  width: 100px;
+}
+
+#table2 td {
+  width: 70px;
+}
+
+#table2 input {
+  width: 70px;
+}
+
+#char-card select {
+  width: 100px;
+}
+
+#td1 {
+  margin-right: 58px;
+}
+
+#input-name {
+  width: 180px;
+}
+
+#no-name-td {
+  width: 50px;
+}
+
+.alert-input {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: red;
+}
+
+.stat-cross-img {
+  display: none;
+  margin-bottom: 4px;
+  margin-left: 6px;
+  height: 30px;
+}
+
+#no-roll {
+  text-align: right;
 }
 
 #char-card {
+  height: 640px;
   background-image: url("../img/card1.png");
   background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
+  border-radius: 30px;
+  border-style: none;
+  border-width: 1px;
+}
 
+.char-img {
+  float: right;
+  width: 420px;
 }
 
 #char-class {
@@ -46,22 +141,270 @@ body {
   background-size: contain; /*keeps the whole image with in the area*/
 }
 
-/*sets the width of the input fields*/
-#char-card select {
-  width: 45%;
+.char-8die {
+  margin-left:40px;
 }
 
-.stats input {
-  width: 30%;
+.char-8die h2 {
+  font-weight: 900;
+  color: #63420f;
+  text-shadow: none;
 }
 
-#all-inputs {
-  width: 60%;
-  margin: 25px 15px;
+#die8 {
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-/*adds spacing between the input fields*/
-#char-card select,
-#char-card input {
-  margin-bottom: 10px;
+#accept-roll {
+  display: none;
+  float: left;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #63420f;
+  background-color: white;
+  border-color: gold;
+  border-width: 1px;
+  border-style: outset;
+}
+
+.char-stats-alloc {
+  display: none;
+  margin-left:40px;
+}
+
+.char-stats-alloc h2 {
+  font-weight: 900;
+  color: #63420f;
+  text-shadow: none;
+}
+
+#cross1 {
+  height: 120px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#no-alloc {
+  height: auto;
+}
+
+#lets-play, #continue-play {
+  display: none;
+  float: left;
+  margin-left: 64px;
+  margin-top: 40px;
+  font-size: 35px;
+  font-weight: bolder;
+  color: #63420f;
+  background-color: white;
+  border-color: gold;
+  border-width: 1px;
+  border-style: outset;
+}
+
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
+/*END CHAR TABLE*/ /*END CHAR TABLE*/ /*END CHAR TABLE*/
+
+
+/*character attack section*/
+/*character attack section*/
+/*character attack section*/
+
+.alignment {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#character, #enemy, #try-again {
+  /*color: #f9dc40;*/
+  /*color: #f7de5b;*/
+  color: #efdb77;
+  font-weight: bold;
+  text-align: center;
+  width: 420px;
+  height: 600px;
+  border-radius: 30px;
+  border-style: none;
+  border-width: 1px;
+  /*text-shadow: -1px 1px darkgrey,
+               -1px -1px darkgrey,
+               1px -1px darkgrey,
+               1px 1px darkgrey;*/
+  display: table;
+}
+
+#revealText:hover, #try-again:hover {
+  cursor: pointer;
+}
+
+#charName, #enemyNameInput{
+  font-size: 38px;
+  margin-top: 40px;
+}
+
+#enemyNameInput {
+  color: rgb(140, 42, 41);
+}
+
+/* both char and enemy progress bars */
+.progress {
+  font-family: sans-serif;
+}
+
+/* both char and enemy progress bar text */
+.progress span {
+  color: black;
+  font-weight: bolder;
+}
+
+.start #start-btn {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bolder;
+  background-color: rgba(169, 179, 185, 0.7);
+  color: #3D3300;
+  border-color: gold;
+  border-width: 1px;
+  border-style: outset;
+}
+
+#attack {
+  font-size: 25px;
+}
+
+.start, .attacks, #results, .hitPoints {
+  align-self: center;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-family: 'Cinzel Decorative', cursive;
+  text-shadow: -1px 1px #000,
+               -1px -1px #000,
+               1px -1px #000,
+               1px 1px #000;
+}
+
+#charName, p.hitPoints {
+  color: #e0df7e;
+}
+
+#back {
+  height: 600px;
+  width: 420px;
+  display: table;
+  text-align: center;
+}
+
+.card-table {
+  display: table-row;
+  vertical-align: bottom;
+  height: 125px;
+}
+
+.card-table .col-sm-6 {
+  height: 50px;
+}
+
+#results {
+  height: 600px;
+  display: table;
+}
+
+#row-loser, #row-winner {
+  align-self: center;
+  text-align: center;
+}
+
+#row-loser #btn-Reset {
+  font-size: 30px;
+  font-weight: bolder;
+  color: black;
+}
+
+.damage {
+  display: table-row;
+  vertical-align: center;
+  color: rgb(140, 42, 41);
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: -1px 1px rgb(217, 83, 79),
+               -1px -1px rgb(217, 83, 79),
+               1px -1px rgb(217, 83, 79),
+               1px 1px rgb(217, 83, 79);
+}
+
+.char-creation, .hide, #levelUpBtn, #row-loser, #row-winner {
+  display: none;
+}
+
+.warrior_male1 {
+  background: url("../img/warrior_male1.png") no-repeat center;
+  background-size: contain;
+}
+
+.mage_male1 {
+  background: url("../img/mage_male1.png") no-repeat center;
+  background-size: contain;
+}
+
+.ranger_male1{
+  background: url("../img/ranger_male1.png") no-repeat center;
+  background-size: contain;
+}
+
+.warrior_fem1 {
+  background: url("../img/warrior_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.mage_fem1 {
+  background: url("../img/mage_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.ranger_fem1{
+  background: url("../img/ranger_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.enemy_card{
+  background: url("../img/enemy/enemy_card.png") no-repeat center;
+  background-size: contain;
+}
+
+.dark_warrior_male1{
+  background: url("../img/enemy/dark_warrior_male1.png") no-repeat center;
+  background-size: contain;
+}
+
+.dark_wizard_male1{
+  background: url("../img/enemy/dark_wizard_male1.png") no-repeat center;
+  background-size: contain;
+}
+
+.dark_ranger_male1{
+  background: url("../img/enemy/dark_ranger_male1.png") no-repeat center;
+  background-size: contain;
+}
+.dark_warrior_fem1{
+  background: url("../img/enemy/dark_warrior_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.dark_wizard_fem1{
+  background: url("../img/enemy/dark_wizard_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.dark_ranger_fem1{
+  background: url("../img/enemy/dark_ranger_fem1.png") no-repeat center;
+  background-size: contain;
+}
+
+.unicorn1 {
+  background: url("../img/unicorn1.png") no-repeat center;
+  background-size: contain;
 }

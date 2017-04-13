@@ -8,6 +8,12 @@
 
 A Role Playing Game.
 
+## Description
+
+Specifications
+
+||||
+
 ## Setup/Installation Requirements
 
 *_navigate to https://github.com/ilduchea/rpg _
