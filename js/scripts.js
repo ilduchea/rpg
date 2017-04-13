@@ -156,7 +156,7 @@ $(document).ready(function() {
     } else {
       $("#enemy .damage").text("");
       $("#character .damage").text("");
-      $("#results p").text("It is a tie! Try again...");
+      $("#results p").text("Parry!");
     }
   };
   // update a group of char combat texts
@@ -488,8 +488,6 @@ $(document).ready(function() {
     $("#enemyDexInput").text(newEnemy.dex);
     $("#enemyIntInput").text(newEnemy.int);
     $("#enemyConInput").text(newEnemy.con);
-    // $("#char-hitPoints p").text(newChar.hitPoints);
-    // $("#enemy-hitPoints p").text(newGame.enemies[0].hitPoints);
     updateCharHealthBar();
     updateEnemyHealthBar();
   });
