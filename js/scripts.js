@@ -465,6 +465,9 @@ $(document).ready(function() {
     $("#character").removeClass("winner");
     $("#results p").text("");
     $("#attack").show();
+    // refresh enemy bar for better appearence
+    $(".enemy-hp-bar .progress-bar").prop("style" , "width: 100%");
+    $(".enemy-hp-bar span").text("");
     $(".char-creation").slideUp(400);
     $(".combat").slideDown(400);
   });
@@ -477,6 +480,7 @@ $(document).ready(function() {
     enemyImageCardChange();
     $("#back").toggleClass("hide");
     $("#revealText").hide();
+    $("#results p").text("");
     $(".attacks, #attack").show();
     $("#enemyNameInput").text(newEnemy.enemyClass);
     $("#enemyStrInput").text(newEnemy.str);
@@ -555,7 +559,7 @@ $(document).ready(function() {
     $("#row-loser").show();
   })
   // simple page reload button, used on game over screen
-  $(".btnReset").click(function() {
+  $("#reset-btn").click(function() {
     location.reload();
   });
 
