@@ -265,6 +265,7 @@ $(document).ready(function() {
     let userClass = $(".char-class option:selected").val();
     let userGender = $(".char-gender option:selected").val();
     if (userClass === "Select") {
+      // $(".char-img").removeClass("src");
       $(".char-img").attr('src', 'img/arms1.png');
       $(".combat #character").removeClass();
     } else {
